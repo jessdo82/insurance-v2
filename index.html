@@ -12,63 +12,47 @@
   --sub:#6c757d;--border:#dee2e6;--r:12px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,'PingFang TC','Heiti TC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-/* Header */
+body{font-family:-apple-system,"PingFang TC","Heiti TC",sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 .hdr{background:var(--blue);color:#fff;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,.25)}
 .hdr-title{font-size:16px;font-weight:700}
-.hdr-right{display:flex;gap:8px;align-items:center;font-size:13px}
-/* Tabs */
+.hdr-right{font-size:13px}
 .tabs{display:flex;background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:48px;z-index:99;overflow-x:auto}
 .tab{flex:1;min-width:56px;padding:11px 4px;text-align:center;font-size:12px;font-weight:600;cursor:pointer;color:var(--sub);border-bottom:2px solid transparent;white-space:nowrap}
 .tab.active{color:var(--blue);border-bottom-color:var(--blue)}
-/* Panels */
-.panel{display:none;padding:14px 14px 80px}
+.panel{display:none;padding:14px 14px 100px}
 .panel.active{display:block}
-/* Cards */
 .card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:14px;margin-bottom:10px}
 .card-title{font-size:14px;font-weight:700;margin-bottom:10px;color:var(--text)}
-/* Day plan cards */
 .day-card{background:var(--card);border-radius:var(--r);border:2px solid var(--border);padding:13px;margin-bottom:9px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .2s}
 .day-card:hover{border-color:var(--blue)}
 .day-card.today{border-color:var(--blue);background:rgba(59,91,219,.05)}
 .day-card.done{border-color:var(--green);background:rgba(47,158,68,.04)}
-.day-dot{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1.2;text-align:center}
+.day-dot{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;text-align:center}
 .day-dot.today{background:var(--blue);color:#fff}
 .day-dot.done{background:var(--green);color:#fff;font-size:18px}
 .day-dot.future{background:var(--border);color:var(--sub)}
 .day-info h3{font-size:13px;font-weight:600;margin-bottom:3px}
 .day-info p{font-size:11px;color:var(--sub);line-height:1.4}
-/* Quick cards */
 .quick-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px 13px;margin-bottom:8px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:border-color .2s}
 .quick-card:hover{border-color:var(--blue)}
 .q-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
-/* Subject chips */
 .subj-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
 .subj-chip{padding:7px 14px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--card);transition:all .2s}
 .subj-chip.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-/* Topic chips */
 .topic-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
 .topic-chip{padding:5px 11px;border-radius:20px;font-size:12px;cursor:pointer;border:1px solid var(--border);background:var(--card);transition:all .2s}
 .topic-chip.active{border-color:var(--blue);color:var(--blue);background:rgba(59,91,219,.08)}
-/* Mode chips */
 .mode-row{display:flex;gap:7px;margin-bottom:14px;flex-wrap:wrap}
 .mode-chip{flex:1;min-width:70px;padding:7px 4px;border-radius:8px;border:1px solid var(--border);background:var(--card);text-align:center;font-size:12px;cursor:pointer;color:var(--sub)}
 .mode-chip.active{border-color:var(--orange);color:var(--orange);background:rgba(232,89,12,.07)}
-/* Count select */
 .count-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;font-size:13px;color:var(--sub)}
 .count-row select{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:7px;padding:6px 10px;font-size:13px;flex:1}
-/* Start btn */
 .start-btn{width:100%;padding:13px;border-radius:11px;background:var(--blue);color:#fff;font-size:15px;font-weight:700;border:none;cursor:pointer}
 .start-btn:hover{background:var(--blue-d)}
-/* Resume banner */
 .resume-banner{background:rgba(59,91,219,.1);border:1px solid rgba(59,91,219,.3);border-radius:10px;padding:11px 13px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;font-size:13px}
 .resume-btn{padding:6px 14px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer}
-/* Range input */
 .range-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;font-size:13px;color:var(--sub)}
 .range-row input{flex:1;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:7px;padding:7px;font-size:14px;text-align:center}
-/* Quiz screen */
-#quiz-play{display:none}
-#quiz-result{display:none}
 .progress-bar{height:3px;background:var(--border);border-radius:2px;margin-bottom:13px}
 .progress-fill{height:100%;background:var(--blue);border-radius:2px;transition:width .3s}
 .q-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12px;color:var(--sub)}
@@ -78,7 +62,7 @@ body{font-family:-apple-system,'PingFang TC','Heiti TC',sans-serif;background:va
 .q-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:18px;margin-bottom:13px}
 .q-text{font-size:15px;line-height:1.8;white-space:pre-wrap}
 .q-options{display:flex;flex-direction:column;gap:8px}
-.q-opt{background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;font-size:14px;line-height:1.5;text-align:left;display:flex;gap:10px;align-items:flex-start;transition:all .2s}
+.q-opt{background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;font-size:14px;line-height:1.5;text-align:left;display:flex;gap:10px;align-items:flex-start;transition:all .2s;width:100%}
 .q-opt:hover:not(:disabled){border-color:var(--blue);background:rgba(59,91,219,.05)}
 .q-opt:disabled{cursor:default}
 .q-opt-num{font-weight:700;color:var(--sub);min-width:20px;flex-shrink:0}
@@ -90,12 +74,10 @@ body{font-family:-apple-system,'PingFang TC','Heiti TC',sans-serif;background:va
 .explain-box{border-radius:10px;padding:14px;margin-top:11px;font-size:13px;line-height:1.8;display:none;white-space:pre-wrap}
 .explain-ok{background:rgba(47,158,68,.08);border:1.5px solid var(--green)}
 .explain-err{background:rgba(224,49,49,.06);border:1.5px solid var(--red)}
-/* Bottom nav for quiz */
 .quiz-bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:11px 14px;display:flex;gap:9px;z-index:90}
 .skip-btn{padding:12px 16px;background:#f5f5f5;border:none;border-radius:10px;font-size:14px;cursor:pointer;color:var(--sub);font-weight:600}
 .next-btn{flex:1;padding:12px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer}
 .next-btn:disabled{background:#b0bec5;cursor:default}
-/* Result */
 .result-score{font-size:52px;font-weight:900}
 .result-label{font-size:13px;color:var(--sub);margin-top:5px;margin-bottom:22px}
 .stat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
@@ -105,34 +87,29 @@ body{font-family:-apple-system,'PingFang TC','Heiti TC',sans-serif;background:va
 .result-btns{display:flex;flex-direction:column;gap:9px}
 .rbtn{padding:13px;border:none;border-radius:11px;font-size:14px;font-weight:600;cursor:pointer;width:100%}
 .rbtn-pri{background:var(--blue);color:#fff}
-.rbtn-sec{background:rgba(47,158,68,.1);color:var(--green)}
+.rbtn-sec{background:rgba(47,158,68,.1);color:var(--green);border:1px solid rgba(47,158,68,.3)}
 .rbtn-ter{background:var(--bg);color:var(--sub);border:1px solid var(--border)}
-/* Read tab */
-.read-filter{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
 .read-pos{font-size:12px;color:var(--sub);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
 .flash-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:13px}
-.flash-q{padding:18px;font-size:15px;line-height:1.8}
+.flash-q{padding:18px;font-size:15px;line-height:1.8;white-space:pre-wrap}
 .flash-reveal{width:100%;padding:12px;background:var(--bg);border:none;border-top:1px solid var(--border);font-size:14px;color:var(--blue);cursor:pointer;font-weight:600}
 .flash-answer{display:none;padding:15px 18px;background:rgba(47,158,68,.06);border-top:1px solid var(--green)}
 .flash-answer .ans-text{font-weight:700;color:var(--green);font-size:14px;margin-bottom:8px}
 .flash-answer .ans-opts{font-size:13px;line-height:1.7}
 .flash-answer .ans-explain{font-size:12px;color:#555;line-height:1.7;margin-top:10px;white-space:pre-wrap;background:#fff;padding:10px;border-radius:8px}
-.read-nav{display:flex;gap:9px;align-items:center}
+.read-nav{display:flex;gap:9px}
 .nav-btn{flex:1;padding:11px;border:1px solid var(--border);border-radius:10px;background:var(--card);font-size:14px;cursor:pointer;font-weight:600}
 .nav-btn:hover{border-color:var(--blue)}
-/* Wrong tab */
 .wrong-topic-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);margin-bottom:10px;overflow:hidden}
-.wrong-topic-hdr{padding:12px 14px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;background:var(--card)}
+.wrong-topic-hdr{padding:12px 14px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
 .wrong-topic-hdr:hover{background:var(--bg)}
 .wrong-topic-ttl{font-size:13px;font-weight:700}
-.wrong-topic-cnt{font-size:12px;color:var(--red);font-weight:600}
 .wrong-topic-body{display:none;border-top:1px solid var(--border);padding:12px}
 .wrong-topic-body.open{display:block}
 .wrong-q-item{padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;line-height:1.6}
 .wrong-q-item:last-child{border-bottom:none}
 .wrong-ans{color:var(--green);font-size:12px;margin-top:4px;font-weight:600}
 .drill-btn{padding:7px 14px;background:var(--red);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;margin-top:10px}
-/* Weak tab */
 .weak-item{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:12px 14px;margin-bottom:9px}
 .weak-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .weak-name{font-size:13px;font-weight:600}
@@ -141,94 +118,77 @@ body{font-family:-apple-system,'PingFang TC','Heiti TC',sans-serif;background:va
 .weak-bar-fill{height:100%;border-radius:3px;transition:width .5s}
 .weak-meta{font-size:11px;color:var(--sub);display:flex;justify-content:space-between}
 .weak-drill{padding:5px 12px;border:none;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;color:#fff}
-/* Streak */
 .streak-toast{position:fixed;top:72px;left:50%;transform:translateX(-50%);background:#e65100;color:#fff;padding:9px 22px;border-radius:28px;font-weight:700;font-size:14px;opacity:0;transition:opacity .3s;z-index:999;pointer-events:none;white-space:nowrap}
-/* Mock exam banner */
-.exam-banner{background:var(--blue);color:#fff;padding:10px 14px;border-radius:10px;margin-bottom:13px;font-size:13px;display:none}
+.exam-banner{background:var(--blue);color:#fff;padding:10px 14px;border-radius:10px;margin-bottom:13px;font-size:13px;line-height:1.6;display:none}
 </style>
 </head>
 <body>
 <div class="hdr">
-  <div class="hdr-title" id="hdrTitle">保險衝刺 人身保險＋法規</div>
-  <div class="hdr-right"><span id="hdrRight"></span></div>
+  <div class="hdr-title" id="hdrTitle">保險衝刺 人身保險+法規</div>
+  <div class="hdr-right" id="hdrRight"></div>
 </div>
 <div class="tabs">
-  <div class="tab active" data-tab="plan" onclick="switchTab('plan')">📅 計劃</div>
-  <div class="tab" data-tab="quiz" onclick="switchTab('quiz')">🎯 測驗</div>
-  <div class="tab" data-tab="read" onclick="switchTab('read')">📖 讀題</div>
-  <div class="tab" data-tab="wrong" onclick="switchTab('wrong')">❌ 錯題本</div>
-  <div class="tab" data-tab="weak" onclick="switchTab('weak')">📊 弱點</div>
+  <div class="tab active" data-tab="plan">&#x1F4C5; 計劃</div>
+  <div class="tab" data-tab="quiz">&#x1F3AF; 測驗</div>
+  <div class="tab" data-tab="read">&#x1F4D6; 讀題</div>
+  <div class="tab" data-tab="wrong">&#x274C; 錯題本</div>
+  <div class="tab" data-tab="weak">&#x1F4CA; 弱點</div>
 </div>
 <div class="streak-toast" id="streakToast"></div>
 
-<!-- ══ 計劃 ══ -->
+<!-- 計劃 -->
 <div class="panel active" id="plan-panel">
   <div class="card" style="margin-bottom:12px">
-    <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px">8天衝刺計劃 7/24–7/31</div>
-    <div style="font-size:12px;color:var(--sub)">點每天的卡片，就直接開始那天的特訓。完成後可以針對錯題再練一輪。</div>
+    <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px">8天衝刺計劃 7/24-7/31</div>
+    <div style="font-size:12px;color:var(--sub)">點每天的卡片就直接開始特訓。完成後可針對錯題再練一輪。</div>
   </div>
   <div id="day-list"></div>
   <div class="card" style="margin-top:4px">
-    <div class="card-title">🎯 模擬考（照正式考試格式）</div>
-    <div class="quick-card" onclick="startExamSim('ins')">
+    <div class="card-title">&#x1F3AF; 模擬考（正式考試格式）</div>
+    <div class="quick-card" data-exam="ins">
       <div class="q-icon" style="background:rgba(232,89,12,.15);color:var(--orange)">人身</div>
-      <div>
-        <div style="font-size:13px;font-weight:600">人身保險 模擬考</div>
-        <div style="font-size:11px;color:var(--sub)">50題×2分=100分・及格≥60分（答對≥30題）</div>
-      </div>
-      <span style="color:var(--sub);font-size:18px;margin-left:auto">›</span>
+      <div><div style="font-size:13px;font-weight:600">人身保險 模擬考</div>
+      <div style="font-size:11px;color:var(--sub)">50題×2分=100分，及格≥60分（答對≥30題）</div></div>
+      <span style="color:var(--sub);font-size:18px;margin-left:auto">&#x203A;</span>
     </div>
-    <div class="quick-card" onclick="startExamSim('law')">
+    <div class="quick-card" data-exam="law">
       <div class="q-icon" style="background:rgba(112,72,232,.15);color:var(--purple)">法規</div>
-      <div>
-        <div style="font-size:13px;font-weight:600">法規 模擬考</div>
-        <div style="font-size:11px;color:var(--sub)">100題×1分=100分・及格≥60分</div>
-      </div>
-      <span style="color:var(--sub);font-size:18px;margin-left:auto">›</span>
+      <div><div style="font-size:13px;font-weight:600">法規 模擬考</div>
+      <div style="font-size:11px;color:var(--sub)">100題×1分=100分，及格≥60分</div></div>
+      <span style="color:var(--sub);font-size:18px;margin-left:auto">&#x203A;</span>
     </div>
-    <div class="quick-card" onclick="startExamSim('both')">
+    <div class="quick-card" data-exam="both">
       <div class="q-icon" style="background:rgba(59,91,219,.12);color:var(--blue)">合併</div>
-      <div>
-        <div style="font-size:13px;font-weight:600">兩科合併模擬考</div>
-        <div style="font-size:11px;color:var(--sub)">人身50題＋法規100題・兩科合計≥140分</div>
-      </div>
-      <span style="color:var(--sub);font-size:18px;margin-left:auto">›</span>
+      <div><div style="font-size:13px;font-weight:600">兩科合併模擬考</div>
+      <div style="font-size:11px;color:var(--sub)">人身50題+法規100題，兩科合計≥140分</div></div>
+      <span style="color:var(--sub);font-size:18px;margin-left:auto">&#x203A;</span>
     </div>
   </div>
 </div>
 
-<!-- ══ 測驗 ══ -->
+<!-- 測驗 -->
 <div class="panel" id="quiz-panel">
-  <!-- Start screen -->
   <div id="quiz-start">
     <div id="resume-banner" class="resume-banner" style="display:none">
       <span id="resume-text"></span>
-      <button class="resume-btn" onclick="resumeQuiz()">繼續</button>
+      <button class="resume-btn" id="resume-btn">繼續</button>
     </div>
     <div class="card-title" style="margin-bottom:8px">科目</div>
     <div class="subj-row" id="subj-row">
-      <div class="subj-chip active" data-s="all" onclick="selectSubj('all',this)">全部</div>
-      <div class="subj-chip" data-s="人身保險" onclick="selectSubj('人身保險',this)">🛡️ 人身保險</div>
-      <div class="subj-chip" data-s="法規" onclick="selectSubj('法規',this)">📜 法規</div>
+      <div class="subj-chip active" data-s="all">全部</div>
+      <div class="subj-chip" data-s="ins">&#x1F6E1;&#xFE0F; 人身保險</div>
+      <div class="subj-chip" data-s="law">&#x1F4DC; 法規</div>
     </div>
     <div id="topic-area" style="display:none">
       <div class="card-title" style="margin-bottom:8px">主題（選填）</div>
       <div class="topic-row" id="topic-row"></div>
     </div>
     <div class="card-title" style="margin-bottom:8px">出題方式</div>
-    <div class="mode-row">
-      <div class="mode-chip active" id="mode-random" onclick="selectMode('random',this)">隨機</div>
-      <div class="mode-chip" id="mode-seq" onclick="selectMode('seq',this)">順序</div>
-      <div class="mode-chip" id="mode-undone" onclick="selectMode('undone',this)">未做題</div>
-      <div class="mode-chip" id="mode-wrong" onclick="selectMode('wrong',this)">錯題</div>
-    </div>
-    <div id="range-area" style="display:none;margin-bottom:14px">
-      <div class="range-row">
-        <span>題號</span>
-        <input type="number" id="range-from" value="1" min="1" max="419">
-        <span>–</span>
-        <input type="number" id="range-to" value="100" min="1" max="419">
-      </div>
+    <div class="mode-row" id="mode-row">
+      <div class="mode-chip active" data-m="random">隨機</div>
+      <div class="mode-chip" data-m="seq">順序</div>
+      <div class="mode-chip" data-m="undone">未做</div>
+      <div class="mode-chip" data-m="wrong">錯題</div>
     </div>
     <div class="count-row">
       <span>每次出題</span>
@@ -239,9 +199,8 @@ body{font-family:-apple-system,'PingFang TC','Heiti TC',sans-serif;background:va
         <option value="0">全部</option>
       </select>
     </div>
-    <button class="start-btn" onclick="startQuiz()">開始測驗 →</button>
+    <button class="start-btn" id="start-btn">開始測驗 →</button>
   </div>
-  <!-- Play screen -->
   <div id="quiz-play" style="display:none;padding-bottom:80px">
     <div class="exam-banner" id="exam-banner"></div>
     <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
@@ -254,11 +213,6 @@ body{font-family:-apple-system,'PingFang TC','Heiti TC',sans-serif;background:va
     <div class="q-options" id="q-opts"></div>
     <div class="explain-box" id="explain-box"></div>
   </div>
-  <div class="quiz-bottom" id="quiz-bottom" style="display:none">
-    <button class="skip-btn" id="skip-btn" onclick="skipQ()">跳過</button>
-    <button class="next-btn" id="next-btn" onclick="nextQ()" disabled>下一題</button>
-  </div>
-  <!-- Result screen -->
   <div id="quiz-result" style="display:none;text-align:center">
     <div class="card" style="margin-bottom:12px">
       <div class="result-score" id="res-score"></div>
@@ -270,65 +224,66 @@ body{font-family:-apple-system,'PingFang TC','Heiti TC',sans-serif;background:va
       </div>
       <div id="exam-result-note" style="font-size:13px;padding:10px;border-radius:8px;margin-bottom:14px;display:none"></div>
       <div class="result-btns">
-        <button class="rbtn rbtn-sec" onclick="retryCurWrong()">🔄 重做本次錯題</button>
-        <button class="rbtn rbtn-pri" onclick="reviewCurWrong()">📋 查看錯題解析</button>
-        <button class="rbtn rbtn-ter" onclick="showQuizStart()">← 返回設定</button>
+        <button class="rbtn rbtn-sec" id="retry-wrong-btn">&#x1F504; 重做本次錯題</button>
+        <button class="rbtn rbtn-pri" id="review-wrong-btn">&#x1F4CB; 查看錯題解析</button>
+        <button class="rbtn rbtn-ter" id="back-btn">&#x2190; 返回設定</button>
       </div>
     </div>
   </div>
-  <!-- Review overlay -->
   <div id="review-overlay" style="display:none">
-    <button onclick="document.getElementById('review-overlay').style.display='none';document.getElementById('quiz-result').style.display='block'" style="margin-bottom:12px;padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:13px;cursor:pointer">← 返回結果</button>
+    <button id="review-back-btn" style="margin-bottom:12px;padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:13px;cursor:pointer">&#x2190; 返回結果</button>
     <div id="review-list"></div>
   </div>
 </div>
+<div class="quiz-bottom" id="quiz-bottom" style="display:none">
+  <button class="skip-btn" id="skip-btn">跳過</button>
+  <button class="next-btn" id="next-btn" disabled>下一題</button>
+</div>
 
-<!-- ══ 讀題 ══ -->
+<!-- 讀題 -->
 <div class="panel" id="read-panel">
   <div class="subj-row" id="read-subj-row">
-    <div class="subj-chip active" data-rs="all" onclick="selectReadSubj('all',this)">全部</div>
-    <div class="subj-chip" data-rs="人身保險" onclick="selectReadSubj('人身保險',this)">🛡️ 人身保險</div>
-    <div class="subj-chip" data-rs="法規" onclick="selectReadSubj('法規',this)">📜 法規</div>
+    <div class="subj-chip active" data-rs="all">全部</div>
+    <div class="subj-chip" data-rs="ins">&#x1F6E1;&#xFE0F; 人身保險</div>
+    <div class="subj-chip" data-rs="law">&#x1F4DC; 法規</div>
   </div>
   <div class="topic-row" id="read-topic-row"></div>
   <div class="read-pos">
     <span id="read-pos-lbl">第 1 / 419 題</span>
     <span id="read-topic-lbl" style="color:var(--blue);font-size:11px;font-weight:600"></span>
   </div>
-  <div id="flash-card-wrap">
-    <div class="flash-card">
-      <div class="flash-q" id="flash-q"></div>
-      <button class="flash-reveal" id="flash-reveal-btn" onclick="revealAnswer()">點擊展開答案 ▾</button>
-      <div class="flash-answer" id="flash-answer">
-        <div class="ans-text" id="ans-text"></div>
-        <div class="ans-opts" id="ans-opts"></div>
-        <div class="ans-explain" id="ans-explain"></div>
-      </div>
+  <div class="flash-card">
+    <div class="flash-q" id="flash-q"></div>
+    <button class="flash-reveal" id="flash-reveal-btn">點擊展開答案 &#x25BE;</button>
+    <div class="flash-answer" id="flash-answer">
+      <div class="ans-text" id="ans-text"></div>
+      <div class="ans-opts" id="ans-opts"></div>
+      <div class="ans-explain" id="ans-explain"></div>
     </div>
-    <div class="read-nav">
-      <button class="nav-btn" onclick="readPrev()">← 上一題</button>
-      <button class="nav-btn" onclick="readNext()" style="background:var(--blue);color:#fff;border-color:var(--blue)">下一題 →</button>
-    </div>
-    <div style="font-size:12px;color:var(--sub);text-align:center;margin-top:10px">進度自動儲存，下次進來可從這裡繼續</div>
   </div>
+  <div class="read-nav">
+    <button class="nav-btn" id="read-prev-btn">&#x2190; 上一題</button>
+    <button class="nav-btn" id="read-next-btn" style="background:var(--blue);color:#fff;border-color:var(--blue)">下一題 &#x2192;</button>
+  </div>
+  <div style="font-size:12px;color:var(--sub);text-align:center;margin-top:10px">進度自動儲存，下次進來可從這裡繼續</div>
 </div>
 
-<!-- ══ 錯題本 ══ -->
+<!-- 錯題本 -->
 <div class="panel" id="wrong-panel">
   <div id="wrong-summary" class="card" style="margin-bottom:12px;display:none">
     <div style="display:flex;justify-content:space-between;align-items:center">
       <div><span id="wrong-total" style="font-size:22px;font-weight:800;color:var(--red)"></span><span style="font-size:13px;color:var(--sub);margin-left:6px">題錯誤待複習</span></div>
-      <button onclick="drillAllWrong()" style="padding:8px 16px;background:var(--red);color:#fff;border:none;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer">全部重練</button>
+      <button id="drill-all-wrong" style="padding:8px 16px;background:var(--red);color:#fff;border:none;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer">全部重練</button>
     </div>
   </div>
   <div id="wrong-empty" class="card" style="text-align:center;padding:30px;color:var(--sub);display:none">
-    <div style="font-size:32px;margin-bottom:8px">🎉</div>
+    <div style="font-size:32px;margin-bottom:8px">&#x1F389;</div>
     <div>目前沒有錯題！繼續保持。</div>
   </div>
   <div id="wrong-list"></div>
 </div>
 
-<!-- ══ 弱點 ══ -->
+<!-- 弱點 -->
 <div class="panel" id="weak-panel">
   <div class="card" style="margin-bottom:12px">
     <div style="font-size:13px;color:var(--sub)">根據你的答題記錄分析各主題正確率。正確率越低代表越需要加強。</div>
@@ -340,71 +295,89 @@ body{font-family:-apple-system,'PingFang TC','Heiti TC',sans-serif;background:va
 const QUESTIONS = [{"id": 0, "text": "風險的分類，依損失的性質可區分為", "options": ["純粹風險及投機風險", "客觀風險及主 觀風險", "基本風險與特定風險", "靜態風險與動態風險"], "answer": 0, "explain": "【正確答案】純粹風險及投機風險\n\n依損失性質分類：①純粹風險（只有損失，如死亡、火災）②投機風險（損失或獲利皆可能，如投資）。保險可保的為純粹風險。", "subject": "人身保險", "topic": "風險概念"}, {"id": 1, "text": "下列何者正確？Ａ主觀風險可能經過一定期間觀察與統計而成為客觀風險；Ｂ風險 依損失是否可衡量區分為投機風險與純粹風險；Ｃ保險可保的純粹風險僅人身上的 風險及財產上的風險二種；Ｄ特定風險在性質上常屬於純粹風險", "options": ["Ａ ＣＤ", "ＡＢＣ", "ＡＤ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＤ\n\n依損失性質分類：①純粹風險（只有損失，如死亡、火災）②投機風險（損失或獲利皆可能，如投資）。保險可保的為純粹風險。", "subject": "人身保險", "topic": "風險概念"}, {"id": 2, "text": "天然災害如地震不屬於下列何種風險分類", "options": ["純粹風險", "靜態風險", "特定 風險", "客觀風險"], "answer": 2, "explain": "【正確答案】特定 風險\n\n依損失性質分類：①純粹風險（只有損失，如死亡、火災）②投機風險（損失或獲利皆可能，如投資）。保險可保的為純粹風險。", "subject": "人身保險", "topic": "風險概念"}, {"id": 3, "text": "兼有純粹風險與投機風險雙重性質的風險類別是（ 別是", "options": ["靜態風險", "基本風險", "特定風險", "動態風險"], "answer": 1, "explain": "【正確答案】基本風險\n\n依損失性質分類：①純粹風險（只有損失，如死亡、火災）②投機風險（損失或獲利皆可能，如投資）。保險可保的為純粹風險。", "subject": "人身保險", "topic": "風險概念"}, {"id": 4, "text": "下列何者為「風險自留」的原因：Ａ明知有風險存在而疏忽不予處理；Ｂ自己承擔 比其他處理方式更划算；Ｃ無適當處理方式；Ｄ自己有能力足以承擔損失", "options": ["Ａ ＢＣ", "ＢＣＤ", "ＢＣ", "ＡＢＣＤ"], "answer": 3, "explain": "【正確答案】ＡＢＣＤ\n\n風險自留原因：①主動自留（損失小、保費不划算）②被動自留（疏忽不處理、無法投保）③損失金額不大可自行承擔。", "subject": "人身保險", "topic": "風險概念"}, {"id": 5, "text": "下列有關保險之陳述，何者正確：", "options": ["是一種透過多數人合作以避免風險的經濟保 障制度", "為風險避免方法之一種", "投保人壽保險的人可以確定他的信用和 償還能力", "以上皆是"], "answer": 2, "explain": "【正確答案】投保人壽保險的人可以確定他的信用和 償還能力\n\n風險管理方法：①避免（不做高風險行為）②預防（降低發生機率）③抑制（降低損失幅度）④移轉（購買保險）⑤自留（自行承擔）。", "subject": "人身保險", "topic": "風險概念"}, {"id": 6, "text": "依據風險衡量的結果分為三類：", "options": ["損失幅度分配低可能屬於不重要的風險或重要的風險", "損 失幅度分配低可能屬於特別嚴重的風險或不重要的風險", "損失頻率分配高可能 屬於不重要的風險或重要的風險", "以上皆非"], "answer": 0, "explain": "【正確答案】損失幅度分配低可能屬於不重要的風險或重要的風險\n\n損失頻率=一定期間內風險發生次數；損失幅度=每次事故的平均損失金額；損失成本=損失頻率×損失幅度。", "subject": "人身保險", "topic": "風險概念"}, {"id": 7, "text": "某團體員工年平均死亡率為0.326%，若死亡事故發生時，雇主預期須支付每位員工 100 萬元的撫卹金，下列何者正確？Ａ雇主預測損失成本係應用主觀風險的觀念； Ｂ 0.326%即損失幅度的預期值；Ｃ 100 萬即損失頻率的預期值；Ｄ每位員工損失 成本為3260 元", "options": ["ＡＢＣＤ", "Ｄ", "ＢＣＤ", "ＢＣ"], "answer": 1, "explain": "【正確答案】Ｄ\n\n客觀風險=可測量的實際不確定性（透過統計數據）；主觀風險=個人對不確定性的主觀感受。客觀風險可透過統計觀察成為可量化風險。", "subject": "人身保險", "topic": "風險概念"}, {"id": 8, "text": "有關風險管理的方法，何者為非？", "options": ["事故發生前最簡單，經濟且又安全的風險 管理方法是避免", "事故發生前先購買保險，做好風險控管，屬風險管理方法的 移轉", "高血壓的人不要吃太油膩的食物，屬事故發生前風險管理方法的預防", "有購買保險但投保的保險金額不足造成自己保留了必須負擔的風險，屬風險 管理方法的自留"], "answer": 2, "explain": "【正確答案】高血壓的人不要吃太油膩的食物，屬事故發生前風險管理方法的預防\n\n風險自留原因：①主動自留（損失小、保費不划算）②被動自留（疏忽不處理、無法投保）③損失金額不大可自行承擔。", "subject": "人身保險", "topic": "風險概念"}, {"id": 9, "text": "下列何者是風險的要件？Ａ造成怎樣的結果必須為確定性；Ｂ必須有損失發生的可 能；Ｃ損失的金額必須為龐大且可以金錢衡量；Ｄ何時發生具有不確定性", "options": ["Ｂ ＣＤ", "ＡＢＣＤ", "ＢＤ", "ＡＢＤ"], "answer": 2, "explain": "【正確答案】ＢＤ\n\n本題考察多項判斷，正確選項為「ＢＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 10, "text": "事故發生時波及範圍小，只會影響個人而不會影響整個大環境且較容易控制風險為", "options": ["基本風險", "特定風險", "常屬純粹風險", "僅２、３選項為是"], "answer": 3, "explain": "【正確答案】僅２、３選項為是\n\n依損失性質分類：①純粹風險（只有損失，如死亡、火災）②投機風險（損失或獲利皆可能，如投資）。保險可保的為純粹風險。", "subject": "人身保險", "topic": "風險概念"}, {"id": 11, "text": "人身保險對個人的功能有那些？Ａ安定就業、穩定發展；Ｂ享受優惠、稅捐減免； Ｃ保險理財，一舉兩得；Ｄ鼓勵儲蓄，平均財富", "options": ["ＢＣＤ", "ＡＢＣ", "Ａ ＣＤ", "ＡＢＣＤ"], "answer": 1, "explain": "【正確答案】ＡＢＣ\n\n本題考察多項判斷，正確選項為「ＡＢＣ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 12, "text": "有關風險衡量的敘述，何者為是？Ａ一個企業對員工做死亡風險衡量的目的，主要 在預估一定期間內員工死亡風險所造成的損失金額；Ｂ損失發生的頻率係指風險發 生或意外事故的平均損失金額；Ｃ損失發生的幅度係指一定期間內，每一個風險單 位發生風險的平均次數；Ｄ損失成本為損失頻率乘以損失幅度", "options": ["ＡＢＣＤ", "ＢＣＤ", "Ａ", "ＡＤ"], "answer": 3, "explain": "【正確答案】ＡＤ\n\n損失頻率=一定期間內風險發生次數；損失幅度=每次事故的平均損失金額；損失成本=損失頻率×損失幅度。", "subject": "人身保險", "topic": "風險概念"}, {"id": 13, "text": "下列可者正確？Ａ計算風險損失成本屬風險管理步驟之風險確認；Ｂ特別嚴重的風 險僅指損失幅度分配非常高的風險； Ｃ不重要的風險僅指損失發生頻率非常小的 風險；Ｄ風險損失成本指損失發生頻率及幅度二項預期值乘積", "options": ["ＡＢＣ Ｄ", "ＢＣＤ", "ＡＤ", "Ｄ"], "answer": 3, "explain": "【正確答案】Ｄ\n\n損失頻率=一定期間內風險發生次數；損失幅度=每次事故的平均損失金額；損失成本=損失頻率×損失幅度。", "subject": "人身保險", "topic": "風險概念"}, {"id": 14, "text": "一個投保人壽保險的人，不論在任何意外事故發生時都有經濟上的保障，這也就是 人身保險功能中的", "options": ["保證信用、 有利投資", "安定就業、穩定發展", "後顧 無憂、晚景可恃", "以上皆是"], "answer": 0, "explain": "【正確答案】保證信用、 有利投資\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 15, "text": "自民國９４年１月１日起至１０１年６月３０日銷售之傳統年金保險計算保險費之 預定危險發生率，採用之年金生命表以死亡率多少為基礎？", "options": ["８０％～１００ ％", "１００％～１２０％", "由各公司依主管機關規定自行訂定", "９０％"], "answer": 2, "explain": "【正確答案】由各公司依主管機關規定自行訂定\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "法規", "topic": "主管機關監理"}, {"id": 16, "text": "自民國94 年1 月1 日起至101 年6 月30 日銷售之傳統年金保險應提存最低責任準 備金之預定危險發生率,以年金生命表死亡率之", "options": ["90%", "110%", "120%", "100% 為 基礎"], "answer": 0, "explain": "【正確答案】90%\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 17, "text": "年金給付開始日為民國９４年以前之利率變動型年金保險，下列何者可能被引用作 為計算年金金額之基礎？", "options": ["年金生命表死亡率之９０％", "年金生命表死亡率 之１１０％", "年金生命表死亡率之７０％", "年金生命表死亡率之１３０％"], "answer": 1, "explain": "【正確答案】年金生命表死亡率 之１１０％\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 18, "text": "有關人壽保險生命表之敘述何者正確？Ａ生命表又稱為死亡率表；Ｂ生命表利用收 支平等原則統計出來的；Ｃ生命表作為人壽保險計算保費的根據；Ｄ最早依據生命 表科學計算保險費的機構是英國倫敦的衡平保險社", "options": ["ＡＢＣＤ", "ＢＣＤ", "ＡＣＤ", "ＡＢＣ"], "answer": 2, "explain": "【正確答案】ＡＣＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 19, "text": "有關生命表敘述何者正確？Ａ又稱為死亡率表；Ｂ利用大數法則統計計算保險費； Ｃ友愛社是最早根據生命表合理計算保險費的組織；Ｄ通常採用１百萬人為統計對 象", "options": ["ＡＣＤ", "ＡＢ", "ＡＢＣＤ", "Ａ。 【解析】C 衡平保險社是最早根據生命表計算保險費的組織 Ｄ通常採用十萬人為統 計對象"], "answer": 1, "explain": "【正確答案】ＡＢ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 20, "text": "經驗生命表編製的目的為：Ａ確定被保險人的死亡機率；Ｂ提存責任準備金的基 礎；Ｃ使壽險業者能公平、合理地釐訂費率；Ｄ計算解約金的基礎；", "options": ["ＡＢＣ", "ＢＤ", "ＢＣ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 21, "text": "有關人壽保險業經驗生命表，係為下列何者之準繩：Ａ壽險業計算責任準備金；Ｂ 壽險業釐訂保險費率；Ｃ壽險業評價業務營運績效", "options": ["ＡＢ", "Ｂ", "Ａ", "ＡＢＣ"], "answer": 3, "explain": "【正確答案】ＡＢＣ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 22, "text": "人身保險業自９２年元月起銷售之人壽保險單，計算保險費率之生命表為", "options": ["臺 灣壽險業第三回經驗生命表死亡率百分之九十", "臺灣壽險業第四回經驗生命表", "得自行決定", "臺灣壽險業第三回經驗生命表"], "answer": 2, "explain": "【正確答案】得自行決定\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 23, "text": "依現行保險業各種責任準備金提存辦法規定，保險期間超過一年之人壽保險契約， 有關利率變動型人壽保險最低準備金提存應採", "options": ["20 年滿期生死合險修正制", "20 年繳費終身保險修正制", "由主管機關另定之", "25 年滿期生死合險修正制"], "answer": 2, "explain": "【正確答案】由主管機關另定之\n\n繳費方式：年繳費率最低；月繳因行政成本高，費率最高。通常：月繳>季繳>半年繳>年繳。", "subject": "法規", "topic": "主管機關監理"}, {"id": 24, "text": "首度將台灣壽險業經驗生命表區分為男、女性，並於民國７８年６月奉准採用作為 責任準備金提存標準的是台灣壽臉業", "options": ["第四回經驗生命表", "第五回經驗生 命表", "第三回經驗生命表", "第二回經驗生命表"], "answer": 2, "explain": "【正確答案】第三回經驗生命表\n\n保險業提存準備金：①責任準備金（主要準備金，保障未來給付）②未滿期保費準備金③賠款準備金④特別準備金。確保有足夠資金履行保險承諾。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 25, "text": "死亡率計算基礎為？Ａ年初之死亡人數；Ｂ年底之生存人數；Ｃ年度內之死亡人 數；Ｄ年初之生存人數", "options": ["ＡＢ", "ＡＣ", "ＢＣ", "ＣＤ"], "answer": 3, "explain": "【正確答案】ＣＤ\n\n本題考察多項判斷，正確選項為「ＣＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 26, "text": "１千名４５歲的男人各投保 1 千萬元的死亡保險（保險期間１年），生命表顯示４ ５歲男人的死亡率是千分之４，則每人的保險費是", "options": ["５仟元", "５萬元", "４萬元", "４千元"], "answer": 2, "explain": "【正確答案】４萬元\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 27, "text": "下列敘述何者為是？", "options": ["生存機率與死亡機率間無任何關係", "因同一時點某人 的生存機率等於 1 減死亡機率，所以年金生命表可以依據目前壽險業界所採的經 驗表去推算", "在同一時點下，某人之死亡與生存是互斥的", "在同一時點下， 某人之生存機率與死亡機率之和會小於１"], "answer": 2, "explain": "【正確答案】在同一時點下，某人之死亡與生存是互斥的\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 28, "text": "為了促進人身保險制度能夠健全營運，就必須顧及下列哪幾項要素？Ａ相互扶助的 觀念；Ｂ 公平的危險分擔； Ｃ 收支相等原則；Ｄ 損失填補原則", "options": ["ＡＢＣ", "ＡＣ", "ＡＢＣＤ", "ＢＣＤ 。 【解析】三原則:相互扶助的觀念、 公平的危險分擔、 收支相等原則 (口訣:鄉公所)"], "answer": 0, "explain": "【正確答案】ＡＢＣ\n\n本題考察多項判斷，正確選項為「ＡＢＣ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 29, "text": "決定壽險商品價格時，須兼顧哪些原則？ Ａ相互扶助原則；Ｂ公平的危險分攤； Ｃ收支相等原則；Ｄ利潤最大化原則", "options": ["ＡＢＣ", "ＢＣＤ", "ＡＣＤ", "ＡＢＣＤ"], "answer": 0, "explain": "【正確答案】ＡＢＣ\n\n本題考察多項判斷，正確選項為「ＡＢＣ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 30, "text": "依生命表顯示３０歲女性死亡率是千分之三，若有一千名３０歲女性各投保２００ ０萬一年期的死亡保險，則：Ａ每位女性保險費是由投保人比例負擔為每人６萬； Ｂ每人應收保費係依據收支相等原則來計算；Ｃ保險人應支出死亡保險金額總計為 ６０００萬；Ｄ一年間死亡人數為６人", "options": ["ＡＢＣＤ", "ＡＢＣ", "ＢＣＤ", "ＣＤ 【解析】一年間死亡人數為應3 人 1000 人*3/1000=3 人"], "answer": 1, "explain": "【正確答案】ＡＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 31, "text": "新 保戶如有投保多家保險公司之醫療險，為了避免在保險事故發生後向多家保險公司 申請理賠來往的奔波，可以用壽險公會「保險科技運用共享平台」提供的何種服 務，來達到多家快速受理理賠的目的？", "options": ["保險存摺", "保全理賠聯盟鏈", "理賠醫起通", "電子保單存證及驗證"], "answer": 1, "explain": "【正確答案】保全理賠聯盟鏈\n\n理賠程序：①事故通知（5日內）②提供理賠文件③保險人審核（收件後10-15工作日）④給付或拒賠通知。保險人無正當理由拒賠，須加計遲延利息。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 32, "text": "用來作為計算將來要支付死亡保險金的保險費基礎是？", "options": ["預定死亡率", "預定 利率", "預定營業費用", "以上皆是"], "answer": 0, "explain": "【正確答案】預定死亡率\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 33, "text": "有關定期保險敘述，下列何者正確？ Ａ 其他因素不變，保險費與死亡率高低成正 比； Ｂ其他因素不變，保險費與利率高低成正比； Ｃ 其他因素不變，保險費與 費用率高低成正比； Ｄ其他因素不變，保險費與利率高低成反比", "options": ["ＡＤ", "ＡＣＤ", "ＢＣ", "ＡＢＣ 【解析】人壽保險保費與死亡率、費用率高低成正比；與利率高低成反比"], "answer": 1, "explain": "【正確答案】ＡＣＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 34, "text": "要保人解約對於保險人的影響，何者錯誤？", "options": ["保險人通常會再酌收費用作為補 償", "造成逆選擇的不良影響", "造成資金運用不利的不良影響", "解約對於 保險人費用分擔未產生任何影響"], "answer": 3, "explain": "【正確答案】解約對於 保險人費用分擔未產生任何影響\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 35, "text": "保戶投保壽險付足多久以上保費或繳費累積達有保單價值準備金時，因故中止解約 時應償付解約金", "options": ["半年", "二 年", "僅限躉繳方式", "一年"], "answer": 3, "explain": "【正確答案】一年\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保單條款"}, {"id": 36, "text": "責任準備金的計算與提存牽涉複雜的精算技術與法令規定，會因保險契約的哪些情 況之不同而有差別Ａ保險期間；Ｂ繳費方式；Ｃ契約生效日；Ｄ繳費期間", "options": ["Ａ ＢＤ", "ＢＤ", "ＡＢＣＤ", "ＡＢＣ"], "answer": 2, "explain": "【正確答案】ＡＢＣＤ\n\n保險業提存準備金：①責任準備金（主要準備金，保障未來給付）②未滿期保費準備金③賠款準備金④特別準備金。確保有足夠資金履行保險承諾。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 37, "text": "有關保險費所累積的「責任準備金」下列敘述何者錯誤？", "options": ["是保戶的一種有利 投資", "保戶要承擔投資的風險沒有確保一定利潤", "透過保險公司專家的經營 運作，獲利較一般利息優厚", "是保戶的一種儲蓄"], "answer": 1, "explain": "【正確答案】保戶要承擔投資的風險沒有確保一定利潤\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "責任準備金"}, {"id": 38, "text": "保險公司針對責任準備金之提存方式往往採取較穩健的做法，採比保單價值準備金 Ａ較低之預定利率；Ｂ較高之預定利率；Ｃ較低之預定死亡率；Ｄ較高之預定死亡 率", "options": ["ＢＣ", "ＡＣ", "ＢＤ", "ＡＤ 來計提 【解析】記【高死低利】"], "answer": 3, "explain": "【正確答案】ＡＤ 來計提 【解析】記【高死低利】\n\n保單借款：以保單價值準備金為擔保，向保險公司借款，借款利率通常較低。未還清時發生事故，從給付金額中扣除借款及利息。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 39, "text": "民國81 年起每一保單年度終了應分配之保單紅利係", "options": ["死差益", "利差紅 利", "該險經營損益", "費差益"], "answer": 2, "explain": "【正確答案】該險經營損益\n\n分紅保單：保險公司將可分配盈餘（死差益、費差益、利差益）撥付給保戶。保戶可選擇①現金給付②抵繳保費③購買繳清保險④累積生息。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 40, "text": "依主管機關核定，自民國八十一年度起，每一保單年度終了應分配當年度保單紅利 係指下列那幾項之和？Ａ利差紅利； Ｂ費差紅利；Ｃ死差紅利；", "options": ["ＡＣ", "Ａ Ｂ", "ＢＣ", "ＡＢＣ"], "answer": 0, "explain": "【正確答案】ＡＣ\n\n分紅保單：保險公司將可分配盈餘（死差益、費差益、利差益）撥付給保戶。保戶可選擇①現金給付②抵繳保費③購買繳清保險④累積生息。", "subject": "法規", "topic": "主管機關監理"}, {"id": 41, "text": "有關分紅保單分紅方式與發放年度皆應於保單條款充分揭露，以下敘述何者錯誤？", "options": ["如遇復效者，當年度經過期間是否分配紅利由保險公司自訂", "第一次保單 紅利發放保單年度，得由保險公司依商品特性訂定", "如遇失效或解約者，各保 單年度是否分配紅利由保險公司自訂", "如遇被保險人身故，當年度是否分配紅 利得由保險公司自行決定"], "answer": 0, "explain": "【正確答案】如遇復效者，當年度經過期間是否分配紅利由保險公司自訂\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 42, "text": "有關分紅保險契約之敘述何者錯誤？", "options": ["契約條文應明訂分紅方式及紅利決算基 準日", "變更為展期定期保險後應維持其分紅保單之特性", "以紅利購買增額 繳清保險的部分，保險公司得依實際狀況決定分紅與否", "變更為減額繳清保險 後應維持其分紅保單之特性"], "answer": 1, "explain": "【正確答案】變更為展期定期保險後應維持其分紅保單之特性\n\n保單不喪失價值：停繳保費後可選擇①展期定期保險（保額不變，縮短期間）②減額繳清保險（期間不變，降低保額）③保單借款（繼續有效）。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 43, "text": "以往傳統型壽險保單皆屬強制分紅，主要是根據利差、死差做為分紅金額之計算基 礎，在此基礎下其強制分紅之標準為何？", "options": ["只要出現利差損或死差損就必須分 紅", "僅出現死差益，即使有利差損也必須分紅", "同時出現利差益及死差益才 分紅", "以上皆非"], "answer": 1, "explain": "【正確答案】僅出現死差益，即使有利差損也必須分紅\n\n掌握關鍵：「僅出現死差益，即使有利差損也必須分紅」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 44, "text": "分紅保單是保險公司每年經營與投資所產生的哪些項目分紅回饋給保戶？A 利差 益；B 死差損；C 費差益；D 死差益", "options": ["ACD", "ABCD", "AB", "BCD"], "answer": 0, "explain": "【正確答案】ACD\n\n分紅保單：保險公司將可分配盈餘（死差益、費差益、利差益）撥付給保戶。保戶可選擇①現金給付②抵繳保費③購買繳清保險④累積生息。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 45, "text": "年金保險的預定附加費用率與相同繳費年期之養老保險的附加費用率比較會", "options": ["不一定", "較高", "較低", "相同"], "answer": 2, "explain": "【正確答案】較低\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 46, "text": "利率變動型年金保險費的計算基礎包括Ａ預定危險發生率；Ｂ預定附加費用率；Ｃ 宣告利率；Ｄ通貨膨脹率", "options": ["ＡＢ Ｃ", "ＡＢ", "ＡＢＤ", "ＢＣ"], "answer": 0, "explain": "【正確答案】ＡＢ Ｃ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "年金保險"}, {"id": 47, "text": "人壽保險商品死亡給付對保單價值準備金（保單帳戶價值）之最低比率規範何者正 確？Ａ 比率依年齡級距分為六組； Ｂ 死亡給付對保價金之最低比率隨高齡遞 增；Ｃ 保險業需於契約條款明訂不符合最低比率時之保費繳交限制；Ｄ 招攬時要 妥為說明", "options": ["ＡＢＤ", "ＣＤ", "ＢＣＤ", "ＡＢＣＤ。 【解析】分為7 組，死亡給付對保價金之最低比率隨高齡遞減"], "answer": 1, "explain": "【正確答案】ＣＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 48, "text": "利率變動型年金之責任準備金於累積期間，以什麼基礎提存？", "options": ["年金保單價值 準備金全額", "所繳保險費總和", "所繳純保費總和", "平衡準備金制"], "answer": 0, "explain": "【正確答案】年金保單價值 準備金全額\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 49, "text": "利率變動型年金在累積期間，保險公司依據要保人交付之保險費，減去附加費用 後，依何種利率計算年金保單價值準備金？", "options": ["預定利率", "宣告利率", "定 存利率", "通貨膨脹率"], "answer": 1, "explain": "【正確答案】宣告利率\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 50, "text": "有關解約金的敘述，何者正確？Ａ躉繳保單之解約金等於保單價值準備金；Ｂ分期 繳費保單繳費期滿後之解約金等於保單價值準備金；Ｃ躉繳保單之解約金小於保單 價值準備金；Ｄ分期繳費保單繳費期滿後之解約金小於保單價值準備金", "options": ["ＡＢ", "ＣＤ", "Ａ", "Ｃ 【解析】記【等於等於】就對了"], "answer": 0, "explain": "【正確答案】ＡＢ\n\n保單借款：以保單價值準備金為擔保，向保險公司借款，借款利率通常較低。未還清時發生事故，從給付金額中扣除借款及利息。", "subject": "人身保險", "topic": "保單條款"}, {"id": 51, "text": "依保險法第１３條規定，人身保險包含 Ａ傷害保險；Ｂ投資型保險；Ｃ健康保 險；Ｄ年金保險", "options": ["ＢＤ", "ＡＣＤ", "ＣＤ", "ＡＢＣＤ 【解析】人身保險四大類：人壽保險、健康保險、傷害保險、年金保險"], "answer": 1, "explain": "【正確答案】ＡＣＤ\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "保險法條文"}, {"id": 52, "text": "某甲投保每年初複利增值３％之二十年期養老保險，保額20 萬元，某甲在投保後 第二年死亡，則其可獲得的死亡保險金為", "options": ["212180 元", "218000 元", "200000 元", "218545 元 【解析】每年初增值第二年死亡，故增值2 次  20 萬*(1+3%)(1+3%)=212180(背答 案即可)"], "answer": 0, "explain": "【正確答案】212180 元\n\n生死合險（養老保險）：兼具死亡保障與生存給付，期滿生存給付保險金，期間死亡亦給付，常見為儲蓄險。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 53, "text": "年金保險契約之生存年金部分", "options": ["得有除外責任", "不得有除外責任期間，但得 有除外責任原因", "不得有除外責任原因，但得有除外責任期間", "不得有除外 責任。 【解析】年金保險目的是生存時給付年金，只要生存就會給付，所以不能有除外責 任"], "answer": 3, "explain": "【正確答案】不得有除外 責任。 【解析】年金保險目的是生存時給付年金，只要生存就會給付，所以不能有除外責 任\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "年金保險"}, {"id": 54, "text": "現行年金保險主要銷售型態來自於Ａ人壽保險單示範條款；Ｂ利率變動型年金保險 單示範條款；Ｃ個人即期年金保險單示範條款；Ｄ個人遞延年金保險單示範條款", "options": ["ＡＢＣＤ", "ＡＢＤ", "ＡＣＤ", "ＢＣＤ 【解析】選年金保險就對了"], "answer": 3, "explain": "【正確答案】ＢＣＤ 【解析】選年金保險就對了\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 55, "text": "年金保險的保險費一次繳清後，保險公司開始給付年金者稱為", "options": ["遞延年金", "付清年金", "即期年金", "躉繳年金 【解析】即期年金：年金保險契約訂立後，保險人即開始給付年金，通常為躉繳保 費"], "answer": 2, "explain": "【正確答案】即期年金\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 56, "text": "年金保險中如被保險人身故，仍有未支領之年金餘額時，該餘額", "options": ["其半數應作 為被保險人之遺產", "應作為被保險人之遺產", "應作為要保人之遺產", "應 給付給其他應得之人"], "answer": 3, "explain": "【正確答案】應 給付給其他應得之人\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 57, "text": "利率變動型年金保險費率相關規範，何者為非？", "options": ["預定利率不得高於年金給付 開始日當月之宣告利率", "宣告利率不得超過宣告前中央銀行公布之最近一個月 １０年期中央政府公債次級市場殖利率", "宣告利率下限無規定，且得為負值", "預定附加費用率由公司自行訂定，並明訂於契約條款 【解析】宣告利率不得為負值"], "answer": 2, "explain": "【正確答案】宣告利率下限無規定，且得為負值\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 58, "text": "利率變動型年金甲型在給付期間之責任準備金係以年金金額之預定利率與依『新契 約責任準備金利率採自動調整精算公式』計算之利率", "options": ["最大值計算", "平均 值計算", "最小值計算", "以上皆可"], "answer": 2, "explain": "【正確答案】最小值計算\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 59, "text": "有關傳統型年金保險費率計算可使用之預定附加費用率標準，何者正確？", "options": ["繳 費期間未滿十年者，費用率不得超過總保費之１０％", "躉繳者，費用率不得超 過總保費之５％", "繳費期間滿十五年者，費用率不得超過總保費之１５ ％", "繳費期間未滿十五年者，費用率不得超過總保費之１５％ 【解析】傳統年金附加費用：躉繳5%，滿15 年11%"], "answer": 1, "explain": "【正確答案】躉繳者，費用率不得超 過總保費之５％\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "年金保險"}, {"id": 60, "text": "利率變動型年金躉繳者，附加費用率不得超過總保費之", "options": ["５％", "８．５％", "由公司自行訂定", "１０％。 【解析】利率變動型年金：附加費用率由公司自行訂定"], "answer": 2, "explain": "【正確答案】由公司自行訂定\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 61, "text": "利率變動型年金與利率固定型年金，下列何者為非？", "options": ["利率變動型年金及利率 固定型年金保費繳納皆可躉繳、非躉繳，惟利率固定型的非躉繳為定期定額", "利率變動型年金附加費用由公司自行訂定，利率固定型年金附加費用依繳費期間介 於5%到11%之間", "利率變動型年金身故保障為解約金，利率固定型身故保障為 保單價值準備金", "利率變動型年金給付有採固定或變動金額年金給付；利率固 定型年金採固定金額年金給付"], "answer": 2, "explain": "【正確答案】利率變動型年金身故保障為解約金，利率固定型身故保障為 保單價值準備金\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "年金保險"}, {"id": 62, "text": "利率變動型年金甲型於給付期間，保戶可領取之年金金額與下列何者有關？Ａ預定 死亡率；Ｂ預定附加費用率；Ｃ預定利率；Ｄ宣告利率", "options": ["ＡＤ", "ＡＢ", "ＡＢＣ", "ＡＣ"], "answer": 3, "explain": "【正確答案】ＡＣ\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 63, "text": "利率固定型年金保險商品的繳費方式有Ａ躉繳；Ｂ非躉繳（定期定額）；Ｃ非躉繳 （不定期不定額）", "options": ["ＡＢＣ", "ＡＢ", "ＡＣ", "ＢＣ"], "answer": 1, "explain": "【正確答案】ＡＢ\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "年金保險"}, {"id": 64, "text": "有關生存保險之敘述，下列何者為是？Ａ僅在被保險人於保險期滿後仍生存時給付 保險金；Ｂ被保險人在保險期間內死亡，保險公司無給付保險金的責任，但退還所 繳保費；Ｃ滿期保險金之來源，部分來自保險公司資本；Ｄ保險公司為準備被保險 人保險期滿生存時給付保險金，需有責任準備金的提存", "options": ["ＡＢＣＤ", "ＡＤ", "ＡＢＤ", "ＡＢ 【解析】B 不退還保費 C 滿期保險金來源：期間內死亡的被保險人所繳保費與自己 本身所繳保費及累積生息"], "answer": 1, "explain": "【正確答案】ＡＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 65, "text": "下列敘述何者正確？", "options": ["保險公司承保傷害保險時，需檢查被保險人的身體", "定期保險通常以１年、５年、１０年為期，亦有以要保人到達終身年齡為約定期限", "外勤業務員的危險性與每天坐辦公室的行政人員危險性差不多", "最後生 存者年金之受領人有２人以上，只要其中１人仍生存，保險人就繼續依原定金額給 付年金至最後１位受領人死亡為止"], "answer": 3, "explain": "【正確答案】最後生 存者年金之受領人有２人以上，只要其中１人仍生存，保險人就繼續依原定金額給 付年金至最後１位受領人死亡為止\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 66, "text": "下列敘述何者正確？", "options": ["最後生存者年金之受領人有２人以上，只要有 1 人死 亡，保險人就不必再給付原約定之年金", "定期保險通常以１年、５年、１０年 為期，亦有以要保人到達終身年齡為約定期限", "賽車駕駛員的危險性與每天坐 辦公室的辦事人員危險性差不多", "保險公司承保傷害保險時，不必檢查被保險 人的身體"], "answer": 3, "explain": "【正確答案】保險公司承保傷害保險時，不必檢查被保險 人的身體\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 67, "text": "有關傷害保險之敘述，何者正確？ Ａ被保險人失能程度屬第２級失能，保險公司 按失能保險金之90%給付 ；Ｂ職業類別第二類之保險費率是第一類的1.5 倍；Ｃ個 人傷害保險意外失能發生率為意外死亡發生率之40%；Ｄ個人傷害保險重大事故特 別準備金提存率為2%", "options": ["ＡＢＣＤ", "ＡＢＣ", "ＢＤ", "ＡＣ 【解析】B 第二類保費為1.25 倍 D 提存率為1%"], "answer": 3, "explain": "【正確答案】ＡＣ 【解析】B 第二類保費為1.25 倍 D 提存率為1%\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 68, "text": "個人傷害保險短期費率一個月期為年繳保費", "options": ["百分之十二", "百分之二十", "十二分之一", "百分之十五"], "answer": 3, "explain": "【正確答案】百分之十五\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 69, "text": "下列那些保險中途解約時，其已交付未到期之保險費應返還之", "options": ["一年定期壽 險、健康保險、傷害保險", "終身壽 險、傷害保險、年金保險、團體健康保險", "養老保險、一年定期壽險、傷害保險、健康保險", "以上皆是。 【解析】一年期商品未到期會退還未到期保費"], "answer": 0, "explain": "【正確答案】一年定期壽 險、健康保險、傷害保險\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 70, "text": "有關旅行平安險何者正確？Ａ醫療費用之給付包含日額型及實支實付型；Ｂ發生意 外傷害醫療時給付最高以保險金額1/10 為限；Ｃ為國際性保險，承保對象以實際 從事旅遊的國內、國外旅客為限；Ｄ保險期間原則上最長以180 天為限，旅客如有 需要經保險公司同意可延長", "options": ["ＢＣ", "ＡＢＤ", "ＢＣＤ", "ＡＣＤ 【解析】旅行平安險醫療費用僅有實支實付型一種"], "answer": 2, "explain": "【正確答案】ＢＣＤ\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "人身保險", "topic": "健康保險"}, {"id": 71, "text": "廣義的風險管理，除彌補經濟損失外，尚包含儲蓄投資以備未來所需，此部份之需 求就可以利用年金保險、長期壽險等具有下列哪些功能，使個人及家庭的經濟生活 更能獲得保障？Ａ儲蓄性質保單；Ｂ保單借款；Ｃ保單復效；Ｄ身故保險金", "options": ["ＢＣ", "ＡＤ", "ＡＢ", "ＡＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＢ\n\n風險管理方法：①避免（不做高風險行為）②預防（降低發生機率）③抑制（降低損失幅度）④移轉（購買保險）⑤自留（自行承擔）。", "subject": "人身保險", "topic": "風險概念"}, {"id": 72, "text": "工業化的結果，各種意外事故劇增，促使人民重視保障，各公司在保險商品設計上 亦以提高保障機能為主，其商品種類以下列何種保險之業務成長迅速", "options": ["生死合 險", "儲蓄保險", "定期保險及終身保險", "生存保險"], "answer": 2, "explain": "【正確答案】定期保險及終身保險\n\n人壽保險主要類型：①定期保險（純保障，期滿無還款）②終身保險（終身保障）③生死合險/儲蓄型（到期生存給付）。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 73, "text": "所謂健康保險是指為彌補因Ａ傷害；Ｂ疾病；Ｃ酗酒；Ｄ健康檢查，造成人們失去 工作能力或就醫，而導致經濟上的損失所設計出來的保險", "options": ["ＢＤ", "ＡＢＤ", "ＡＢ", "ＡＣ"], "answer": 2, "explain": "【正確答案】ＡＢ\n\n健康保險分類：①疾病保險（日額/實支實付）②醫療保險（手術/住院）③殘廢收入保險。採補償原則，最多補償實際損失（不可超額賠付）。", "subject": "人身保險", "topic": "健康保險"}, {"id": 74, "text": "有關年金保險之敘述何者錯誤？", "options": ["社會年金保險的種類依保險事故別分為老 年、失能及遺屬三種年金", "年金給付以被保險人生存為條件者即具有保險功能", "年金給付不以個人或被保險人的生存為條件者，稱為確定年金", "連生共存 年金中多名年金受領人，若僅其中１人生存，保險人仍應依約給付年金"], "answer": 3, "explain": "【正確答案】連生共存 年金中多名年金受領人，若僅其中１人生存，保險人仍應依約給付年金\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 75, "text": "有關年金保險之敘述，何者正確？Ａ可分為社會性年金保險及商業性年金保險；Ｂ 年金保險契約必須記載給付方法；Ｃ 未滿１５歲之未成年人不得投保年金保險； Ｄ受益人不得為被保險人本人", "options": ["Ａ", "ＢＣ", "ＡＢ", "ＡＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＢ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 76, "text": "以下何者為是？", "options": ["人身保險四種類型中包含責任保險", "人壽保險中包括生存 保險、死亡保險及健康保險", "將保險區分財產保險及人身保險兩類，是依據我 國保險法第十三條規定", "人身保險包括責任保險及人壽保險"], "answer": 2, "explain": "【正確答案】將保險區分財產保險及人身保險兩類，是依據我 國保險法第十三條規定\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "保險法條文"}, {"id": 77, "text": "有關郵政簡易人壽保險，下列何者正確？A 商品類別有生存保險、死亡保險及生死 合險，並得以附約經營健康保險 及傷害保險； B 保險費繳納方式有躉繳、月繳、 季繳、半年繳、年繳5 種； C 適用簡易人壽保險法規定；D 被保險人限中華民國國 民且投保時免健康檢查", "options": ["ABC", "ABCD", "BCD", "BC"], "answer": 1, "explain": "【正確答案】ABCD\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 78, "text": "台灣地區人口年齡結構因醫藥科學發達，死亡率降低而使得平均壽命延長，近幾年 來更因結婚率降低與生育率降低，高齡化人口所佔比例逐漸增加，請問當生育率降 低與高齡化人口增加會帶來什麼樣的影響？", "options": ["就業人口經濟負擔減輕", "經 濟成長率上升", "延後退休", "以上皆是"], "answer": 2, "explain": "【正確答案】延後退休\n\n掌握關鍵：「延後退休」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 79, "text": "依據國家發展委員會對於我國高齡化估計之說明，何者有誤？", "options": ["仰賴人口係僅 指０至１４歲的人", "我國已邁入高齡社會", "我國將進入超高齡社會", "青壯年人口係指１５至６４歲的工作年齡人口 【解析】仰賴人口指0-14 歲及65 歲以上人口"], "answer": 0, "explain": "【正確答案】仰賴人口係僅 指０至１４歲的人\n\n掌握關鍵：「仰賴人口係僅 指０至１４歲的人」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 80, "text": "台灣地區目前正面臨老年問題發生，所以下列哪些商品成為老年人口的重要需求？ Ａ長年期的健康保險；Ｂ長期照顧保險；Ｃ年金保險；Ｄ定期壽險", "options": ["ＡＢＣ", "ＢＣ", "ＡＢ", "ＡＢＣＤ"], "answer": 0, "explain": "【正確答案】ＡＢＣ\n\n健康保險分類：①疾病保險（日額/實支實付）②醫療保險（手術/住院）③殘廢收入保險。採補償原則，最多補償實際損失（不可超額賠付）。", "subject": "人身保險", "topic": "年金保險"}, {"id": 81, "text": "長年期看護保險未來將成為老年人口的重要需求，其可能的原因包含下列何者：Ａ 人類壽命普遍延長；Ｂ家庭制度的改變；Ｃ社會福利的不足；Ｄ對通貨膨脹的恐懼", "options": ["ＡＢＣ", "ＡＢＤ", "ＡＣ", "ＡＢＣＤ"], "answer": 3, "explain": "【正確答案】ＡＢＣＤ\n\n本題考察多項判斷，正確選項為「ＡＢＣＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 82, "text": "長期照顧保險之被保險人經專科醫師診斷後判定符合長期照顧狀態者給予保險給 付，而長期照顧狀態係指被保險人符 合？", "options": ["持續６個月以上失智且依臨床失智 量表評估達中度以上者", "依巴氏量表判定３個月內有移位、如廁及沐浴等 3 項 障礙", "依臨床專業評量表診斷判定５個月內有進食及移位等２項障礙者", "以 上皆是"], "answer": 1, "explain": "【正確答案】依巴氏量表判定３個月內有移位、如廁及沐浴等 3 項 障礙\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 83, "text": "有關政府推動的長期照顧保險，何者錯誤？", "options": ["由政府、雇主及民眾共同負擔保 險費", "屬於一種福利政策且為基本保障，可考慮加保一般商業長期照顧保險商 品", "屬於強制性社會保險，保險人為衛生福利部", "目前提供的服務皆屬實 物給付  【解析】保險人為中央健保署"], "answer": 2, "explain": "【正確答案】屬於強制性社會保險，保險人為衛生福利部\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 84, "text": "下列敘述何者錯誤？", "options": ["長期照顧保險給付可分為一筆或分期給予固定金額二種", "被保險人經專科醫師診斷判定認知功能障礙為終身無法治癒者，仍須符合契 約條款約定之期間限制才可符合認知功能障礙", "若契約條款明定免責期間，被 保險人的生理功能障礙或認知功能障礙狀態須超過免責期，保險公司才會給付長期 照顧保險金", "外溢效果的保險可以達到事前預防風險的效益"], "answer": 1, "explain": "【正確答案】被保險人經專科醫師診斷判定認知功能障礙為終身無法治癒者，仍須符合契 約條款約定之期間限制才可符合認知功能障礙\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 85, "text": "實支實付醫療保險副本理賠之控管措施，不適用何種保險A 傷害保險 B 微型保險 C 旅行平安保險 D 學生團體保險", "options": ["ABC", "BD", "BCD", "ABCD"], "answer": 2, "explain": "【正確答案】BCD\n\n健康保險分類：①疾病保險（日額/實支實付）②醫療保險（手術/住院）③殘廢收入保險。採補償原則，最多補償實際損失（不可超額賠付）。", "subject": "人身保險", "topic": "健康保險"}, {"id": 86, "text": "有關實支實付醫療保險控管何者正確？", "options": ["適用於由要保單位負擔保費之旅平 險，微型保險所含之實支實付型傷害醫療保險", "每一被保險人向同一保險人投 保實支實付保險張數上限為 3 張", "整體保險業於醫療保險及傷害醫療保險投保 1 張銜接原給付限額具自負額商品，該張可不列入張數計算", "以上皆是"], "answer": 2, "explain": "【正確答案】整體保險業於醫療保險及傷害醫療保險投保 1 張銜接原給付限額具自負額商品，該張可不列入張數計算\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "健康保險"}, {"id": 87, "text": "有關外溢效果保單的特色，何者錯誤？", "options": ["保險公司為掌握保戶生活習慣及取得 相關醫療數據，需精進大數據分析", "商品設計有實物給付型與非實物給付型", "保險公司須強化資訊安全之風險控管，以免保戶個資外洩", "保險費計算係 採總體考量，保費更公平合理，且能引導保戶規避風險，降低整體社會需求 【解析】保險費計算係採【個體考量】"], "answer": 3, "explain": "【正確答案】保險費計算係 採總體考量，保費更公平合理，且能引導保戶規避風險，降低整體社會需求 【解析】保險費計算係採【個體考量】\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 88, "text": "外溢效果的保險，在人身保險現行商品之設計有哪些方式？Ａ保戶自主健康管理； Ｂ保險公司提供抵減保險費；Ｃ保戶依保險公司要求使用穿戴型裝置即可領得健康 促進獎勵金；Ｄ目前僅有實物給付型商品", "options": ["ＢＣ", "ＡＢ", "ＡＢＣＤ", "ＡＢＣ 【解析】C 須達一定保準才可領得健康促進獎勵金 D 有實務與非實務給付型"], "answer": 1, "explain": "【正確答案】ＡＢ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 89, "text": "保險業結合科技設計外溢效果的保險商品，可以為客戶達到下列哪些效果？Ａ改變 被保險人生活作息；Ｂ提升民眾健 康；Ｃ透過穿戴裝置了解個人健康狀況；Ｄ輔 助保險決策", "options": ["ＡＣＤ", "ＡＢＣＤ", "ＢＣ", "ＡＣ"], "answer": 1, "explain": "【正確答案】ＡＢＣＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 90, "text": "下列何者非團體保險之保險金額決定基礎？", "options": ["薪資等級", "團體定額", "職 位或年資", "員工的工作性質"], "answer": 3, "explain": "【正確答案】員工的工作性質\n\n團體保險特色：①要保人為雇主或團體②被保險人為員工③費率較個人險低④不需體檢（但需達最低人數）⑤異動手續簡便。", "subject": "人身保險", "topic": "特殊保險"}, {"id": 91, "text": "目前學生團體保險之保險給付項目有 Ａ失能及身故保險金；Ｂ燒燙傷及須重建手 術保險金；Ｃ集體中毒保險金；Ｄ生活補助金", "options": ["ＡＣＤ", "ＡＢＣ", "Ｂ ＣＤ", "ＡＢＣＤ"], "answer": 3, "explain": "【正確答案】ＡＢＣＤ\n\n傷害保險失能給付：分1~11級，第1級（最重）給付保額100%，第11級（最輕）給付保額5%。失能鑑定需依殘廢等級表認定。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 92, "text": "有關學生團體保險之敘述何者錯誤？", "options": ["被保險人為學生，身故保險金受益人為 被保險人之法定繼承人", "辦理本保險如有不足，由專戶填補，保險人不負盈虧 之責", "主管機關為金融監督管理委員會", "保險期間每次一年且與學年之起 訖日一致為原則 【解析】學生團體保險主管機關為「教育部」"], "answer": 2, "explain": "【正確答案】主管機關為金融監督管理委員會\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 93, "text": "有關學生團體保險之敘述，何者為非？", "options": ["目前保險費由教育部邀集具獨立性的 相關代表組成審議會逐年審議", "學生團體保險之身故保險金受益人為被保險 人之法定繼承人，醫療保險金之受益人為投保之學生", "設置學生團體保險專戶 專款專用，盈虧責任由政府負責", "幼兒參加本保險，於保險契約訂立時已在疾 病中，保險人對該項疾病不負給付保險金責任 【解析】應為負給付保險金責任"], "answer": 3, "explain": "【正確答案】幼兒參加本保險，於保險契約訂立時已在疾 病中，保險人對該項疾病不負給付保險金責任 【解析】應為負給付保險金責任\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 94, "text": "投資型保險商品的設計，可以 Ａ有效對抗通貨膨脹；Ｂ使得個人資金運用及退休 計畫更具彈性；Ｃ降低壽險公司經營風險；Ｄ達到金融市場整合功能", "options": ["ＢＤ", "ＡＢＤ", "ＡＢＣＤ", "ＡＢ"], "answer": 2, "explain": "【正確答案】ＡＢＣＤ\n\n投資型保險：保費分保障（主帳戶）+投資（分離帳戶）。投資風險由要保人自負，保險公司不保證投資報酬。分離帳戶資產不納入保險公司破產清算。", "subject": "人身保險", "topic": "投資型保險"}, {"id": 95, "text": "投資型保險商品非全權委託的投資標的可包含：Ａ證券投資信託基金受益憑證；Ｂ 共同信託基金受益憑證；Ｃ各國中央政府發行之公債、國庫券；Ｄ可轉讓定期存單", "options": ["ＡＢＤ", "ＡＢＣＤ", "ＡＢＣ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＢＣ\n\n投資型保險：保費分保障（主帳戶）+投資（分離帳戶）。投資風險由要保人自負，保險公司不保證投資報酬。分離帳戶資產不納入保險公司破產清算。", "subject": "人身保險", "topic": "投資型保險"}, {"id": 96, "text": "下列何者屬於投資型保險商品規範，由保險人接受要保人以保險契約委任全權決定 運用之投資標的之運用範圍？Ａ公 債、國庫券；Ｂ台灣存託憑證；Ｃ外國有價證 券；Ｄ結構型商品", "options": ["ＡＢＤ", "ＢＣＤ", "ＡＣ", "ＡＢＣ"], "answer": 3, "explain": "【正確答案】ＡＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "投資型保險"}, {"id": 97, "text": "投資型保險商品的相關費用有？ Ａ解約費用；Ｂ保費費用；Ｃ申購手續費；Ｄ贖 回及轉換費用", "options": ["ＢＣＤ", "ＡＢＣＤ", "ＢＣ", "ＣＤ"], "answer": 1, "explain": "【正確答案】ＡＢＣＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "投資型保險"}, {"id": 98, "text": "有關投資型保險商品敘述何者錯誤？", "options": ["專設帳簿的資產於保險公司破產時，得 不受保險公司之債權人扣押", "變額萬能壽險指彈性繳納保險費，保單現金價值 有高低起伏但不可能降低至零", "變額壽險指固定繳費，但保險金額隨著投資績 效而變動", "變額年金保險指保險費及年金額度都會變動 【解析】變額萬能壽險現金價值有高低起伏，【也可能】降低至零"], "answer": 1, "explain": "【正確答案】變額萬能壽險指彈性繳納保險費，保單現金價值 有高低起伏但不可能降低至零\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "年金保險"}, {"id": 99, "text": "有關投資型保險商品銷售之規範，下列何者錯誤？", "options": ["招攬人員於銷售投資型保 險商品２個月前曾協助同一保戶辦理貸款者，該員不得支領推介貸款報酬", "當 保費資金來源為貸款，原招攬人員應於承保前對客戶進行電訪並保留錄音紀錄以供 查核", "招攬人員另具備投資型保險商品測驗合格且完整變更登錄者", "保險業 應訂定客戶紛爭處理程序納入內部控制作業之處理程序，辦理內部稽核及自行查核 【解析】當保費資金來源為貸款，由【非銷售通路人員】應於承保前對客戶進行電 訪"], "answer": 1, "explain": "【正確答案】當 保費資金來源為貸款，原招攬人員應於承保前對客戶進行電訪並保留錄音紀錄以供 查核\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "法規", "topic": "業務員管理"}, {"id": 100, "text": "有關國民年金制度敘述何者有誤？", "options": ["提供老年年金、生育給付、身心障礙年 金、遺屬年金及喪葬給付等保障", "投保對象為年滿２０歲以上未滿６５歲於國 內設有戶籍的國民", "投保對象須為沒有參加軍保、公教保、勞保及農保的國民", "被保險人死亡時按其月投保金額一次發給５個月喪葬給付 【解析】投保對象為年滿２5 歲以上未滿６５歲於國內設有戶籍的國民"], "answer": 1, "explain": "【正確答案】投保對象為年滿２０歲以上未滿６５歲於國 內設有戶籍的國民\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 101, "text": "就業保險之保險費率，目前為被保險人月投保薪資之", "options": ["５％", "１％", "３ ％", "４％"], "answer": 1, "explain": "【正確答案】１％\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 102, "text": "勞工保險之普通事故保險費，被保險人應負擔之比率為", "options": ["２０％", "１０％", "３０％", "５０％"], "answer": 0, "explain": "【正確答案】２０％\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 103, "text": "以下何者為微型保險所指之經濟弱勢或特定身分者？Ａ依農民健康保險條例投保農 民健康保險之被保險人；Ｂ符合社會救助法規定低收入戶中低收入戶之家庭成員； Ｃ符合身心障礙者權益保障法定義之身心障礙者；Ｄ符合老人福利法規定領取中低 收入老人生活津貼之老人", "options": ["ＡＢＣ", "ＡＢＤ", "ＡＢＣＤ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＢＣＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "健康保險"}, {"id": 104, "text": "為避免投保微型保險所產生的道德危險，有關該險之風險控管機制何者為非？", "options": ["身故保險金受益人僅以被保險人家屬為限", "保險業者須對承擔之風險妥 善處理或適當安排再保險", "失能保險金受益人不得受理指定或變更", "個 別被保險人投保微型保險超過累計投保金額限制時，保險業者得自行決定處理方式 【解析】身故保險金受益人為被保險人家屬或法定繼承人為限"], "answer": 0, "explain": "【正確答案】身故保險金受益人僅以被保險人家屬為限\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 105, "text": "依據保險業辦理微型保險業務應注意事項，微型保險附加費用率上限為", "options": ["純保 費之１０％", "總保費之１５％", "純保費之１５％", "總保費之１０％"], "answer": 1, "explain": "【正確答案】總保費之１５％\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 106, "text": "下列何者符合主管機關對於保障型及高齡化的保險商品之定義：Ａ小額終老保險； Ｂ無保價金之人身保險；Ｃ進入年金給付期間且約定分期給付之遞延年金保險；Ｄ 即期年金保險", "options": ["ＡＢＣＤ", "ＡＢＤ", "ＡＣＤ", "ＢＣＤ"], "answer": 0, "explain": "【正確答案】ＡＢＣＤ\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "法規", "topic": "主管機關監理"}, {"id": 107, "text": "有關勞工退休金採新制何者有誤？", "options": ["勞工退休請領時須併入個人綜合所得申報", "每月提撥率得由勞工自由決定", "勞工自願提繳的部分得自當年度個人綜 合所得總額中全數扣除", "勞工按月提繳退休金，可選擇儲存於勞保局 設立之 勞工退休金個人專戶 【解析】勞工自願提繳的部分每月提撥率於6%範圍內由勞工自由決定"], "answer": 1, "explain": "【正確答案】每月提撥率得由勞工自由決定\n\n社會保險（政府辦理）vs 商業保險（保險公司辦理）。社會保險：①全民健保（醫療）②勞工保險（職災、失業、年金）③國民年金。商業保險為補充社保不足。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 108, "text": "下列何者為招攬人員銷售優體壽險商品應有之行為？", "options": ["完成優體險商品之在職 教育訓練，始進行銷售", "於招攬時，即承諾消費者可適用優體率", "與其他同 業之優體壽險費率、核保項目、標準進行不當比較", "通過優體壽險商品測驗且 完成登錄者，始進行銷售"], "answer": 0, "explain": "【正確答案】完成優體險商品之在職 教育訓練，始進行銷售\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "法規", "topic": "業務員管理"}, {"id": 109, "text": "所謂團體一年定期壽險之「平均保險費率」是依：Ａ被保險團體的危險程度；Ｂ每 一被保險員工的年齡；Ｃ每一被保險員工的保險金額；Ｄ每一被保險員工的性別； 所計算出的保險費總和除以全體被保險員工保險金額總和計算。", "options": ["ＡＢＤ", "ＢＣＤ", "ＡＢＣＤ", "ＡＢＣ"], "answer": 2, "explain": "【正確答案】ＡＢＣＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 110, "text": "團體保險內每位員工對每單位保險金額應繳的保險費通常係以何種費率乘以保險金 額總額計算？", "options": ["分級保險費率", "平均保險費率", "平衡保險費率", "團 體保險費率"], "answer": 1, "explain": "【正確答案】平均保險費率\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "特殊保險"}, {"id": 111, "text": "壽險業總公司下的業務部，通常掌理哪些事項？ Ａ 契約調查；Ｂ 財務管理；Ｃ 人員督導管理；Ｄ 承保理賠", "options": ["ＡＤ", "ＡＢＣＤ", "ＡＢＤ", "Ｃ"], "answer": 0, "explain": "【正確答案】ＡＤ\n\n理賠程序：①事故通知（5日內）②提供理賠文件③保險人審核（收件後10-15工作日）④給付或拒賠通知。保險人無正當理由拒賠，須加計遲延利息。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 112, "text": "有關金融科技創新及大數據應用何者正確？Ａ 科技業者透過法律許可方式進行沙 盒實驗不會受到既有法律追訴；Ｂ 為落實業務員親晤保戶取得其親簽要保文件， 可透過保戶證件掃描搭配生物辨識判別其真實身分；Ｃ 透過數據分析協助保險公 司統一將消費客群導向一致性業務模式；Ｄ 結合科技可設計外溢效果之保險商 品，藉以改變要保人的生活作息", "options": ["ＡＢ", "ＣＤ", "ＡＢＣＤ", "ＡＢＤ"], "answer": 0, "explain": "【正確答案】ＡＢ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 113, "text": "何者有助於商品創新？Ａ主管機關修正新型態商品認定標準，就部分保險商品改採 核准制以縮短新商品審核流程；Ｂ運用數據解析人口老化及消費習慣改變以細分客 群；Ｃ運用區塊鏈技術共享資料建立標準流程；Ｄ改進經營技術", "options": ["ＡＢＣ", "ＢＣ", "ＢＣＤ", "ＡＢＣＤ"], "answer": 2, "explain": "【正確答案】ＢＣＤ\n\n再保險：保險公司將承擔的風險分散給再保險公司（再保人）。分散巨災風險，提高承保能量。再保不影響原被保險人權益。", "subject": "法規", "topic": "主管機關監理"}, {"id": 114, "text": "保險業可以運用大數據技術，透過哪些方式建立標準化服務流程？Ａ區塊鏈結合智 能合約；Ｂ開發保險經營自動化系 統；Ｃ精簡保單作業流程；Ｄ監理沙盒實驗", "options": ["ＡＢ", "ＡＢＣＤ", "ＣＤ", "ＡＢＣ"], "answer": 3, "explain": "【正確答案】ＡＢＣ\n\n本題考察多項判斷，正確選項為「ＡＢＣ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 115, "text": "壽險公司為改善經營技術培養專業人員以適應市場發展趨向，有關公司努力發展之 重點何者為非？", "options": ["壽險市場已具備專業人員生存要件，行銷技術將施以個別化 的教育訓練以提高行銷效果", "經客戶同意透過業務員以行動裝置輸入客戶投保 資料，以電子文件替代紙本要保書及相關文件與保險公司締結契約", "運用區塊 鏈技術簡化理賠調查，快速支付理賠以服務客戶", "設計更符合客戶需要商品， 加強創新及多樣化商品設計"], "answer": 0, "explain": "【正確答案】壽險市場已具備專業人員生存要件，行銷技術將施以個別化 的教育訓練以提高行銷效果\n\n誠信告知義務（保險法第64條）：要保人故意隱匿或不實告知，保險人得解除契約。知悉後1個月內行使，且不得超過契約成立後2年。解除後已發生事故不退費。", "subject": "法規", "topic": "業務員管理"}, {"id": 116, "text": "透過數據分析及金融科技技術的提升，可以協助保險業 ？", "options": ["業務模式更複雜", "創造差異化提升競爭力", "概括消費群", "以上皆是"], "answer": 1, "explain": "【正確答案】創造差異化提升競爭力\n\n掌握關鍵：「創造差異化提升競爭力」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 117, "text": "保險業授權代收保險費之人收取以下列何種方式繳納保險費時，應同時交付保戶送 金單、預收保費證明或收據？ Ａ現金；Ｂ信用卡授權書；Ｃ支票；Ｄ劃撥匯款單", "options": ["ＡＣ", "ＡＢ", "ＡＢＣ", "ＡＢＣＤ"], "answer": 0, "explain": "【正確答案】ＡＣ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 118, "text": "保險業授權代收保險費之人包括 Ａ保險公司授權之所屬業務員；Ｂ保險經紀人或 其所屬保險業務員；Ｃ保險公司未登錄之收費員；Ｄ保險代理人或其所屬保險業務 員", "options": ["ＡＤ", "ＡＢＣ", "ＡＢＣＤ", "ＡＢＤ"], "answer": 0, "explain": "【正確答案】ＡＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "法規", "topic": "業務員管理"}, {"id": 119, "text": "依保險業授權代收保險費應注意事項之規定，何者為非？", "options": ["保險業授權所屬保 險業務員、保險經紀人及保險代理人或其所屬保險業務員代收保險費", "有權代 收保險費之人未將所領之逾期送金單繳回者，保險業不得再發給新單", "有權代 收保險費之人代收以現金繳納保險費，單張保單當期以新台幣５萬元為上限", "以上皆非"], "answer": 0, "explain": "【正確答案】保險業授權所屬保 險業務員、保險經紀人及保險代理人或其所屬保險業務員代收保險費\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 120, "text": "有關保險業授權代收保險費之相關規定,何者為非?", "options": ["壽險公司、 保險經紀人/代理人、銀行保險、其他通路", "銀行保險、壽險公司、其他通 路、保險經紀人/代理人", "銀行保險、壽險公司、保險經紀人/代理人、 其他 通路", "壽險公司、銀行保險、傳統保險經紀人/代理人、其他通路"], "answer": 2, "explain": "【正確答案】銀行保險、壽險公司、保險經紀人/代理人、 其他 通路\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 121, "text": "壽險行銷通路若分為仲介行銷及直接行銷，下列何者係屬直接行銷通路？Ａ郵寄行 銷；Ｂ電話行銷；Ｃ職域或關係企業行銷；Ｄ架設網路平台行銷", "options": ["ＡＢ", "ＡＢＤ", "ＡＢＣＤ", "ＢＣ"], "answer": 2, "explain": "【正確答案】ＡＢＣＤ\n\n本題考察多項判斷，正確選項為「ＡＢＣＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 122, "text": "依保險業務員管理規則規定，投資型保險相關專業課程測驗之辦理單位為", "options": ["主 管機關認可之保險相關單位", "財團法人保險事業發展中心", "壽險公會", "以上皆可 負責辦理"], "answer": 3, "explain": "【正確答案】以上皆可 負責辦理\n\n投資型保險：保費分保障（主帳戶）+投資（分離帳戶）。投資風險由要保人自負，保險公司不保證投資報酬。分離帳戶資產不納入保險公司破產清算。", "subject": "法規", "topic": "業務員管理"}, {"id": 123, "text": "下列敘述何者錯誤？", "options": ["業務來源全由公司專職員工招攬者，稱為直接通路", "業務來源僅全由保險代理人或兼營保險代理人業務之銀行所招攬者，稱為間接通路", "兼採直接、間接通路者稱為混合通路制度", "目前保險業務行銷方式可分為 直接、間接與混合通路等３種"], "answer": 1, "explain": "【正確答案】業務來源僅全由保險代理人或兼營保險代理人業務之銀行所招攬者，稱為間接通路\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 124, "text": "保險代理人及保險經紀人之規定下列何者正確？", "options": ["得從事未經主管機關核准之 外國保險業經營或介紹保險商品", "未繳交保證金或投保責任保險得執行業務", "得為未經主管機關核准之保險業經營或介紹保險商品", "應有固定業務處 所，並設立獨立帳簿記載業務收支"], "answer": 3, "explain": "【正確答案】應有固定業務處 所，並設立獨立帳簿記載業務收支\n\n正確選項為「應有固定業務處 所，並設立獨立帳簿記載業務收支」，其餘選項敘述有誤或不完整。建議對照保險法規確認每個選項的正確性。", "subject": "法規", "topic": "主管機關監理"}, {"id": 125, "text": "何者符合準保戶的選擇標準？Ａ身體不健康的人；Ｂ付得起保險費的人；Ｃ便於拜 訪的人；Ｄ保險保障規劃少的人", "options": ["ＡＢＤ", "ＢＤ", "ＢＣＤ", "ＡＢＣ Ｄ"], "answer": 2, "explain": "【正確答案】ＢＣＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 126, "text": "完整的人身保險行銷過程，應包含Ａ蒐集資料、發現問題；Ｂ準備、自我介紹；Ｃ 提示解決的對策；Ｄ成交、售後服務；其行銷順序應為", "options": ["ＡＢＣＤ", "ＢＣ ＡＤ", "ＡＣＢＤ", "ＢＡＣＤ"], "answer": 3, "explain": "【正確答案】ＢＡＣＤ\n\n本題考察多項判斷，正確選項為「ＢＡＣＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 127, "text": "業務員售後服務的開端是從", "options": ["客戶繳納初期保險費", "保險公司完成核保", "業務員拿到保險單", "業務員遞交客戶保單 開始"], "answer": 3, "explain": "【正確答案】業務員遞交客戶保單 開始\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 128, "text": "人壽保險既是長期契約，隨歲月的遽增，保戶生活環境難免變遷，我們應掌握保戶 生活情形，即時建議：Ａ增加保額； Ｂ墊繳保險費；Ｃ質押借款；Ｄ加購附加險", "options": ["ＡＢＤ", "ＡＢＣＤ", "ＢＣ", "ＡＤ"], "answer": 1, "explain": "【正確答案】ＡＢＣＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 129, "text": "編製生活規劃書的目的在幫助客戶", "options": ["趁早準備配偶所需要的費用", "了解父母 所需要的費用", "準備子女所需要的預備金", "預定目標，估列將來需要的各種 費用"], "answer": 3, "explain": "【正確答案】預定目標，估列將來需要的各種 費用\n\n掌握關鍵：「預定目標，估列將來需要的各種 費用」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 130, "text": "一般而言，哪些經濟準備是任何一個家庭不可或缺的？ Ａ購置住宅的費用；Ｂ子 女受教育、結婚費用；Ｃ應急需要的預備金；Ｄ遺族生活資金", "options": ["ＡＢＣＤ", "ＣＤ", "ＡＢＤ", "ＢＣＤ"], "answer": 0, "explain": "【正確答案】ＡＢＣＤ\n\n本題考察多項判斷，正確選項為「ＡＢＣＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 131, "text": "由於壽命的不斷延長，替客戶安排保險時，應考慮的保障項目為Ａ醫療費用；Ｂ配 偶的安葬費用；Ｃ遺族的生活費用； Ｄ老年的生活費用", "options": ["ＡＢＣＤ", "ＡＢ Ｄ", "ＡＢＣ", "ＡＣＤ"], "answer": 3, "explain": "【正確答案】ＡＣＤ\n\n本題考察多項判斷，正確選項為「ＡＣＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "健康保險"}, {"id": 132, "text": "人身風險事故發生時可能導致 Ａ遺族生活費用增加；Ｂ老年退休費用減少；Ｃ醫 療費用增加；Ｄ收入減少", "options": ["ＡＢＣ", "ＡＣＤ", "ＢＣＤ", "ＡＢＣＤ"], "answer": 1, "explain": "【正確答案】ＡＣＤ\n\n本題考察多項判斷，正確選項為「ＡＣＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 133, "text": "哪些是契約危險選擇時應考量之項目？Ａ被保險人的收入；Ｂ要保人的投保動機； Ｃ被保險人的職業；Ｄ被保險人的既往症、現症、家族遺傳病史", "options": ["ＡＢＣＤ", "ＢＤ", "ＢＣＤ", "ＣＤ"], "answer": 0, "explain": "【正確答案】ＡＢＣＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 134, "text": "要保人以自己為被保險人投保人壽保險，業務員對其家族應注意", "options": ["是否有人患 有遺傳性疾病", "是否有人從事危險職業", "家人是否已投保", "以上皆應注 意"], "answer": 0, "explain": "【正確答案】是否有人患 有遺傳性疾病\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 135, "text": "下列何者係壽險業務員招攬時應注意之事項？Ａ受益人是否被拒保；Ｂ投保金額是 否過高致有道德風險之虞；Ｃ受益人對被保險人是否有保險利益；Ｄ要保人是否有 遺傳疾病", "options": ["Ｂ", "ＡＢＣＤ", "ＢＣＤ", "ＢＣ"], "answer": 0, "explain": "【正確答案】Ｂ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "業務員管理"}, {"id": 136, "text": "下列何種情況，業務員應洽經驗較豐富公司之專任醫師或特約醫師擔任體檢工作？ Ａ被保險人投保的保險金額相當高； Ｂ被保險人過去有未能承保的紀錄；Ｃ被保 險人過去有增加其他條件仍不能承保的紀錄；Ｄ要保人與被保險人非同一人", "options": ["ＡＣＤ", "ＡＢＣＤ", "ＢＣＤ", "ＡＢＣ"], "answer": 3, "explain": "【正確答案】ＡＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "業務員管理"}, {"id": 137, "text": "下列何者是保險公司核保的參考依據？Ａ醫師的體檢報告書；Ｂ調查員的調查報 告；Ｃ保戶填寫的要保文件；Ｄ業務員報告書", "options": ["ＢＣＤ", "ＡＢＤ", "ＡＢ ＣＤ", "ＡＢＣ"], "answer": 2, "explain": "【正確答案】ＡＢ ＣＤ\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 138, "text": "下列何者非屬壽險公司承保新契約時契約選擇之程序？", "options": ["業務員的選擇", "核 保人員的選擇", "公司體檢醫師的選擇", "生存調查人員的選擇"], "answer": 3, "explain": "【正確答案】生存調查人員的選擇\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 139, "text": "哪些是保戶申請要保前應該提供給保戶之資料？Ａ條款樣本；Ｂ人壽保險投保人須 知；Ｃ保單紅利試算表；Ｄ保險商品和定存利率比較表", "options": ["ＢＣＤ", "ＡＢ", "ＡＢＣＤ", "ＡＢＣ"], "answer": 1, "explain": "【正確答案】ＡＢ\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 140, "text": "何者是防止道德風險之重要資料，應慎重處理？ Ａ 被保險人體格檢查書；Ｂ 被 保險人告知書；Ｃ 被保險人之生存調查單；Ｄ 業務員填寫的招攬報告書", "options": ["Ａ ＢＣＤ", "ＡＤ", "ＡＢＣ", "ＡＢ"], "answer": 0, "explain": "【正確答案】Ａ ＢＣＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 141, "text": "保險規劃書是向顧客說明保險公司提供的保障內容，用來解決顧客家庭經濟問題最 有效的方式，該規劃書最少應具備Ａ 契約內容；Ｂ保險名稱及特色；Ｃ退佣比 例；Ｄ給付範圍及金額", "options": ["ＢＤ", "ＢＣ", "ＡＢＤ", "ＡＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＢＤ\n\n保險金請求權時效：依保險法第65條，保險金請求權自得請求之日起2年不行使而消滅（時效消滅）。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 142, "text": "電話行銷人員行銷保險Ａ應說明行銷目的及確認要保人身分；Ｂ應告知行銷人員姓 名、登錄字號及所屬公司名稱；Ｃ依個人資料保護法，電話行銷過程不得錄音並備 份存檔；Ｄ電話行銷人員若違反辦理電話行銷業務應注意事項，所屬公司應依規定 予以懲處", "options": ["ＡＢＣＤ", "ＡＢ", "ＡＢＤ", "ＢＤ"], "answer": 2, "explain": "【正確答案】ＡＢＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "業務員管理"}, {"id": 143, "text": "以下敘述何者正確？ Ａ家庭生活資金計算係以老么大學畢業的期間作為必要期間 計算；Ｂ購屋資金計算係考量一旦家庭斷絕經濟來源後如何繼續繳付剩餘房屋價 款；Ｃ借款償還金係以每月償還額乘上償還期間計算償還總額；Ｄ臨時預備金一般 為現在每個月的生活費用的６個基數", "options": ["ＡＢＣ", "ＡＢＣＤ", "ＢＣＤ", "ＡＢＤ 【解析】臨時預備金一般為現在每個月的生活費用的3 個基數"], "answer": 0, "explain": "【正確答案】ＡＢＣ\n\n保單借款：以保單價值準備金為擔保，向保險公司借款，借款利率通常較低。未還清時發生事故，從給付金額中扣除借款及利息。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 144, "text": "下列敘述正確？ Ａ要保人如尚未成年，皆須經過法定代理人簽章同意契約始生 效；Ｂ 被保險人之職業須確實填寫；Ｃ 要保人或被保險人不能親自填寫者，保險 契約得由業務員代為填寫再由保戶親自簽名；Ｄ保險契約保戶親自簽名處如為保戶 親自按指印，其意思表示及效力與親簽一樣", "options": ["ＡＢＣ", "ＢＣ", "ＡＢＤ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＢＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 145, "text": "保單轉換生效後，發生何種事情，保險公司不應提供回復契約之權利？", "options": ["保險 公司無不實引導轉換，且舊保單之保險事故已發生始主張撤銷該次轉換", "轉換 後新保單已開始給付保險金或已有申請理賠紀錄", "保險公司無不實引導轉換， 且轉換生效日起 3 年後始主張撤銷該次轉換", "以上皆是"], "answer": 3, "explain": "【正確答案】以上皆是\n\n誠信告知義務（保險法第64條）：要保人故意隱匿或不實告知，保險人得解除契約。知悉後1個月內行使，且不得超過契約成立後2年。解除後已發生事故不退費。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 146, "text": "有關保單活化敘述何者正確？Ａ舊保單需投保時間夠長已累積有保單價值準備金； Ｂ若舊保單之保單價值準備金不足轉換支付新契約保費時，則無法轉換；Ｃ保單活 化制度對保戶百利無一害；Ｄ屬於功能性轉換，將他益型保單轉化為自益型保單", "options": ["ＡＣＤ", "ＡＤ", "ＡＢＤ", "ＡＢＣ"], "answer": 1, "explain": "【正確答案】ＡＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保單條款"}, {"id": 147, "text": "有關保單轉換前進行變更適合度評估，何者正確？Ａ確認的對象除了要保人還包括 被保險人；Ｂ目的係透過保險配置使保單活化更能符合現況需求；Ｃ應考量轉換新 保單之預定利率較舊保單高，保費成本相對較高；Ｄ舊保單透過解約並扣除稅額後 可能比保單轉換更划算", "options": ["ＡＢＤ", "ＢＤ", "ＡＢ", "ＡＢＣＤ 【解析】新保單之預定利率較舊保單【低】"], "answer": 0, "explain": "【正確答案】ＡＢＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 148, "text": "有關保單活化之敘述，何者錯誤？", "options": ["保戶可考量實際需求僅作部分轉換，但轉 換後則無法再轉換回舊保單", "保單 活化目的使保戶重新檢視自身保單所需，已 提升退休生活的保障", "利用舊保單之保單價值準備金轉換投保醫療險、長照險 或年金保險", "保戶限向同一壽險公司之舊保單身故保險金轉換成新契約之生前 養老金 【解析】轉換後3 年內(反悔期)可以將保單再次轉回舊保單"], "answer": 0, "explain": "【正確答案】保戶可考量實際需求僅作部分轉換，但轉 換後則無法再轉換回舊保單\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 149, "text": "目前人身保險業所簽發的保單為", "options": ["僅提供紙本保單", "可利用網路投保來簽 發電子保單", "不限紙本保單", "僅選項２、３為真"], "answer": 3, "explain": "【正確答案】僅選項２、３為真\n\n掌握關鍵：「僅選項２、３為真」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 150, "text": "道德風險因素之敘述何者正確？Ａ屬於無形風險因素；Ｂ指因個人不小心、冷漠導 致增加風險事故發生的機會；Ｃ如為領取保險金而縱火的行為；Ｄ如疏忽維護已投 保財產保險之保險標的", "options": ["ＡＢ", "ＡＣ", "ＢＤ", "Ｃ"], "answer": 1, "explain": "【正確答案】ＡＣ\n\n保險金請求權時效：依保險法第65條，保險金請求權自得請求之日起2年不行使而消滅（時效消滅）。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 151, "text": "要保人在繳付相當於第一次保險費的金額時,保險契約", "options": ["即時成立", "等到保險公 司同意承保時才成立", "於契約成立後,效力溯自繳付日開始起算", "僅第2、3 選項 為是"], "answer": 3, "explain": "【正確答案】僅第2、3 選項 為是\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 152, "text": "勞工保險之職業災害保險給付項目不包括 A 傷病及醫療:B 失業及年老: C 死亡:D 生育及避孕", "options": ["AB", "BD", "ABC", "AD 【解析】勞保職災範圍：傷病、醫療、失能、死亡"], "answer": 1, "explain": "【正確答案】BD\n\n傷害保險失能給付：分1~11級，第1級（最重）給付保額100%，第11級（最輕）給付保額5%。失能鑑定需依殘廢等級表認定。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 153, "text": "下列何者錯誤?", "options": ["業務員行銷時應先強調保障型商品之重要性", "壽險業利用金融 科技的目的係為完全取代人的服務以利提升經營效率", "壽險業應動態配置資產以 因應低利率環境", "壽險業應加強增員及業務員教育訓練,防止業務員發生休勤現 象。 【解析】壽險業利用金融科技的目的【並非】取代人的服務"], "answer": 1, "explain": "【正確答案】壽險業利用金融 科技的目的係為完全取代人的服務以利提升經營效率\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 154, "text": "有關人身保險業務員登錄之敘述，何者錯誤？", "options": ["未依規定期限完成換證之業務 員，所屬公司應停止其招攬行為", "登錄證分為第１年至第５年度之登錄證與第 ６年度起登錄證二種", "業務員自初次登錄日起每滿５年須完成教育訓練並辦理 換證", "未依規定期限完成換證之業務員，其登錄資格及測驗合格證號將被取 消"], "answer": 3, "explain": "【正確答案】未依規定期限完成換證之業務員，其登錄資格及測驗合格證號將被取 消\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 155, "text": "新 下列何者非屬壽險公會「保險科技運用共享平台」保險存摺服務有提供的的功能？", "options": ["提供身分驗證功能，讓保戶可以透過保險存摺進行身分驗證後，進行理賠申 請", "快速算出保戶人身保障缺口，提供保障補強之建議", "支援單一登入功 能，透過保險存摺登入保險公司，查詢更詳細的保單資訊", "輕鬆查詢保戶之個 人保單"], "answer": 1, "explain": "【正確答案】快速算出保戶人身保障缺口，提供保障補強之建議\n\n理賠程序：①事故通知（5日內）②提供理賠文件③保險人審核（收件後10-15工作日）④給付或拒賠通知。保險人無正當理由拒賠，須加計遲延利息。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 156, "text": "依保險法第 45 條規定，受益人有疑義時，推定要保人為", "options": ["被保險人", "受益人 之繼承人", "要保人自己", "以上皆是 之利益而訂立"], "answer": 2, "explain": "【正確答案】要保人自己\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 157, "text": "有關要保人之敘述何者正確？Ａ保險契約當事人；Ｂ自然人；Ｃ機關行號；Ｄ對要保 險對象需具有保險利益", "options": ["ＡＢ Ｄ", "ＢＣＤ", "ＡＢＣＤ", "ＣＤ"], "answer": 2, "explain": "【正確答案】ＡＢＣＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 158, "text": "何者非要保人可指定受益人領取之保險金？ Ａ失能保險金；Ｂ醫療保險金；Ｃ終身壽 險保險金；Ｄ年金保險金", "options": ["ＢＣＤ", "ＡＣＤ", "ＡＢＤ", "ＡＢ"], "answer": 2, "explain": "【正確答案】ＡＢＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 159, "text": "要保人何時應負通知保險人義務？", "options": ["為保險人所知者", "依通常注意為保險人所 應知，或無法諉為不知者", "經保險人聲明不必通知者", "為被保險人所知者"], "answer": 3, "explain": "【正確答案】為被保險人所知者\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 160, "text": "保險事故的通知，如要保人或被保險人不於所規定之期限內通知者，除非下列何種情 形之一，否則對保險人所受之損失應自負賠償責任", "options": ["為他方所知者", "依通常注 意為他方所應知，或無法諉為不知者", "一方對於他方經聲明不必 通知者", "以上 皆是"], "answer": 3, "explain": "【正確答案】以上 皆是\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 161, "text": "對於要保人的敘述，何者錯誤", "options": ["要保人訂立保險契約不得委由代理人代理", "要 保人可以為自然人或法人", "要保人負有交付保險費之義務", "要保人對被保險人 須具有保險利益"], "answer": 0, "explain": "【正確答案】要保人訂立保險契約不得委由代理人代理\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 162, "text": "要保人訂立契約須", "options": ["具有行為能力", "不須具有行為能力", "限制行為能力於限 制原因消滅後自己承認", "僅 １，３為是"], "answer": 3, "explain": "【正確答案】僅 １，３為是\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 163, "text": "要保人故意致被保險人於死者，保險人", "options": ["無須給付保險金，但應退還所繳保險費", "須給付保險金", "無須給付保險金，但應退還保單價值準備金予應得之人或解 交國庫", "無須給付保險金、退還保單價值準備金及所繳保費"], "answer": 2, "explain": "【正確答案】無須給付保險金，但應退還保單價值準備金予應得之人或解 交國庫\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 164, "text": "下列有關保險人之規定，何者為非？", "options": ["目前國內之保險公司均為股份有限公司", "非保險業不得兼營保險業務", "保險法之規定，保險業之組織以股份有限公司 或合作社為限", "人身保險人可為法人或自然人"], "answer": 3, "explain": "【正確答案】人身保險人可為法人或自然人\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 165, "text": "下列敘述何者正確？Ａ保險合作社簽訂之保險契約，得為分紅或不分紅保單；Ｂ保險 公司簽訂之保險契約，以參加保單紅利者為限；Ｃ保單紅利計算基礎及方法應於保險 契約中明訂；Ｄ保險合作社簽訂之保險契約，以參加保單紅利者為限", "options": ["ＡＣ", "ＣＤ", "ＡＢＣ", "ＢＣＤ"], "answer": 1, "explain": "【正確答案】ＣＤ\n\n分紅保單：保險公司將可分配盈餘（死差益、費差益、利差益）撥付給保戶。保戶可選擇①現金給付②抵繳保費③購買繳清保險④累積生息。", "subject": "人身保險", "topic": "特殊保險"}, {"id": 166, "text": "依保險法規定，人身保險合作社之預定社員人數不得低", "options": ["８００", "１０００", "５００", "１００ 人"], "answer": 2, "explain": "【正確答案】５００\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "保險法條文"}, {"id": 167, "text": "受益人經指定後", "options": ["經被保險人同意於保險事故發生前得變更受益人", "不得再 變更受益人", "於保險事故發生 前得變更受益人", "於保險事故發生後仍得變更 受益人"], "answer": 0, "explain": "【正確答案】經被保險人同意於保險事故發生前得變更受益人\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 168, "text": "要保人以契約或遺囑變更受益人時，非經通知，不得對抗", "options": ["保險人", "受益人", "被保險人", "保險業務員"], "answer": 0, "explain": "【正確答案】保險人\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 169, "text": "有關保險受益人規定何者正確？Ａ因保險給付不同可區分為滿期、身故、失能或醫 療、年金及紅利等受益人；Ｂ為人身保險契約關係人；Ｃ保險事故發生時有權受領保 險金，而失能保險金之受益人不以被保險人為限；Ｄ與要保人、被保險人具有保險利 益", "options": ["ＡＢＣＤ", "ＡＢ", "ＡＢＤ", "ＢＣＤ"], "answer": 1, "explain": "【正確答案】ＡＢ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 170, "text": "人壽保險受益人之指定何者正確？Ａ除自然人外，得指定法人；Ｂ得指定一人或數 人；Ｃ可同時指定自然人及法人；Ｄ 訂立保險契約時得僅載明確定受益人之方法", "options": ["ＡＢＣＤ", "ＡＢＣ", "ＢＤ", "ＡＢＤ"], "answer": 1, "explain": "【正確答案】ＡＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 171, "text": "有關保險法之規定何者正確？", "options": ["傷害保險之受益人故意傷害被保險人未遂時，要保 人得撤銷其受益權利", "要保人故意致被保險人於死者，保險人雖不負給付保險金額 之責，但仍應將保單價值準備金繳交國庫", "人壽保險受益人故意致被保險人於死或 雖未致死者，喪失其受益權", "以上皆是"], "answer": 2, "explain": "【正確答案】人壽保險受益人故意致被保險人於死或 雖未致死者，喪失其受益權\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 172, "text": "下列何者不是限制行為能力人訂定保險契約之生效方式", "options": ["於限制原因消滅後自己承 認", "經其法定代理人事後承認", "經其法定代理人事前允許", "經受益人同意"], "answer": 3, "explain": "【正確答案】經受益人同意\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 173, "text": "下列何者依保險法規定得代為交付保險費？Ａ信託業；Ｂ被保險人；Ｃ受益人；Ｄ保 險業務員", "options": ["ＡＢＣＤ", "ＡＢ Ｃ", "ＢＣ", "ＡＢ"], "answer": 1, "explain": "【正確答案】ＡＢ Ｃ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 174, "text": "以受監護宣告尚未撤銷者為被保險人投保之人壽保險契約，其喪葬費用保險金額如超 過遺產及贈與稅法有關喪葬費扣除 額１／２時", "options": ["保險人完全不負給付保險金責 任，無須退還已繳保費", "保險人僅就超過部分不負給付保險金責 任，無息退還超 過部分之已繳保費", "保險人僅就超過部分不負給付保險金責任，加計利息退還超過 部分之已繳保費", "保險人完全不負給付保險金責任，無息退還已繳保費"], "answer": 1, "explain": "【正確答案】保險人僅就超過部分不負給付保險金責 任，無息退還超 過部分之已繳保費\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 175, "text": "以下何者正確？", "options": ["滿７歲未成年人皆為限制行為能力人，其所為意思表示及所受意 思表示應得法定代理人允許", "法院依聲請權人聲請其家屬有精神障礙致不能為意 思表示者，得為監護宣告或輔助宣告", "未滿７歲之未成年人投保時，僅由法代在法 定代理人欄位親簽同意已足", "限制行為能力人為日常生活所必需之意思表示仍應法 定代理人允許 【解析】選項1 應為滿7 歲未成年人「有」限制行為能力"], "answer": 1, "explain": "【正確答案】法院依聲請權人聲請其家屬有精神障礙致不能為意 思表示者，得為監護宣告或輔助宣告\n\n正確選項為「法院依聲請權人聲請其家屬有精神障礙致不能為意 思表示者，得為監護宣告或輔助宣告」，其餘選項敘述有誤或不完整。建議對照保險法規確認每個選項的正確性。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 176, "text": "以未滿１５足歲之未成年人投保含死亡給付之傳統人壽保險契約，於滿１５歲前身故 者，保險公司應", "options": ["返還保單價值準備金", "依約給付保險金", "返還帳戶價值", "除喪葬費用給付外，其餘死亡給付於被保險人滿１５歲時始生效力"], "answer": 3, "explain": "【正確答案】除喪葬費用給付外，其餘死亡給付於被保險人滿１５歲時始生效力\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 177, "text": "有關要保人之敘述，何者為非？", "options": ["須投保時填寫要保書並善盡告知、通知保險人保 險事故發生之義務", "向保險人申請訂立保險契約之人(３)有指定各項保險金受益 人、申請保險單借款及聲明保費自動墊繳之權利（4）以上皆是", "", "以上皆是"], "answer": 2, "explain": "【正確答案】\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 178, "text": "下列有關保險法第一百零五條規定之敘述何者為非", "options": ["被保險人得隨時依本條為撤銷 並通知要保人即生效力", "被保險人依本條行使撤銷權時，視為要保人終止契約", "由第三人訂立之死亡保險契約須經被保險人書面同意並約定保險 金額，否則契 約無效", "被保險人得隨時依本條所為之同意得隨時撤銷"], "answer": 0, "explain": "【正確答案】被保險人得隨時依本條為撤銷 並通知要保人即生效力\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 179, "text": "下列敘述何者正確？", "options": ["保險契約有效期間是要保人與保險公司約定，交付保險費的 期間", "受益人是指保險事故發生時身體遭受損害，享有賠償請求權之人", "受益 人是指經要保人指定，享有保險金請求權的人", "團體保險契約之 死亡受益人由要 保人指定"], "answer": 2, "explain": "【正確答案】受益 人是指經要保人指定，享有保險金請求權的人\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 180, "text": "死亡保險金受益人為被保險人配偶王大華，被保險人亡故前已離婚且再婚，則被保險 人死亡時該死亡保險金歸？", "options": ["要保人或其他應得之人", "前配偶王大華", "再 婚之配偶", "被保險人遺產"], "answer": 1, "explain": "【正確答案】前配偶王大華\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 181, "text": "下列何者為非？", "options": ["要保人希望投保的金額稱為保險金額", "保險事故發生後保險 公司給付之金額稱為保險金", "保險公司就平準繳費的保險契約將來可能發生的給付 責任所提存的金額稱為責任準備金", "保險公司同意承保之金額稱為保險金額"], "answer": 0, "explain": "【正確答案】要保人希望投保的金額稱為保險金額\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "責任準備金"}, {"id": 182, "text": "最大誠信原則，何者正確？Ａ契約訂立時要保人或被保險人應將有關的重要事實告知 保險人；Ｂ業務員應於親晤被保險人後，誠實填報業務員報告書；Ｃ要保人違反告知 義務時，保險人得解除契約；Ｄ為維護契約安定性，如保險事故發生保險人才知要保 人違反告知義務時，且危險發生基於未說明事實者，仍不得解除契約", "options": ["ＡＢＣ", "ＡＢＣＤ", "ＡＣ", "ＡＣＤ"], "answer": 2, "explain": "【正確答案】ＡＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "業務員管理"}, {"id": 183, "text": "依保險法第２０條規定基於有效契約而生之利益", "options": ["得為保險利益", "僅得對有效 契約有保險利益", "不得為保險利益", "以上皆是"], "answer": 0, "explain": "【正確答案】得為保險利益\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "保險法條文"}, {"id": 184, "text": "有關保險利益之敘述，何者有誤？", "options": ["凡基於有效契約而生之利益，得為保險利益", "被保險人死亡，保險契約除另 有訂定外，仍為繼承人之利益而存在", "合夥人 為被保險人時，其中一人讓與保險利益於他人者，保險契約失其效力", "要保人對 於因財產上之現有利益而生之期待利益，有保險利益 【解析】應為保險契約【不因之而失效】"], "answer": 2, "explain": "【正確答案】合夥人 為被保險人時，其中一人讓與保險利益於他人者，保險契約失其效力\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 185, "text": "有關保險利益原則敘述，何者為非？", "options": ["要保人對於為本人管理財產或利益之人有保 險利益", "存在目的是避免賭博 行為發生", "又稱為可保利益原則", "債權人對 債務人的保險利益没有限制"], "answer": 3, "explain": "【正確答案】債權人對 債務人的保險利益没有限制\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 186, "text": "張三以自己為要保人，對下列何者生命或身體有保險利益：Ａ借錢給張三的李四；Ｂ 張三本人；Ｃ欠張三錢的王老五", "options": ["ＡＢ", "Ａ", "ＢＣ", "ＡＢＣ"], "answer": 2, "explain": "【正確答案】ＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 187, "text": "依保險法第１７條之規定，要保人或被保險人對於保險標的物無保險利益者，保險契 約", "options": ["有效", "無效", "失其效力", "以上皆非"], "answer": 2, "explain": "【正確答案】失其效力\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 188, "text": "要保人對下列何者之生命或身體無保險利益？", "options": ["生活費或教育費所收受之人", "為本人管理財產或利益之人", "債務人", "本人"], "answer": 0, "explain": "【正確答案】生活費或教育費所收受之人\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 189, "text": "對於損害填補原則之敘述何者正確？Ａ防止被保險人不當得利；Ｂ需保險人有二張以 上保險單才可能發生；Ｃ僅適用於人身保險；Ｄ僅適用於財產保險", "options": ["ＡＢＣ", "Ａ", "ＡＢＤ", "ＢＤ"], "answer": 1, "explain": "【正確答案】Ａ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 190, "text": "分攤原則其主要目的是", "options": ["確定保險人賠償責任", "使要保人不致不當得利", "使 被保險人不致不當得利", "以 上皆非"], "answer": 2, "explain": "【正確答案】使 被保險人不致不當得利\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 191, "text": "Ａ年金保險；Ｂ實支實付型的健康險商品；Ｃ人壽保險；Ｄ日額型的健康保險；以上 何者適用分攤原則？", "options": ["ＡＢ", "ＢＤ", "ＡＢＣＤ", "Ｂ"], "answer": 3, "explain": "【正確答案】Ｂ\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 192, "text": "主力近因陳述，下列何者正確？Ａ類似民法的相當因果間係；Ｂ常用於傷害險與健康 險賠償責任認定；Ｃ導致被保人死亡原因有２個以上，而每個原因間有因果關係雖有 中斷，其最先發生原因就是所謂主力近因；Ｄ即指最直接或最接近被保險人死亡的原 因", "options": ["ＡＢＤ", "ＡＢＣＤ", "ＡＢ", "ＢＣ"], "answer": 2, "explain": "【正確答案】ＡＢ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 193, "text": "下列有關保險代位原則之敘述，何者正確？", "options": ["人身保險與產物保險依法均得代位行 使請求權", "人壽保險不得代位行使請求權", "指事故發生時，由保險人代位行 使被保險對第三人之請求權", "以上皆是"], "answer": 1, "explain": "【正確答案】人壽保險不得代位行使請求權\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 194, "text": "有關保險代位原則之敘述何者錯誤？", "options": ["財產保險適用", "因為人身無價，故人壽 保險不適用", "又稱為權利代位", "保險人於賠償後需經被保險人同意始得代位行 使被保險人對於第三人之請求權"], "answer": 3, "explain": "【正確答案】保險人於賠償後需經被保險人同意始得代位行 使被保險人對於第三人之請求權\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 195, "text": "保戶以網址取代紙本保單條款之規定，何者正確？", "options": ["保單條款是保險人與被保險人 共同遵守的約定", "保戶同意後不能再向保險人申請紙本保單", "保險人因此節 省的紙張印製成本需於附加費用反映", "以上皆是"], "answer": 2, "explain": "【正確答案】保險人因此節 省的紙張印製成本需於附加費用反映\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 196, "text": "以被保險人終身為期，不附生存條件之死亡保險契約，如保險費已付足二年以上而有 不交付時，保險人", "options": ["得以被保險人指定的方式處理", "得解除契約", "僅得減少 保險金額", "得終止契約"], "answer": 2, "explain": "【正確答案】僅得減少 保險金額\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 197, "text": "要保人終止保險契約，而保險費已付足一年以上者，保險人應於接到通知後一個月內 償付解約金，其金額不得低於要保人應得保單價值準備金之", "options": ["二分之一", "四分 之一", "四分之三", "三分之一"], "answer": 2, "explain": "【正確答案】四分之三\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 198, "text": "要保人中途請求終止契約，如果交付的保險費累積達有保單價值準備金，可以領回", "options": ["已繳全部保險費加計利息", "已積存責任準備金之金額", "由保險公司決 定可領之金額", "解約金表所列解約金額"], "answer": 3, "explain": "【正確答案】解約金表所列解約金額\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 199, "text": "要保人終止保險契約，繳費累積達有保單價值準備金，保險人應於接到通知後多久時 間內償付解約金", "options": ["十五天", "二個月", "一個月", "二十天"], "answer": 2, "explain": "【正確答案】一個月\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 200, "text": "要保人在保險契約有效期間內得申請減少保險金額，但不得低於最低承保金額，其減 少部分視為", "options": ["終止契約", "停效", "無效", "解除契約"], "answer": 0, "explain": "【正確答案】終止契約\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 201, "text": "保險契約法定終止事由有Ａ保險人破產時；Ｂ要保人任意終止時；Ｃ保險契約停效後 且已逾申請復效所訂期限；Ｄ保險標的物非因保險契約所載之事故而完全滅失時", "options": ["ＡＤ", "ＡＣＤ", "ＢＣ", "ＡＢＣ"], "answer": 0, "explain": "【正確答案】ＡＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 202, "text": "要保人行使契約撤銷權生效後，則", "options": ["契約自行使撤銷權當日期無效", "保險人得 扣除手續費", "保險人應加計利息退還保險費", "契約自始無效"], "answer": 3, "explain": "【正確答案】契約自始無效\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 203, "text": "契約撤銷權之規定適用於個人", "options": ["五年期以上", "二年期以上", "一年期", "十 年期以上 人身保險契約"], "answer": 1, "explain": "【正確答案】二年期以上\n\n掌握關鍵：「二年期以上」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 204, "text": "要保人行使契約撤銷權，撤銷效力自何時起生效？", "options": ["自要保人書面意思表示到達起", "自要保人親自送達當日零時起", "自要保人書面意思表示到達翌日零時起", "自要保人親自送達翌日起"], "answer": 2, "explain": "【正確答案】自要保人書面意思表示到達翌日零時起\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 205, "text": "甲以無體檢保件投保後，發覺保險內容非當初本意，故書面向保險人行使契約撤銷 權，其契約", "options": ["自書面到達時起自始無效", "自書面到達之翌日零時起自始無效", "因無體健保件，故甲不得主張撤銷權", "自書面到達之日零時起自始無效"], "answer": 1, "explain": "【正確答案】自書面到達之翌日零時起自始無效\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 206, "text": "要保人或被保險人對於保險人的書面詢問若有故意隱匿或因過失遺漏，或為不實之說 明時，足以變更或減少保險人對於 危險之估計者，保險人得", "options": ["停止契約", "終止 契約", "撤銷契約", "解除契約"], "answer": 3, "explain": "【正確答案】解除契約\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 207, "text": "下列何者非保險人依保險法第６４條解除契約之要件", "options": ["要保人隱匿或遺漏不為說 明，或為不實之說明", "須足以變 更或減少保險人對於危險之估計", "要保人之不 實告知，須在契約訂立時", "要保人之不實告知，須在保險事故發生時"], "answer": 3, "explain": "【正確答案】要保人之不實告知，須在保險事故發生時\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 208, "text": "因違反告知而得解除契約之權利，自保險公司知有解除原因經過", "options": ["二年", "一年", "一個月", "二個月 不行使 而消滅"], "answer": 2, "explain": "【正確答案】一個月\n\n誠信告知義務（保險法第64條）：要保人故意隱匿或不實告知，保險人得解除契約。知悉後1個月內行使，且不得超過契約成立後2年。解除後已發生事故不退費。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 209, "text": "要保人如違反保險法第６４條告知義務時，保險人得", "options": ["終止契約並按解約金列表給 付", "解除契約並按解約金列表給付", "解除契約並返還已繳保險費", "解除契約 且不返還保險費"], "answer": 3, "explain": "【正確答案】解除契約 且不返還保險費\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 210, "text": "「契約之解除」與「契約之終止」，對契約效力而言？", "options": ["解除為自始不存在，終止 為自終止之日起消滅", "解除為自解除之日起不存在，終止為自始不存在", "皆為 自始不存在", "自解除或終止之日起不存在"], "answer": 0, "explain": "【正確答案】解除為自始不存在，終止 為自終止之日起消滅\n\n掌握關鍵：「解除為自始不存在，終止 為自終止之日起消滅」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 211, "text": "下列何者正確？Ａ要保人得於收到保單翌日起十日內以書面檢同保單終止契約；Ｂ契 約撤銷效力自要保人書面意思表示到達保險人翌日零時起生效； Ｃ契約撤銷效力自要 保人郵寄郵戳當日零時生效；Ｄ撤銷生效前如發生保險事故，保險人仍應負保險責任", "options": ["ＡＣＤ", "ＡＢ", "ＢＤ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＢＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 212, "text": "有關保險契約之敘述，何者正確？", "options": ["當事人一方對於他方應通知之事項怠於通知 者，僅於故意造成，他方始得據為解約之原因", "非因要保人或被保險人之行為致危 險增加時，要保人或被保險人如未及時通知，對於保險人因此所受之損失，免負賠償 責任", "當事人一方違背特約條款時，即使危險已發生，他方仍得解除契約", "以 上皆是"], "answer": 2, "explain": "【正確答案】當事人一方違背特約條款時，即使危險已發生，他方仍得解除契約\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 213, "text": "何者為適用人身保險之法定無效事由？Ａ契約訂立時保險標的危險已發生或已消滅； Ｂ 由第三人訂立之死亡保險契 約，未經被保險人書面同意並約定保險金額；Ｃ被保 險人以不實年齡投保，其真實年齡已超過保險人所定保險年齡限度者；Ｄ要保人意圖 不當得利而為複保險", "options": ["ＡＢＣ", "ＢＣＤ", "ＡＢＣＤ", "ＡＢＤ"], "answer": 2, "explain": "【正確答案】ＡＢＣＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 214, "text": "依據保險法規定，要保人的權利包含Ａ變更失能及醫療保險金之受益人；Ｂ行使契約 撤銷權；Ｃ 申請契約變更；Ｄ申請保險單借款、聲明續期保險費自動墊繳", "options": ["ＢＣ Ｄ", "ＡＢＣＤ", "ＡＢＤ", "ＡＢＣ"], "answer": 0, "explain": "【正確答案】ＢＣ Ｄ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 215, "text": "依人壽保險單示範條款規定，約定以金融機構轉帳繳納保險費者，何種繳別須經催告 程序以計算寬限期間", "options": ["月繳", "季繳", "年繳", "以上皆是"], "answer": 3, "explain": "【正確答案】以上皆是\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 216, "text": "要保人在繳付相當於第一次保險費的金額時，保險契約", "options": ["即時成立", "等到保險 公司同意承保時才成立", "於契約成立後，效力溯自繳費日開始起算", "僅第２及 第３選項為是"], "answer": 3, "explain": "【正確答案】僅第２及 第３選項為是\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 217, "text": "月繳或季繳保險契約第二期以後分期保險費到期未交付，其寬限期間之起算日為", "options": ["保險費應繳日", "催告到達之翌日", "保險費應繳日之翌日", "催告到達之日"], "answer": 2, "explain": "【正確答案】保險費應繳日之翌日\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保單條款"}, {"id": 218, "text": "遞延年金保險第二期以後保險費如未依約繳付，不適用何種規定？Ａ寬限期間；Ｂ停 效；Ｃ變更為減額繳清保險", "options": ["ＡＢ", "ＡＢＣ", "ＡＣ", "ＢＣ"], "answer": 0, "explain": "【正確答案】ＡＢ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "年金保險"}, {"id": 219, "text": "關於寬限期間之敘述，選出錯誤之選項：Ａ逾寬限期間仍未繳付保險費者，契約至寬 限期間終了之翌日起終止效力；Ｂ 如在寬限期間發生保險事故，保險公司仍負給付責 任；Ｃ年繳或半年繳件，自保單所載之交付日期之翌日起30 日為寬限期間；Ｄ季繳或 月繳件，至催告到達日期之翌日起３０日為寬限期", "options": ["ＡＢＣＤ", "ＢＣＤ", "Ａ ＣＤ", "Ｃ Ｄ"], "answer": 2, "explain": "【正確答案】Ａ ＣＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保單條款"}, {"id": 220, "text": "依保險法規定，保險費超過寬限期間仍未交付，除約定得由保險公司自動墊繳者外， 保險單即停止效力，要保人於催告期間繳付保險費應", "options": ["依原約定式繳費", "以郵局劃 撥繳付", "依與保險公司約定之交付方法交付", "以網路連線交付"], "answer": 2, "explain": "【正確答案】依與保險公司約定之交付方法交付\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 221, "text": "有關自動墊繳的保險契約，給付保險金時", "options": ["應扣還墊繳保費", "應扣還墊繳保費 本息", "應扣還墊繳保費之利息", "無需扣還墊繳保費"], "answer": 1, "explain": "【正確答案】應扣還墊繳保費 本息\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保單條款"}, {"id": 222, "text": "關於保費自動墊繳，何者錯誤？", "options": ["要保人得於次一墊繳日前以書面或其他約定方式 通知保險人停止自動墊繳", "保 單價值準備金餘額不足墊繳１日之保費且經催告逾 ３０日仍未繳交，保單效力即行停止", "墊繳之本息應由保險人出具憑證", "自動 墊繳保費自寬限期終了日開始計息"], "answer": 3, "explain": "【正確答案】自動 墊繳保費自寬限期終了日開始計息\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 223, "text": "有關自動墊繳保險費利息之計算何者正確？", "options": ["自應繳日翌日起算", "按當時市場 利率計算", "自寬限期間終了翌日起算", "自寬限期間終了當日起算"], "answer": 2, "explain": "【正確答案】自寬限期間終了翌日起算\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保單條款"}, {"id": 224, "text": "依據人壽保險單示範條款之規定，人壽保險契約約定有自動墊繳者，應以當時的哪種 金額自動墊繳其應繳的保險費及利息", "options": ["保險金", "保單責任準備金", "投保金額", "保單價值準備金"], "answer": 3, "explain": "【正確答案】保單價值準備金\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 225, "text": "人壽保險單示範條款保險費自動墊繳之規定，下列何者為非？", "options": ["要保人自應償付利 息之日起未付利息已逾一年以上 且經催告仍未償付者，保險公司得將利息滾入墊繳保 險費再行計息", "自動墊繳係以墊繳當時之保單價值準備金扣除借款本息後之餘額辦 理", "自動墊繳經約定後仍可再行變更", "保單價值準備金不足墊繳一日之保險費 時，自翌日起 契約效力停止"], "answer": 3, "explain": "【正確答案】保單價值準備金不足墊繳一日之保險費 時，自翌日起 契約效力停止\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 226, "text": "要保人以保險單為質向保險人借款，借款到期應將本息償還保險公司，逾期未償之本 息超過保單價值準備金時，保險契約？", "options": ["無效", "立即失效", "經書面通知到達 後逾三十天仍未繳付時，保險契約之效力停止", "立即停效"], "answer": 3, "explain": "【正確答案】立即停效\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 227, "text": "保險公司接到要保人申請保險單借款，應於", "options": ["十五日內", "二個月內", "一個月 內", "十日內 貸給可借之金額"], "answer": 2, "explain": "【正確答案】一個月 內\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 228, "text": "有關人壽保險單示範條款復效通知之規定，何者有誤？", "options": ["通知須載明未於期限屆滿 前申請復效者，契約效力自期限 屆滿之日翌日上午零時起終止", "保險人以書面、 電子郵件、簡訊或其他約定方式擇一通知", "保險人於停效後至得 申請復效之期限 屆滿前１個月，通知要保人復效權利", "保險人依要保人最後留存之資料發出通知， 視為已完成通知"], "answer": 2, "explain": "【正確答案】保險人於停效後至得 申請復效之期限 屆滿前１個月，通知要保人復效權利\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 229, "text": "關於復效之敘述何者正確？Ａ要保人得在保單停效日起兩年之內申請復效；Ｂ停效期 間屆滿，保險人有終止契約之權； Ｃ經保險公司同意並清償所積欠之保險費後，保單 效力自當日零時起生效；Ｄ復效後保險費依停效時年齡之費率計算", "options": ["ＡＢＣＤ", "ＡＢ", "ＡＢＤ", "ＡＣＤ"], "answer": 1, "explain": "【正確答案】ＡＢ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 230, "text": "申請復效時，要保人可以在保險契約停止效力６個月內清償欠繳保險費扣除停效期間 的", "options": ["危險保險費", "儲蓄保險費", "附加保險費", "累積保險費 後之餘額及保 險契約約定之利息後，翌日上午零時起開始恢復其效力"], "answer": 0, "explain": "【正確答案】危險保險費\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 231, "text": "要保人於保單停止效力之日起６個月後申請復效，保險人得於要保人申請復效日起Ａ 日內要求提供可保證明，或於收到前項可保證明後Ｂ日內不為拒絕，視為同意復效。 請問Ａ、Ｂ應為", "options": ["Ａ為１０，Ｂ為３０", "Ａ為５，Ｂ為１０", "Ａ為５，Ｂ 為１５", "Ａ為１０，Ｂ為１５"], "answer": 2, "explain": "【正確答案】Ａ為５，Ｂ 為１５\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 232, "text": "要保人於保險契約停止效力６個月後申請復效時，應Ａ提供申請書；Ｂ繳清欠繳保險 費扣除停效期間的危險保險費； Ｃ提供被保人可保證明", "options": ["ＡＣ", "ＡＢ", "ＢＣ", "ＡＢＣ"], "answer": 3, "explain": "【正確答案】ＡＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 233, "text": "某甲曾於五年前投保死亡保險２００萬元，後該保險因未繳保費於去年一月停效，今 年十月又辦理復效完畢，某甲於復效兩個月後即跳海自殺身故，保險人對本案應如何 處理？", "options": ["不給付死亡保險金，但退還所繳保費", "完全不給付", "應照保險金 額理賠", "僅返還保單價值準備金"], "answer": 3, "explain": "【正確答案】僅返還保單價值準備金\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 234, "text": "發生保險事故以後發覺被保險人投保年齡不實而致短繳保險費，且其錯誤非可歸責於 保險公司者，受益人可得之金額為", "options": ["要保人不得要求補繳短繳保險費，僅按原繳 保險費比例減少保險金額", "原保險金額減掉應補繳之保費", "已繳保費加計利息 退還要保人", "保險人無息退還所有已繳保費"], "answer": 0, "explain": "【正確答案】要保人不得要求補繳短繳保險費，僅按原繳 保險費比例減少保險金額\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 235, "text": "依保險法規定，要保人故意不為複保險通知或意圖不當得利而為複保險時，其契約", "options": ["失效", "失其效力", "無效", "停效"], "answer": 2, "explain": "【正確答案】無效\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 236, "text": "依保險法規定，關於未來事項之特約條款，於未屆履行期前危險已發生，或其履行為 不可能，或在訂約地為不合法而未履行者，保險契約", "options": ["因之失效", "不因之而失 效", "自始無效", "以上皆非"], "answer": 1, "explain": "【正確答案】不因之而失 效\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "保險法條文"}, {"id": 237, "text": "有關團體保險之敘述，何者正確？", "options": ["契約涉訟時得排除小額訴訟管轄法院之適用", "要保人於保單屆滿日的２週 前與保險人議定續保條件，續保的始期以原契約屆 滿日的翌日零時為準", "所謂團體係指具有５人以上且以購買保險而組織之團體", "被保險人異動申請加保時，被保險人資格自異動發生日翌日零時起生效"], "answer": 1, "explain": "【正確答案】要保人於保單屆滿日的２週 前與保險人議定續保條件，續保的始期以原契約屆 滿日的翌日零時為準\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "特殊保險"}, {"id": 238, "text": "Ａ謀求員工福利；Ｂ為員工退休或退職提存準備金；Ｃ減輕雇主責任；Ｄ減免營利事 業所得稅；上述何者是企業投保團體人壽保險之主要目的？", "options": ["ＡＢＣ", "ＡＣＤ", "ＡＢＣＤ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＢＣＤ\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "法規", "topic": "所得稅保費扣除"}, {"id": 239, "text": "有關團體人壽保險，何者正確？", "options": ["要保人因所屬人員大批離職致參加團體保險人數 不足時，保險人得終止保險契約 並按日數比例退還未滿期保費", "因業務種類變更 致危險顯著增加時，要保人應於知悉後兩週內通知保險人", "保險 人接到危險增加 之通知３０日內，得根據危險增加的程度要求增加保費或終止契約", "以上皆是"], "answer": 3, "explain": "【正確答案】以上皆是\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 240, "text": "有關健康保險何者為是？Ａ保險費不得以訴訟方式請求交付；Ｂ利害關係人不得代要 保人交付保險費；Ｃ保險費到期未交付不適用寬限期間之規定；Ｄ由第三人訂立之契 約，未經被保險人書面同意並約定保險金額者契約無效", "options": ["ＡＣ", "ＣＤ", "ＡＢＤ", "Ｄ"], "answer": 3, "explain": "【正確答案】Ｄ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "健康保險"}, {"id": 241, "text": "下列何者不是健康保險給付事由：Ａ被保險人故意自殺；Ｂ被保險人住院健康檢查； Ｃ被保險人墮胎所致之死亡；Ｄ被保險人因生產住院", "options": ["ＡＣ", "ＡＢＣＤ", "Ａ ＢＣ", "Ｄ"], "answer": 2, "explain": "【正確答案】Ａ ＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "健康保險"}, {"id": 242, "text": "下列何者是健康保險給付事由？", "options": ["被保險人因墮胎所致疾病", "被保險人因生產 住院", "被保險人因墮胎所致死 亡", "被保險人故意自殺"], "answer": 1, "explain": "【正確答案】被保險人因生產 住院\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "健康保險"}, {"id": 243, "text": "下列何者不屬於住院醫療保險所稱醫院？Ａ健檢中心；Ｂ安養中心；Ｃ診所；Ｄ國術 館", "options": ["ＡＢＤ", "ＡＢＣＤ", "ＢＤ", "ＡＢ"], "answer": 1, "explain": "【正確答案】ＡＢＣＤ\n\n健康保險分類：①疾病保險（日額/實支實付）②醫療保險（手術/住院）③殘廢收入保險。採補償原則，最多補償實際損失（不可超額賠付）。", "subject": "人身保險", "topic": "健康保險"}, {"id": 244, "text": "實支實付型住院醫療費用保險金之給付內容，不包含下列哪項費用？", "options": ["管灌飲食以 外之膳食費", "來往醫院之救護車費", "超等住院之病房費差額", "特別護士之護 理費"], "answer": 3, "explain": "【正確答案】特別護士之護 理費\n\n健康保險分類：①疾病保險（日額/實支實付）②醫療保險（手術/住院）③殘廢收入保險。採補償原則，最多補償實際損失（不可超額賠付）。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 245, "text": "下列有關實支實付型住院醫療費用保險之陳述何者正確？Ａ具有損害填補的原則；Ｂ 只要是住院醫療相關費用皆可給付；Ｃ對於全民健保核付的費用不給付；Ｄ對於保險 對象自行負擔之一定項目費用給付", "options": ["ＡＤ", "ＡＣＤ", "ＡＢＣＤ", "Ａ Ｂ"], "answer": 1, "explain": "【正確答案】ＡＣＤ\n\n健康保險分類：①疾病保險（日額/實支實付）②醫療保險（手術/住院）③殘廢收入保險。採補償原則，最多補償實際損失（不可超額賠付）。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 246, "text": "下列何者非屬實支實付醫療險給付範圍？", "options": ["超等住院之病房費差額", "救護車", "特別護士", "管灌飲食以之膳食費"], "answer": 2, "explain": "【正確答案】特別護士\n\n健康保險分類：①疾病保險（日額/實支實付）②醫療保險（手術/住院）③殘廢收入保險。採補償原則，最多補償實際損失（不可超額賠付）。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 247, "text": "被保險人投保健康保險後，因疾病致成失能時，保險人", "options": ["酌給慰問金", "退還所 繳保費", "應給付保險金", "不給付保險金"], "answer": 2, "explain": "【正確答案】應給付保險金\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "健康保險"}, {"id": 248, "text": "有關住院醫療費用保險何者錯誤？", "options": ["如有保證續保條款時，保險人不得拒絕續保及 不得以續保當時之費率規定重新 計算保費", "被保險人於契約有效期間屆滿出院， 因同一疾病出院後１４日內於同一醫院再住院，保險人就再住院部分不給付保險金", "保戶如前往非屬健保特約院所就醫，保險人於限額內得按實際支出費用不低於６ ５％給付", "以 上皆非"], "answer": 0, "explain": "【正確答案】如有保證續保條款時，保險人不得拒絕續保及 不得以續保當時之費率規定重新 計算保費\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "健康保險"}, {"id": 249, "text": "住院醫療費用保險示範條款，住院係指Ａ被保險人經醫師診斷其疾病必須入院 ；Ｂ被 保險人經醫師診斷其傷害必須入院 ；Ｃ須正式辦理住院手續並確實在醫院接受診療； Ｄ可於契約條款明訂包含精神衛生法第３５條之日間留院", "options": ["Ａ ＢＣＤ", "ＡＢＣ", "ＡＣＤ", "ＡＣ"], "answer": 0, "explain": "【正確答案】Ａ ＢＣＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "健康保險"}, {"id": 250, "text": "債權人未經債務人書面承認而逕以債務人為被保險人訂立之年金保險契約", "options": ["停效", "無效", "有效", "視情形 而定"], "answer": 2, "explain": "【正確答案】有效\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 251, "text": "有關年金的敘述，下列何者正確？ Ａ年金可分為社會型及投資型年金；Ｂ年金保險契 約必須記載給付方法；Ｃ未滿15 歳之未成年者不能投保年金保險；Ｄ受益人不得為被 保險人本人", "options": ["ＡＢＣ", "ＢＣ", "ＡＢ", "Ｂ"], "answer": 3, "explain": "【正確答案】Ｂ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 252, "text": "年金保險中，不論被保險人生存與否，保險公司保證給付金額的年金保險稱為", "options": ["遞 延年金保險", "即期年金保險", "保證金額年金保險", "保證期間年金保險"], "answer": 2, "explain": "【正確答案】保證金額年金保險\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 253, "text": "利率變動型年金保險甲型為固定年金金額，在年金給付開始日，保險公司以當時所累 積之年金保單價值準備金，依據當時", "options": ["十年期公債殖利率", "預定利率", "宣告 利率", "定存利率 及年金生命表計算可以領取之年金金額"], "answer": 1, "explain": "【正確答案】預定利率\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "生命表費率"}, {"id": 254, "text": "利率變動型年金保險乙型，其給付期間第２年度開始每年可領取之年金金額係以前 1 年度可領取之年金金額乘以當年度", "options": ["變動係數而得之", "調整係數而得之", "風險係數而得之", "浮動係數而得之"], "answer": 1, "explain": "【正確答案】調整係數而得之\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "年金保險"}, {"id": 255, "text": "有關年金保險敍述，何者為是？Ａ保險費不得以訴訟方式請求交付；Ｂ利害關係人得 代要保人交付保險費；Ｃ保險費到期未交付不適用寬限期間之規定；Ｄ由第三人訂立 之契約，未經被保險人書面同意並約定保險金額者契約無效", "options": ["ＢＣＤ", "ＡＢＣ", "ＡＢＤ", "ＡＢ"], "answer": 1, "explain": "【正確答案】ＡＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 256, "text": "有關利率變動型年金之敘述何者為非？", "options": ["乙型於給付期間通常無紅利給付", "若 採分紅方式設計應明訂計算方式及給付方式", "於累積期間不論甲型或乙型均無紅利 給付", "甲型於給付期間僅採不分紅方式設計"], "answer": 3, "explain": "【正確答案】甲型於給付期間僅採不分紅方式設計\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "人身保險", "topic": "特殊保險"}, {"id": 257, "text": "有關年金保險敍述，者為是？Ａ得由本人或第三人訂立之；Ｂ未經被保險人書面同意 並約定保險金額者契約無效；Ｃ利 害關係人得代要保人交付保險費；Ｄ保險人對於保 險費得以訴訟請求交付", "options": ["ＢＣＤ", "ＡＣ", "ＡＢＤ", "ＡＢ"], "answer": 1, "explain": "【正確答案】ＡＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 258, "text": "下列何者正確Ａ含保證給付的年金保險，受益人得申請貼現給付；Ｂ遞延年金保險在 年金給付開始前如有保單借款，給付開始時應就當時年金保單價值準備金扣除保單借 款本金計算年金金額；Ｃ保險人為避免以不實醫療證明詐領保險金， 得經要保人同意 調閱被保人就醫資料；Ｄ住院醫療費用保險期間以一年為原則", "options": ["ＡＢＣＤ", "Ａ ＢＣ", "ＡＤ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 259, "text": "保險人就即期年金應負的保險責任自何時開始？", "options": ["保險人同意承保且送達保單", "要保人交付保費", "保險人同意承保", "保險人同意承保且要保人繳付全部保 費"], "answer": 3, "explain": "【正確答案】保險人同意承保且要保人繳付全部保 費\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 260, "text": "有關傷害保險契約，下列敘述何者正確？", "options": ["僅得以自己為被保險人投保", "以職 業為危險估計的主要依據", "一 律採「追溯生效」", "契約效力自保單所載翌日零 時起生效"], "answer": 1, "explain": "【正確答案】以職 業為危險估計的主要依據\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 261, "text": "傷害保險費率係按被保險人：Ａ薪資；Ｂ性別；Ｃ職業；Ｄ工作環境；之不同作為主 要的依據", "options": ["ＢＣＤ", "ＣＤ", "ＡＢＣ", "ＡＢＣＤ"], "answer": 1, "explain": "【正確答案】ＣＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 262, "text": "傷害保險的被保險人從事下列何種活動，致成死亡或傷害時，除契約另有約定外，保 險公司不負給付保險金之責？Ａ滑翔翼；Ｂ汽機車競賽或表演；Ｃ跆拳道；Ｄ馬術", "options": ["ＡＢ", "ＡＢＣＤ", "ＢＣ", "ＢＣＤ"], "answer": 3, "explain": "【正確答案】ＢＣＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 263, "text": "傷害保險被保險人如失蹤應如何處理？", "options": ["保險人先行給付保險金後發現被保險人生 還，要保人或受益人應歸還保險 人已領之退還已繳保費或身故保險金或喪葬費用保險 金", "要保人或受益人能提出證明足認被保險人極可能因承保事故致死者，保險人應 先行給付保險金", "依戶籍資料所載失蹤日起滿一年仍未尋獲，保險人應先行給付保 險金", "以上皆是"], "answer": 3, "explain": "【正確答案】以上皆是\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 264, "text": "有關傷害醫療保險金之敘述，何者為非？", "options": ["實支實付型之保險給付，保險公司僅就 符合意外傷害事故，且於登記合格的醫院或診所治療之實際醫療費用，超過全民健康 保險部分給付", "保險公司基於審核保險金需要，得對被保險人身體予以檢驗，另得 徵詢其他醫師專業意見，所生費用由保險公司負擔", "日額型每次傷害給付日數不得 超過１８０ 日", "一般以附約方式處理，分成實支實付與日額型２種"], "answer": 2, "explain": "【正確答案】日額型每次傷害給付日數不得 超過１８０ 日\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "健康保險"}, {"id": 265, "text": "下列何者為是？Ａ傷害保險之保險費不得以訴訟請求交付；Ｂ利害關係人不得代要保 人交付保險費；Ｃ傷害保險之保險費到期未交付不適用寬限期間之規定；Ｄ由第三人 訂立之傷害保險契約，未經被保險人書面同意並約保險金額者契約無效", "options": ["ＡＢＣ Ｄ", "ＡＣ", "ＡＤ", "Ｄ"], "answer": 3, "explain": "【正確答案】Ｄ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 266, "text": "陳光華的父親曾於生前投保傷害保險貳百萬元，並以陳光華為受益人，但陳光華一直 到父親因疾病死亡後二年，始知父親有購買此類保險，此時保險公司", "options": ["仍應如額給 付", "陳光華須證明確係不知其父投保事實才延遲申請，否則保險 公司仍得拒絕給 付", "僅給付保單價值準備金", "以上皆非"], "answer": 3, "explain": "【正確答案】以上皆非\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 267, "text": "傷害保險失能給付保險金，按失能程度原分為１１級７９項，經參考勞工保險及強制 車險失能給付標準新增何項為第８０項？", "options": ["鼻部缺損，致其機能永久遺存顯著障害", "鼻未缺損，而鼻機能暫時喪失遺存顯著障礙", "鼻部缺損， 致其機能暫時喪失", "鼻未缺損，而鼻機能永久遺存顯著障害"], "answer": 3, "explain": "【正確答案】鼻未缺損，而鼻機能永久遺存顯著障害\n\n傷害保險（意外險）三要件：①外來性（外力造成）②突發性（非預期）③非疾病性（非因疾病）。職業類別影響費率，分1~6類，職業越危險費率越高。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 268, "text": "失能保險金不論被保險人失能次數及程度如何，受益人得請領之總金額皆不得超過", "options": ["保單價值準備金", "責任準備金", "所繳保險費總額", "保險金額"], "answer": 3, "explain": "【正確答案】保險金額\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 269, "text": "下列何者非屬於傷害保險的除外責任？", "options": ["要保人、被保險人的故意行為", "被保 險人飲酒後駕、騎車，其吐氣或血液所含酒精成份超過道路交通法令規定標準者", "被保險人犯罪行為", "以上皆非"], "answer": 3, "explain": "【正確答案】以上皆非\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 270, "text": "傷害保險與人壽保險有哪些不同？Ａ危險估計之依據；Ｂ契約生效日；Ｃ承保之危險 事故；Ｄ保險期間長短", "options": ["ＡＣ", "ＢＣＤ", "ＡＢＣＤ", "ABC"], "answer": 2, "explain": "【正確答案】ＡＢＣＤ\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 271, "text": "下列何者是旅行平安險與傷害險的不同：Ａ保險期間可否因特殊事故延長；Ｂ承保時 間計算之標準；Ｃ除外責任項目； Ｄ承保事故；", "options": ["ＣＤ", "ＡＣＤ", "ＡＣ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＣ\n\n本題考察多項判斷，正確選項為「ＡＣ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 272, "text": "旅行平安保險單示範條款有延長保險期間之規定，其要件不包括", "options": ["被保險人須為乘 客", "該交通工具因故延遲抵達為被保險人所能控制", "該交通工具之預定抵達時 刻在保險契約期間內", "搭乘之交通工具須領有載客執照"], "answer": 1, "explain": "【正確答案】該交通工具因故延遲抵達為被保險人所能控制\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 273, "text": "投保旅行平安保險時，若僅有要保人知保險事故已發生者，保險公司", "options": ["依事故比例 退還部分保險費", "加計利息退還保險費", "僅退還所收保險費", "不退還所收保 險費"], "answer": 3, "explain": "【正確答案】不退還所收保 險費\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 274, "text": "下列何者為是？ Ａ人壽保險之保險費可以訴訟方法請求交付；Ｂ利害關係人得代要保 人交付保險費；Ｃ受益人經指定後，要保人對其保險利益喪失處分權；Ｄ受益人得於 部分條件下將其利益轉讓他人", "options": ["ＢＤ", "ＢＣＤ", "ＡＢＣＤ", "Ｂ"], "answer": 0, "explain": "【正確答案】ＢＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險基本原則"}, {"id": 275, "text": "以下何者為人壽保險單示範條款載明之除外責任？", "options": ["要保人故意致被保險人於死", "被保險人從事特技表演等競賽活動所致事故", "被保險人因飲酒後駕車所致事 故", "被保險人心神喪失所致事故"], "answer": 0, "explain": "【正確答案】要保人故意致被保險人於死\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 276, "text": "有關傷害保險受益人申請失能保險金，下列何者錯誤？", "options": ["保險人得自付費用另徵詢 其他醫師之醫學專業意見", "受益人應檢具被保險人除戶戶籍謄本", "保險人得 經受益人同意調閱被保險人就醫相關資料", "保險人基於審核保險金需要得對被保 險人身體予以檢驗"], "answer": 1, "explain": "【正確答案】受益人應檢具被保險人除戶戶籍謄本\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 277, "text": "下列何者非屬團體保險條款規定受益人請領身故保險金時應檢具之文件？", "options": ["被保險 人死亡證明書及保險金申請書", "受益人身分證明", "被保險人之除戶戶籍謄本", "保險金申請書、受益人之戶籍謄本及印鑑證明"], "answer": 3, "explain": "【正確答案】保險金申請書、受益人之戶籍謄本及印鑑證明\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 278, "text": "金管會列舉保險業常見之低風險交易情境，如：投保 Ａ微型保險；Ｂ具有保單價值準 備金之保險商品；Ｃ團體年金保險；Ｄ客戶無高洗錢及資恐風險之表徵，年繳保費未 逾三萬元。以上那些情境，保險公司得進行簡化審查及持續監控措施？", "options": ["ＡＢＣ", "ＡＣ", "ＡＢＣＤ", "ＡＣＤ"], "answer": 3, "explain": "【正確答案】ＡＣＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "法規", "topic": "主管機關監理"}, {"id": 279, "text": "附保證期間之年金保險中，被保險人於保險契約年金保證期間內尚未領取之年金金額 稱為", "options": ["生存年金金額", "年金金額", "年金保額", "未支領年金餘額"], "answer": 3, "explain": "【正確答案】未支領年金餘額\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "年金保險"}, {"id": 280, "text": "傷害保險中被保險人因同一意外傷害事故致成失能等級表所列二項以上失能程度者， 何者有誤？", "options": ["意外事故合併以前的失能可領取較嚴重項目失能保險金者，按較嚴重項 目給付", "保險人應給付失能程度較嚴重者，且最高以保險金額為限", "若二項失能項 目皆屬同一手但失能等級不同時，給付較嚴重項目失能保險金", "若二項失能項目屬於 同一手時，僅給付一項失能保險金"], "answer": 1, "explain": "【正確答案】保險人應給付失能程度較嚴重者，且最高以保險金額為限\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 281, "text": "傷害保險因同一意外傷害事故，致成失能後身故時，", "options": ["身故保險金最高以保險金額 為限，失能保險金沒有限制", "失能及身故保險金的給付合計最高以保險金額為限", "失能保險金最高以保險金額為限，身故保險金沒有限制", "失能或身故保險金 的給付分別最高以保險金額為限"], "answer": 1, "explain": "【正確答案】失能及身故保險金的給付合計最高以保險金額為限\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 282, "text": "有關長期照顧保險，下列何者錯誤？", "options": ["被保險人身故時保險金尚有未完全給付者， 以被保險人法定繼承人為受益人", "被保險人身故時契約效力即行終止", "各項保 險金受益人皆為被保險人，保險人不受理指定或變更", "要保人於契約有效期間不得 申請減少保險金額"], "answer": 3, "explain": "【正確答案】要保人於契約有效期間不得 申請減少保險金額\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 283, "text": "主管機關訂定示範條款目的為 Ａ確立保險商品在社會上的信譽；Ｂ減少條款文字或解 釋上的分歧；Ｃ授權訂定條款的彈性提高市場競爭力；Ｄ使保險業販售同商品時有統 一作業處理方式", "options": ["ＡＣ", "ＡＢＣ", "ＡＢＤ", "ＢＤ"], "answer": 2, "explain": "【正確答案】ＡＢＤ\n\n本題考察多項判斷，正確選項為「ＡＢＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "法規", "topic": "主管機關監理"}, {"id": 284, "text": "有關個人綜合所得稅之課徵何者正確Ａ就個人綜合所得總額計徵之；Ｂ有中華民國來 源所得之個人，應就其中華民國來源之所得，課徵綜合所得稅；Ｃ非中華民國境內居 住之個人一律免納所得稅", "options": ["ＡＢＣ", "ＡＢ", "Ｂ", "ＢＣ"], "answer": 2, "explain": "【正確答案】Ｂ\n\n本題考察多項判斷，正確選項為「Ｂ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "法規", "topic": "所得稅保費扣除"}, {"id": 285, "text": "何者正確？ Ａ凡向產險公司投保之保費皆不得列舉扣除；Ｂ現行長期照顧特別扣除額 為每人每年１２萬元；Ｃ團體投資型保險每人每月保費２千元以內免視為被保險人薪 資所得；Ｄ團體保單經驗分紅退費之給付免納所得稅", "options": ["ＡＢＣ Ｄ", "ＡＤ", "ＢＤ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＢＤ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "遺產稅贈與稅"}, {"id": 286, "text": "共同居住之家人投保人壽保險，全年所繳保險費：阿公二萬元、父母共二萬四千元、 未成年長子二萬五千元、未成年次 子一萬二千元；若全家合併申報綜合所得稅且採用 列舉扣除法，則一年可扣除的保險費為", "options": ["十萬四千元", "八萬元", "十萬五千 元", "八萬一千元【解析】2 萬+2.4 萬+2.4 萬+1.2 萬=8 萬"], "answer": 1, "explain": "【正確答案】八萬元\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "法規", "topic": "所得稅保費扣除"}, {"id": 287, "text": "某甲一家投保人壽保險，全年所繳保費：某甲及其配偶合計為二萬四千元、成年長子 二萬五千元、未成年次子一萬二千 元：某甲於申報綜合所得稅時採用列舉扣除法，則 一年可扣除的保險費為", "options": ["八萬元", "十一萬七千元", "六萬元", "八萬四千 元。【解析】2.4 萬+2.4 萬+1.2 萬=6 萬"], "answer": 2, "explain": "【正確答案】六萬元\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "法規", "topic": "所得稅保費扣除"}, {"id": 288, "text": "有關贈與稅，何者陳述錯誤？", "options": ["納稅義務人為贈與人", "免稅額之計算係指一年 之贈與", "一年如有二次以上之 贈與，不得分別計算", "免稅額為１２３萬元"], "answer": 3, "explain": "【正確答案】免稅額為１２３萬元\n\n本題考察特定數字規定，請記住：免稅額為１２３萬元。數字型考題建議製作記憶表格，依類別整理（天數/金額/比率/年限）。", "subject": "法規", "topic": "遺產稅贈與稅"}, {"id": 289, "text": "下列何者正確？", "options": ["配偶相互贈與之財產應計入贈與總額", "贈與稅之納稅義務人 死亡時，贈與稅尚未核課者，無須繳納贈與稅", "本國國民就其中華民國境外之財產 為贈與，應課徵贈與稅", "以上皆非"], "answer": 2, "explain": "【正確答案】本國國民就其中華民國境外之財產 為贈與，應課徵贈與稅\n\n正確選項為「本國國民就其中華民國境外之財產 為贈與，應課徵贈與稅」，其餘選項敘述有誤或不完整。建議對照保險法規確認每個選項的正確性。", "subject": "法規", "topic": "遺產稅贈與稅"}, {"id": 290, "text": "老王去年度共有３次贈與，贈與其子１棟房屋２０００萬元，贈與其妻轎車２００萬 元，贈與其女出嫁禮金８０萬元， 則老王今年度課稅贈與總額為", "options": ["２０００萬", "２２００萬", "２０８０萬", "２２８０萬"], "answer": 0, "explain": "【正確答案】２０００萬\n\n本題考察特定數字規定，請記住：２０００萬。數字型考題建議製作記憶表格，依類別整理（天數/金額/比率/年限）。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 291, "text": "要保人甲與被保險人乙之人壽保險，若變更甲為丙，何者正確？Ａ有保單價值準備金 且超過贈與免稅額，甲須申報贈與稅；Ｂ有保單價值準備金且超過贈與免稅額，丙須 申報贈與稅；Ｃ丙非同時為受益人者，則受益人須將保險給付列入基本所得；Ｄ丙同 時為受益人者，須將保險給付列入當年度基本所得額", "options": ["ＢＣ", "ＡＤ", "ＢＤ", "ＡＣ"], "answer": 3, "explain": "【正確答案】ＡＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "遺產稅贈與稅"}, {"id": 292, "text": "贈與人在一年內贈與他人之財產總值超過贈與稅免稅額時，應於超過免稅額之贈與行 為發生後", "options": ["二個月內", "十 日內", "三十日內", "二十日內 ，向贈與人戶籍 所在地之稅捐機關申報"], "answer": 2, "explain": "【正確答案】三十日內\n\n掌握關鍵：「三十日內」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "遺產稅贈與稅"}, {"id": 293, "text": "按遺產及贈與稅法規定，約定被繼承人死亡時給付其所指定受益人之：Ａ人壽保險之 死亡保險金；Ｂ勞工保險之死亡保 險金；Ｃ軍公教保險之死亡保險金；Ｄ撫恤金；以 上何者不計入遺產總額？", "options": ["ＡＢＣＤ", "ＢＤ", "Ｄ", "Ａ ＢＣ"], "answer": 3, "explain": "【正確答案】Ａ ＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 294, "text": "Ａ滿期保險金；Ｂ醫療保險金；Ｃ死亡保險金；Ｄ人壽保險單之紅利；上述何種保險 給付在一定條件下免稅", "options": ["ＡＢ ＣＤ", "ＡＢＣ", "ＢＣＤ", "ＡＣＤ"], "answer": 0, "explain": "【正確答案】ＡＢ ＣＤ\n\n生死合險（養老保險）：兼具死亡保障與生存給付，期滿生存給付保險金，期間死亡亦給付，常見為儲蓄險。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 295, "text": "下列敘述何者錯誤？", "options": ["凡屬人身保險之保險給付，在一定條件下不論其項目名稱均 得依法免納所得稅", "軍公教保 險之保險給付免納所得稅", "人壽保險之解約金屬 人身保險之保險給付範圍", "壽險滿期保險金在一定條件得享有免稅優惠"], "answer": 2, "explain": "【正確答案】人壽保險之解約金屬 人身保險之保險給付範圍\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "法規", "topic": "所得稅保費扣除"}, {"id": 296, "text": "下列何者正確？Ａ滿期保險給付所含之利息所得，受益人享有免納利息所得之稅法優 惠；Ｂ勞工退休金請領勞退帳戶退休金時，屬退職所得須計入個人綜所稅總額；Ｃ醫 療費用支出曾受保險給付，得再以醫療費扣除額申報；Ｄ死亡保險金指定法定繼承 人，各該繼承人領取保險金後須繳納遺產稅", "options": ["ＡＢＣ", "ＡＢＤ", "ＢＤ", "ＡＢ"], "answer": 3, "explain": "【正確答案】ＡＢ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 297, "text": "贈與稅納稅義務人為", "options": ["受贈人", "贈與人", "遺贈人", "以上皆可"], "answer": 1, "explain": "【正確答案】贈與人\n\n掌握關鍵：「贈與人」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "遺產稅贈與稅"}, {"id": 298, "text": "有關贈與稅敘述，何者正確?", "options": ["贈與人逾繳納期限尚未繳納且在中華民國境內有財產 可供執行者,以受贈人為納稅義務", "贈與人行蹤不明者,仍以贈與人為納稅義務人", "贈與稅未繳清前得先行分割遺產,交付遺贈或辦理移轉登記", "贈與人死亡時贈與稅尚 未核課者,以受贈人為納稅義務人"], "answer": 3, "explain": "【正確答案】贈與人死亡時贈與稅尚 未核課者,以受贈人為納稅義務人\n\n正確選項為「贈與人死亡時贈與稅尚 未核課者,以受贈人為納稅義務人」，其餘選項敘述有誤或不完整。建議對照保險法規確認每個選項的正確性。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 299, "text": "依現行規定遺產及贈與稅法規定，遺產稅稅率最高課稅級距為？", "options": ["１０％", "１ ５％", "２０％", "３０％"], "answer": 2, "explain": "【正確答案】２０％\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 300, "text": "遺產稅及贈與稅納稅義務人，應於稽徵機關送達核定納稅通知書之日起", "options": ["三個月", "二個月", "一個月", "半年 內，繳清應納稅款"], "answer": 1, "explain": "【正確答案】二個月\n\n掌握關鍵：「二個月」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 301, "text": "依現行遺產及贈與稅法規定，遺產總額包括被繼承人死亡前幾年內贈與配偶及子女、 父母、兄弟姊妹、祖父母等法定繼 承人及上述法定繼承人配偶的財產", "options": ["二年", "六年", "五年", "一年"], "answer": 0, "explain": "【正確答案】二年\n\n掌握關鍵：「二年」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 302, "text": "被繼承人死亡遺有財產者，納稅義務人應於被繼承人死亡之日起幾個月內，向戶籍所 在地主管稽徵機關依遺產及贈與稅 法規定辦理遺產稅申報", "options": ["六個月", "一個月", "三個月", "二個月"], "answer": 0, "explain": "【正確答案】六個月\n\n掌握關鍵：「六個月」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 303, "text": "遺囑人不得違反侵害繼承人之何種規定範圍內，始得以遺囑自由處分遺產", "options": ["特留分", "應繼分", "保留分", "遺贈分"], "answer": 0, "explain": "【正確答案】特留分\n\n掌握關鍵：「特留分」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 304, "text": "有關民法各順位繼承人之特留分敘述，何者有誤？", "options": ["父母的特留分是應繼分的二分 之一", "兄弟姊妹的特留分是應繼分的二分之一", "配偶的特留分是應繼分的二分 之一", "祖父母的特留分是應繼分的三分之一"], "answer": 1, "explain": "【正確答案】兄弟姊妹的特留分是應繼分的二分之一\n\n掌握關鍵：「兄弟姊妹的特留分是應繼分的二分之一」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 305, "text": "某甲身故後留有死亡保險金１０００萬元，因未指定身故受益人，若某甲沒有其他遺 產，但立有遺囑將保險金全部歸配 偶所有，在僅有配偶和父母之情形下，則該保險 金，某甲父親可領到", "options": ["０萬", "１２５萬", "２５０萬", "２５萬 元 【解析】因立遺囑，故計算父親特留分，1000 萬*1/2=500 萬(應繼分) 父母各 500/2=250 萬，250 萬*1/2=125 萬"], "answer": 1, "explain": "【正確答案】１２５萬\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 306, "text": "甲僅遺有子女乙與丙，甲死後遺留財產５００萬元，甲於遺囑中表示將其遺產６０％ 全數捐給慈善機構，僅留４０％由 乙、丙平均分配，則依民法規定乙可繼承多少金額", "options": ["２５０萬", "５００萬", "１２５萬", "１００萬 元 【解析】因立遺囑故計算特留分，乙丙應繼分為各500/2=250 萬，子女特留分為應繼 分1/2，250 萬*=125 萬元"], "answer": 2, "explain": "【正確答案】１２５萬\n\n本題考察特定數字規定，請記住：１２５萬。數字型考題建議製作記憶表格，依類別整理（天數/金額/比率/年限）。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 307, "text": "依遺產及贈與稅法第十七條規定，被繼承人遺有受其扶養之兄弟姊妹者，每人得自遺 產總額中扣除多少金額，免徵遺產稅", "options": ["５０萬元", "１００萬元", "４０萬元", "４５萬元"], "answer": 2, "explain": "【正確答案】４０萬元\n\n本題考察特定數字規定，請記住：４０萬元。數字型考題建議製作記憶表格，依類別整理（天數/金額/比率/年限）。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 308, "text": "死亡保險金一千萬且未指定身故受益人，被保險人遺有配偶、子女兩名和父母，則被 保險人之父親可分配到", "options": ["２００萬", "５００萬", "０元", "１２５萬 元 。 【解析】有第一順位子女在，則父母無法繼承保險金，故0 萬元"], "answer": 2, "explain": "【正確答案】０元\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 309, "text": "依遺產及贈與稅法第１２－１條規定，被繼承人遺有父母者，父母每人扣除額為", "options": ["100 萬元", "138 萬元", "400 萬元", "445 萬元"], "answer": 1, "explain": "【正確答案】138 萬元\n\n掌握關鍵：「138 萬元」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 310, "text": "依遺產及贈與稅法第１７條規定，成年子女之扣除額應為", "options": ["１００", "１２３", "４０", "５０ 萬元"], "answer": 2, "explain": "【正確答案】４０\n\n掌握關鍵：「４０」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 311, "text": "依遺產及贈與稅法第１７條規定，被繼承人僅遺有成年子女１名及母親，合計扣除額 為", "options": ["２２３萬", "１８０萬", "１４０萬", "１７３萬"], "answer": 2, "explain": "【正確答案】１４０萬\n\n本題考察特定數字規定，請記住：１４０萬。數字型考題建議製作記憶表格，依類別整理（天數/金額/比率/年限）。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 312, "text": "依遺產及贈與稅法第１７條規定，祖父母之扣除額為", "options": ["５０萬", "１００萬", "４５萬", "４０萬 元"], "answer": 3, "explain": "【正確答案】４０萬 元\n\n本題考察特定數字規定，請記住：４０萬 元。數字型考題建議製作記憶表格，依類別整理（天數/金額/比率/年限）。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 313, "text": "依遺產及贈與稅法第１７條規定，配偶之扣除額應為", "options": ["３５０", "４９３", "３００", "４００萬元"], "answer": 3, "explain": "【正確答案】４００萬元\n\n本題考察特定數字規定，請記住：４００萬元。數字型考題建議製作記憶表格，依類別整理（天數/金額/比率/年限）。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 314, "text": "依遺產及贈與稅法第17 條規定，被繼承人遺有受其撫養之兄弟姊妹者，每人得自遺產 總額中扣除多少金額，免徵遺產稅", "options": ["50 萬元", "100 萬元", "40 萬元", "45 萬元"], "answer": 2, "explain": "【正確答案】40 萬元\n\n掌握關鍵：「40 萬元」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 315, "text": "依遺產及贈與稅法第１７條規定，遺產稅扣除項目何者有誤？", "options": ["配偶之扣除額為４ ４０萬元", "父母每人可扣除１００萬元", "被繼承人之喪葬費用可扣除１００萬 元", "被繼承人死亡前，依法應納之各項稅捐、罰鍰、罰金及具有確實證明之未償債 務可全額扣除"], "answer": 0, "explain": "【正確答案】配偶之扣除額為４ ４０萬元\n\n本題考察特定數字規定，請記住：配偶之扣除額為４ ４０萬元。數字型考題建議製作記憶表格，依類別整理（天數/金額/比率/年限）。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 316, "text": "下列何者為是？Ａ遺產及贈與稅法第１７條規定被繼承人遺有父母者，父母每人得自 遺產總額中扣除１００萬元； Ｂ現行公告之喪葬費用扣除額為138 萬元； Ｃ財政部 每年１２月底前應公告次年發生之繼承或贈與案件所應適用之各項金額", "options": ["ＡＢＣ", "Ｃ", "Ｂ", "ＢＣ"], "answer": 0, "explain": "【正確答案】ＡＢＣ\n\n本題考察多項判斷，正確選項為「ＡＢＣ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 317, "text": "張三（被繼承人）育有４子，其長子較張三早死，當張三死亡可由其孫Ａ、Ｂ代位其 父繼承對張三之應繼分。如張三遺留保險金１０００萬元，則其孫各可代位繼承", "options": ["２５０萬", "１００萬", "１２５萬", "３００萬"], "answer": 2, "explain": "【正確答案】１２５萬\n\n保險金請求權時效：依保險法第65條，保險金請求權自得請求之日起2年不行使而消滅（時效消滅）。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 318, "text": "依現行遺產及贈與稅法第１２－１條規定，被繼承人僅遺有配偶及成年子女１名，則 該遺產之扣除額應為", "options": ["200 萬", "440 萬", "445 萬", "609 萬 元"], "answer": 3, "explain": "【正確答案】609 萬 元\n\n掌握關鍵：「609 萬 元」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 319, "text": "被保險人之法定繼承人可以拋棄繼承被保險人之債務，但應於知悉其得繼承之時起多 久內以書面向法院表示？", "options": ["二個月", "一個月", "三個月", "六個月"], "answer": 2, "explain": "【正確答案】三個月\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 320, "text": "有關拋棄繼承何者錯誤？", "options": ["拋棄繼承無須開具遺產清冊但需書面呈報法院", "屬 單獨行為需經法院同意", "繼承人中一人拋棄繼承，其應繼分歸屬於其他繼承人", "遺屬在知悉得繼承之時起３個月內表示，且不得申請展延"], "answer": 1, "explain": "【正確答案（即錯誤的選項）】屬 單獨行為需經法院同意\n\n本題為「反向題」，答案是錯誤的敘述。其他三個選項均為正確說法，請特別留意此類題型的問法。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 321, "text": "甲生前投保２０萬元之死亡保險未指定受益人，但另有債務２５萬元，假設甲死後除 了保險金外沒有其他財產，而僅有 一子乙，又乙未向法院表示拋棄繼承，則乙", "options": ["繼承保險金但無須償還任何債務", "以保險金償還債務後仍餘債務５萬元須償還", "僅就繼承之保險金償還債務即可", "不繼承保險金亦無須繼承債務 【解析】未表示拋棄繼承，則採限定繼承，以所繼承保險金償還債務即可"], "answer": 2, "explain": "【正確答案】僅就繼承之保險金償還債務即可\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 322, "text": "有關繼承的敘述何者正確？", "options": ["繼父母與繼子女間為直系血親相互有繼承權", "父 死母再嫁者，子女對其母喪失繼承權", "男子入贅妻家後喪失對父母之繼承權", "非婚生子女經準正後對其生父有繼承權"], "answer": 3, "explain": "【正確答案】非婚生子女經準正後對其生父有繼承權\n\n正確選項為「非婚生子女經準正後對其生父有繼承權」，其餘選項敘述有誤或不完整。建議對照保險法規確認每個選項的正確性。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 323, "text": "依民法規定第一順位繼承人全部拋棄繼承，由其次親等人繼承者，稱為", "options": ["共同繼承", "代位繼承", "隔代繼承", "概括繼承"], "answer": 2, "explain": "【正確答案】隔代繼承\n\n掌握關鍵：「隔代繼承」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 324, "text": "某甲為自己及其父投保人壽保險，年繳保費各為兩萬四千元及一萬五千元，但其父未 受其扶養，甲在申報綜合所得稅時 採用列舉扣除法，", "options": ["不得申報扣除", "得扣除 一萬五千元", "得扣除三萬九千元", "得扣除二萬四千元"], "answer": 3, "explain": "【正確答案】得扣除二萬四千元\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "法規", "topic": "所得稅保費扣除"}, {"id": 325, "text": "若保險金在死亡保險契約上未指定身故受益人之受領順序及比例時，又被保險人僅列 有子女和配偶，則該保險金應如何分配？", "options": ["配偶、子女各二分之一", "配偶三分 之二、子女三分之一", "按人數平均分配", "配偶獨領"], "answer": 2, "explain": "【正確答案】按人數平均分配\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 326, "text": "有關拋棄繼承之敘述何者正確？", "options": ["拋棄繼承後，應以書面通知因其拋棄而應為繼承 之人", "拋棄繼承後，即不繼承財產但負擔債務", "當繼承人不只一人，拋棄繼承 即須共同為之", "拋棄繼承為求程序完整，得以書面向法院申請延展期間"], "answer": 0, "explain": "【正確答案】拋棄繼承後，應以書面通知因其拋棄而應為繼承 之人\n\n正確選項為「拋棄繼承後，應以書面通知因其拋棄而應為繼承 之人」，其餘選項敘述有誤或不完整。建議對照保險法規確認每個選項的正確性。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 327, "text": "繼承人拋棄繼承時，下列敘述何者錯誤？", "options": ["經法院同意", "須以書面呈報法院", "以書面通知因其拋棄而應為繼 承之人", "不繼承財產，亦不用負擔任何債務"], "answer": 0, "explain": "【正確答案（即錯誤的選項）】經法院同意\n\n本題為「反向題」，答案是錯誤的敘述。其他三個選項均為正確說法，請特別留意此類題型的問法。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 328, "text": "對於特留分之敘述下列何者錯誤？", "options": ["子女的特留分為其應繼分的二分之一", "祖 父母的特留分為其應繼分的三分之一", "父母的特留分為其應繼分的三分之一", "兄弟姊妹的特留分為其應繼分的三分之一"], "answer": 2, "explain": "【正確答案（即錯誤的選項）】父母的特留分為其應繼分的三分之一\n\n本題為「反向題」，答案是錯誤的敘述。其他三個選項均為正確說法，請特別留意此類題型的問法。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 329, "text": "李嗣以其子李玖為被保險人購買人身保險，當李嗣死亡時李玖未辦理變更要保人且其 他利害關係人也未代為續繳保險 費，若該保險單已累積有保單價值準備金，則該保單 價值準備金應", "options": ["由李玖申請領回", "視為保險給付，但列入所得", "視為保險給 付，不列入所得", "列入李嗣之遺產總額，申報遺產稅"], "answer": 3, "explain": "【正確答案】列入李嗣之遺產總額，申報遺產稅\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 330, "text": "有關各項保險給付之受益人敘述何者錯誤？", "options": ["身故保險金如作為被保險人遺產，應 依民法繼承順位分配", "紅利給付之受益人皆為要保人", "醫療給付之受益人以 被保險人為限，且不得事後加以變更", "滿期保險金受益人由要 保人指定，變更時 亦由要保人申請"], "answer": 1, "explain": "【正確答案】紅利給付之受益人皆為要保人\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 331, "text": "下列敘述何者有誤？", "options": ["配偶與兩名子女共同繼承時，配偶應繼分為遺產總額之１／ ３", "遺產及贈與稅第１２－１ 條規定，成年子女的扣除額為每年５6 萬元", "納 稅義務人為本人投保的人身保險費，得採標準扣除額之方式申報， 自綜合所得稅總額 中扣除", "要保人未指定身故受益人時，該筆死亡保險金轉作被保險人遺產"], "answer": 2, "explain": "【正確答案】納 稅義務人為本人投保的人身保險費，得採標準扣除額之方式申報， 自綜合所得稅總額 中扣除\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "繼承與遺產"}, {"id": 332, "text": "下列何者不是團體保險條款規定受益人請領失能保險金應檢具之文件？", "options": ["保險金申 請書", "被保險人印鑑證明書", "失能診斷書", "受益人身分證明"], "answer": 1, "explain": "【正確答案】被保險人印鑑證明書\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 333, "text": "參加保險業務員資格測驗者之學歷至少應為何？", "options": ["大學以上學校畢業或同等學歷", "國中以上學校畢業或同等學歷", "國小畢業", "高中以上學校畢業或同等學 歷"], "answer": 3, "explain": "【正確答案】高中以上學校畢業或同等學 歷\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 334, "text": "參加人身保險業務員資格測驗，除年齡，學歷限制外，應具備何種身份報名？ Ａ台灣 地區居留證；Ｂ外僑永久居留 證；Ｃ大陸地區配偶領有長期居留證；Ｄ港澳居民領有 出入境證", "options": ["ＢＣＤ", "ＣＤ", "ＡＢＣ", "ＢＣ"], "answer": 2, "explain": "【正確答案】ＡＢＣ\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 335, "text": "下列何者正確？Ａ取得業務員資格即可招攬保險；Ｂ業務員之招攬行為僅應受所屬公 司之獎懲辦法規範；Ｃ業務員違規情事若有犯罪嫌疑，應移送法辦；Ｄ業務員有違反 保險業務員管理規則之情事，所屬公司應予以停止招攬登錄或撤銷登錄", "options": ["ＣＤ", "ＡＢＣＤ", "ＢＤ", "ＢＣＤ"], "answer": 0, "explain": "【正確答案】ＣＤ\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 336, "text": "業務員轉任其他保險公司時，依業務員管理規則規定，應", "options": ["先重新參加業務員資格 測驗", "由所屬公司辦理變更登錄", "通過所屬公司辦理一定課程之在職教育訓練 始得依規定重新登錄", "由所屬公司辦理重新登錄"], "answer": 3, "explain": "【正確答案】由所屬公司辦理重新登錄\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 337, "text": "業務員因離職、轉任而異動時，所屬公司應向壽險公會申報", "options": ["註銷登錄", "停止 招攬登錄", "變更登錄", "撤銷登錄"], "answer": 0, "explain": "【正確答案】註銷登錄\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 338, "text": "保險公司對於業務員的管理，何者為非？", "options": ["業務員與公司間之勞務契約依民法及相 關法令規定辦理", "出勤行為應依業務員與保險公司之勞務契約規定辦理", "業務 員之所有行為皆應依保險業務員管理規則辦理", "招攬行為之管理應依保險業務員管 理規則辦理"], "answer": 2, "explain": "【正確答案】業務 員之所有行為皆應依保險業務員管理規則辦理\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 339, "text": "依保險法第八條之一規定，所謂保險業務員係指為下列之何者從事保險招攬之人？ Ａ 保險業；Ｂ保險經紀人公司；Ｃ 保險代理人公司；Ｄ兼營保險經紀人或保險代理人業 務之銀行", "options": ["ＡＣ", "ＡＤ", "ＡＢＣ", "ＡＢＣＤ"], "answer": 3, "explain": "【正確答案】ＡＢＣＤ\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "保險法條文"}, {"id": 340, "text": "業務員應於登錄後，每幾年檢附參加所屬公司教育訓練合格證明，向所屬公司辦理換 發登錄證手續", "options": ["每３年", "每 年", "每５年", "每４年"], "answer": 2, "explain": "【正確答案】每５年\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 341, "text": "依「人身保險業務員教育訓練通報暨換證作業規範」規定，業務員因註銷、停止招攬 行為、撤銷等異動後，再辦理登錄，其間隔期間在幾年以上者，其教育訓練年度應重 新計算", "options": ["三年", "一年", "二年", "四年"], "answer": 1, "explain": "【正確答案】一年\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 342, "text": "主管機關為落實對於金融消費者保護的重視，要求金融服務業應把公平待客原則納入 教育訓練課程，每年對於在職人員至少進行", "options": ["１０小時", "５小時", "１２小 時", "３小時 的公平待客教育訓練"], "answer": 3, "explain": "【正確答案】３小時 的公平待客教育訓練\n\n掌握關鍵：「３小時 的公平待客教育訓練」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "業務員管理"}, {"id": 343, "text": "保險業務員於登錄有效期間內，近５年內受停止招攬行為處分期間累計達多久，應予 以撤銷登錄處分？", "options": ["五年", "三年", "一年", "二年"], "answer": 3, "explain": "【正確答案】二年\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 344, "text": "業務員不參加所屬公司所舉辦之教育訓練者，所屬公司應為其辦理", "options": ["註銷登錄", "撤銷登錄", "警告登錄", "停止招攬登錄"], "answer": 1, "explain": "【正確答案】撤銷登錄\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 345, "text": "業務員未完成教育訓練，所屬公司及業務員應如何辦理？Ａ公司應辦理註銷登錄；Ｂ 公司應請其一年內補訓，如仍未完成者則辦理撤銷登錄；Ｃ業務員經撤銷登錄後需重 新通過資格測驗才能申請登錄；Ｄ業務員於懲處滿一年後，需重新通過資格測驗才能 申請登錄", "options": ["ＢＤ", "ＡＤ", "ＢＣ", "ＡＣ"], "answer": 2, "explain": "【正確答案】ＢＣ\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 346, "text": "業務員曾受保險業務員管理規則第１３條撤銷登錄者，應於撤銷後辦理何種事項，始 得登錄", "options": ["重新參加業務員資格測驗合格", "重新參加所屬公司之教育訓練", "重 新辦理登錄取得新的登錄證", "選項１或２皆可"], "answer": 0, "explain": "【正確答案】重新參加業務員資格測驗合格\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 347, "text": "業務員不服受停止招攬登錄、撤銷登錄處分，得於受處分之通知到達之日起多久時間 內，向原處分公司提出申復", "options": ["一年", "二個月", "三個月", "一個月"], "answer": 3, "explain": "【正確答案】一個月\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 348, "text": "受停止招攬登錄或撤銷登錄處分之業務員，對原處分公司之複查結果有異議者，得於 收到複查結果之日起三個月內以書面具名理由向何單位申請覆核", "options": ["所屬公司", "主管機關", "各有關公會組成之申訴委員會", "以上皆可"], "answer": 2, "explain": "【正確答案】各有關公會組成之申訴委員會\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 349, "text": "業務員得依保險業務員管理規則規定申請覆核的項目有？Ａ第７條註銷登錄或不予登 錄之情事；Ｂ第１３條撤銷登錄之情事；Ｃ第１９條第１項各款情事之一予以停止招 攬之情事；Ｄ第１９條第３項撤銷登錄之情事", "options": ["ＣＤ", "ＡＢＣ", "ＢＤ", "ＢＣＤ"], "answer": 3, "explain": "【正確答案】ＢＣＤ\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 350, "text": "以下哪種制度係各所屬公司為加強對業務員管理以謀保險業之健全發展，業務員須依 該制度規定辦理始得招攬", "options": ["審查制度", "獎懲制度", "教育訓練制度", "登錄 制度"], "answer": 3, "explain": "【正確答案】登錄 制度\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 351, "text": "業務員參加外部共同法令遵循 ６小時訓練課程，何者正確？", "options": ["凡業務員資格測驗 合格者，不論登錄與否皆須遵守該 規定", "該課程嚴禁冒名上課及測驗，違反業務 員及代上課者皆予以撤銷登錄", "由保險事業發展中心製作數位課程 供業務員線上 學習", "以上皆是"], "answer": 2, "explain": "【正確答案】由保險事業發展中心製作數位課程 供業務員線上 學習\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 352, "text": "業務員招攬利率變動型年金保險前應完成哪些程序始得招攬？Ａ參加公司至少３小時 課程；Ｂ訓練完成後應測驗合格； Ｃ合格成績報壽險公會備查；Ｄ合格成績存放公司 備查", "options": ["ＡＢ", "ＡＢＣ", "ＢＣＤ", "ＡＢＤ"], "answer": 1, "explain": "【正確答案】ＡＢＣ\n\n年金保險：①即期年金（一次繳費立即給付）②遞延年金（累積期後給付）。依給付期間分：生存年金、確定年金、保證年金。主要保障長壽風險（活太久沒錢）。", "subject": "法規", "topic": "業務員管理"}, {"id": 353, "text": "壽險業務員招攬時須出示登錄證，該登錄證由哪個單位製發？", "options": ["各登錄單位", "登錄證及測驗合格證，由辦理測驗單位製發", "壽險公會", "以上皆非"], "answer": 0, "explain": "【正確答案】各登錄單位\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 354, "text": "申請登錄業務員曾犯組織犯罪防制條例規定之罪，經有罪判刑確定，尚未執行完畢或 執行完畢緩刑期滿或赦免後尚未逾", "options": ["五年", "三年", "二年", "一年 者，不 得申請登錄"], "answer": 0, "explain": "【正確答案】五年\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 355, "text": "何種情況不得登錄為壽險業務員？ Ａ申請登錄文件有虛偽記載 ；Ｂ壽險受停止招攬 處分尚未期滿；Ｃ產險受有停止招攬處分尚未期滿；Ｄ受破產宣告尚未復權", "options": ["ＡＣ Ｄ", "ＡＢＣＤ", "ＡＢＤ", "ＢＣＤ"], "answer": 2, "explain": "【正確答案】ＡＢＤ\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 356, "text": "保險經紀人係基於何者之利益？代向保險公司洽定保險契約或提供服務而收取佣金之 人", "options": ["承保的保險業", "保險人及被保險人", "被保險人", "要保人"], "answer": 2, "explain": "【正確答案】被保險人\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 357, "text": "想成為壽險業務人員應登錄至？ Ａ 壽險公司；Ｂ保險代理人公司或保險經紀人公 司； Ｃ兼營保險經紀人或保險代理人業務之銀行；Ｄ壽險公會", "options": ["ＡＢＣ", "Ａ ＢＤ", "ＡＢＣＤ", "ＢＣＤ"], "answer": 0, "explain": "【正確答案】ＡＢＣ\n\n業務員登錄：需通過資格測驗並向所屬公司登錄，才可從事招攬業務。每年需完成一定時數繼續教育。", "subject": "法規", "topic": "業務員管理"}, {"id": 358, "text": "甲為某產險公司之業務員，取得壽險資格後", "options": ["僅得登錄於另一家壽險公司", "得登錄於另一家壽險公司及人身保險代理人公司", "得登錄於另一家人身保險經紀人 公司", "得登錄於另一家壽險公司或人身保險代理人公司"], "answer": 3, "explain": "【正確答案】得登錄於另一家壽險公司或人身保險代理人公司\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 359, "text": "保險經紀人公司之業務員，可同時登錄於另一家非經營同類保險業務之？", "options": ["保險經 紀人公司", "保險公司", "保 險代理人公司", "選項１或３皆可"], "answer": 0, "explain": "【正確答案】保險經 紀人公司\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 360, "text": "甲現為產險經紀人公司之業務員，取得壽險業務員資格後", "options": ["得無條件登錄於另一家 人身保險經紀人公司", "需先辦理產險註銷登錄後使得登錄壽險", "得無條件登錄 於另一家壽險公司或人身保險代理人公司", "以上皆非"], "answer": 0, "explain": "【正確答案】得無條件登錄於另一家 人身保險經紀人公司\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "業務員管理"}, {"id": 361, "text": "壽險公司現職業務員可否申請保險經紀人執業證照？", "options": ["領有經紀人資格證書才可以", "所屬公司同意時才可以", "不可以", "符合登錄資格就可以"], "answer": 2, "explain": "【正確答案】不可以\n\n職業類別變更：職業危險性提高→需通知保險人，可能調高保費或終止契約；職業危險性降低→可申請退還差額保費。", "subject": "法規", "topic": "業務員管理"}, {"id": 362, "text": "有關保險代理人、保險經紀人之敘述何者正確？", "options": ["保險代理人、保險經紀人皆須 投保責任保險及保證保險，始得經營業務", "兼有保險代理人、保險經紀人資格 者，均得申領執業證照", "保險代理人公司、保險經紀人公司非加入商業同業公會 不得營業", "銀行經主管機關許可得同時兼營保險代理人及經紀人業務"], "answer": 2, "explain": "【正確答案】保險代理人公司、保險經紀人公司非加入商業同業公會 不得營業\n\n業務員登錄：需通過資格測驗並向所屬公司登錄，才可從事招攬業務。每年需完成一定時數繼續教育。", "subject": "法規", "topic": "主管機關監理"}, {"id": 363, "text": "保戶委請業務員代為繳納保險費，當業務員拿到保險費後，因手頭不方便先拿去使 用，２天後再將保險費繳回保險公司，其行為已涉及 Ａ 偽造文書；Ｂ 詐欺行為；Ｃ 侵佔行為；Ｄ 背信行為", "options": ["ＣＤ", "ＢＤ", "ＡＢ", "Ｂ Ｃ"], "answer": 0, "explain": "【正確答案】ＣＤ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 364, "text": "業務員收取要保人所繳納之現金保險費，再以自己或他人信用卡繳交之行為，下列何 者正確？Ａ屬挪用保費之情事；Ｂ 已符合侵占罪的構成要件；Ｃ所屬公司應依保險業 務員管理規則第１９條第１項規定予以懲處；Ｄ所屬公司應逕予註銷登錄", "options": ["ＡＣ", "ＡＢＤ", "ＡＢＣ", "ＡＢ"], "answer": 2, "explain": "【正確答案】ＡＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "業務員管理"}, {"id": 365, "text": "何者正確？Ａ 保險公司股票得為無記名式；Ｂ 保險合作社理事得兼任其他合作社之 理事；Ｃ兼有保險代理人、經紀人資格者僅得擇一申領執業證照；Ｄ保險業、保代公 司、保經公司非加入商業同業公會，不得營業", "options": ["ＡＢＤ", "Ｃ Ｄ", "ＡＣ", "ＢＣＤ"], "answer": 1, "explain": "【正確答案】Ｃ Ｄ\n\n業務員登錄：需通過資格測驗並向所屬公司登錄，才可從事招攬業務。每年需完成一定時數繼續教育。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 366, "text": "保險費的繳納方法有Ａ向保險公司所在地或指定地點交付；Ｂ保險公司派員收取；Ｃ 約定以金融機構轉帳；Ｄ保險業務員墊繳", "options": ["ＡＢ", "ＡＢＣ", "ＢＣＤ", "Ｂ Ｄ"], "answer": 1, "explain": "【正確答案】ＡＢＣ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 367, "text": "業務員何時須先辦理再登錄始得辦理招攬？Ａ受處分公司依管理規則第１９條第１項 停止招攬處分期間屆滿後；Ｂ受處分公司撤銷登錄後；Ｃ從原公司辦理註銷登錄轉任 其他分公司時；Ｄ取得投資型測驗合格後欲招攬投資型保險商品時", "options": ["ＡＢＤ", "ＡＣ", "ＡＢＣ", "ＡＣＤ"], "answer": 1, "explain": "【正確答案】ＡＣ\n\n投資型保險：保費分保障（主帳戶）+投資（分離帳戶）。投資風險由要保人自負，保險公司不保證投資報酬。分離帳戶資產不納入保險公司破產清算。", "subject": "法規", "topic": "業務員管理"}, {"id": 368, "text": "何者符合保險業務人員酬金制度應遵行原則？", "options": ["酬金制度為使業績順利達成，於保 單成立後全數發放以資鼓勵", "保單如發生契約撤銷，保險公司得依規定向業務員追 回已發放之酬金", "業務員離職金應依據已實現之績效予以訂定", "酬金應經核保 部審慎評估，並考量其與附加費用率之關係"], "answer": 2, "explain": "【正確答案】業務員離職金應依據已實現之績效予以訂定\n\n投資型保單費用：前置費用（銷售費用）從保費中扣除；目標保費：依保障設計的基本保費；超額保費：超過目標保費的部分，附加費用率較低。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 369, "text": "保險業務員管理規則係由主管機關依保險法第１７７條訂定，並於民國", "options": ["８２年４ 月１５日", "８０年４月１５日", "８１年１０月１５日", "８３年１０月１５ 日 起實施，自此保險業務員登錄邁入一個新的里程碑"], "answer": 0, "explain": "【正確答案】８２年４ 月１５日\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "業務員管理"}, {"id": 370, "text": "金融消費評議中心受理消費者申訴後，會先將案件移交受申訴之金融服務業處理，金 融服務業應於收到申訴之日起幾日內為適當處理，並將處理結果回覆消費者", "options": ["３０ 日內", "６０日內", "１０日內", "１５日內"], "answer": 0, "explain": "【正確答案】３０ 日內\n\n掌握關鍵：「３０ 日內」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "金融消費者保護"}, {"id": 371, "text": "保險業依保險法第１４１條提存保證金之敘述何者正確？", "options": ["應按資本或基金實收總 額１５％繳存於安定基金", "應按資本或基金實收總額１５％繳存國庫", "應按資 本或基金實收總額２０％繳存國庫", "應按資本或基金實收總額２ ０％繳存於安定 基金"], "answer": 1, "explain": "【正確答案】應按資本或基金實收總額１５％繳存國庫\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "保險法條文"}, {"id": 372, "text": "現行人壽保險單示範條款規定，要保人或受益人應於知悉被保險人死亡或其他保險事 故時，於幾日內通知保險公司", "options": ["於十日內", "依契約規定日期，不得少於五日內", "於三十日內", "即時"], "answer": 1, "explain": "【正確答案】依契約規定日期，不得少於五日內\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 373, "text": "依我國保險法規定，保險契約內所載增加危險情形，非由於要保人或被保險人之行為 所致者，要保人或被保險人應於知悉後幾日內通知保險人", "options": ["十日內", "三十日內", "五日內", "十五日內"], "answer": 0, "explain": "【正確答案】十日內\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 374, "text": "保險法第３４條規定保險人應付之賠償金額確定後，應於約定期限內給付之，無約定 者應於接到通知後幾日內給付之", "options": ["１０日", "３０日", "２０日", "１５日"], "answer": 3, "explain": "【正確答案】１５日\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 375, "text": "依民法第八條對失蹤人為死亡宣告之期限，何者正確？Ａ如遇特別災難於災難終了滿 三年後；Ｂ一般失蹤滿七年後；Ｃ 失蹤人為八十歲以上於失蹤滿一年後；Ｄ得由利害 關係人向檢察官聲請宣告", "options": ["Ｂ", "ＢＤ", "ＡＢＣＤ", "Ａ ＢＣ"], "answer": 0, "explain": "【正確答案】Ｂ\n\n本題考察多項判斷，正確選項為「Ｂ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 376, "text": "依消保法規定，企業經營者與消費者訂立定型化契約前，應提供多久之合理期間以審 閱全部條款？", "options": ["１０日內", "７日內", "１５日內", "３０日內"], "answer": 3, "explain": "【正確答案】３０日內\n\n本題考察特定數字規定，請記住：３０日內。數字型考題建議製作記憶表格，依類別整理（天數/金額/比率/年限）。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 377, "text": "依洗錢防制法規定金融機構對於一定金額以上通貨交易，應確認客戶身分及留存客戶 之交易紀錄，並向指定機構申報所 稱一定金額，係指新台幣", "options": ["二百萬", "一百萬", "五十萬", "二百五十萬 以上"], "answer": 2, "explain": "【正確答案】五十萬\n\n掌握關鍵：「五十萬」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "洗錢個資"}, {"id": 378, "text": "金融機構自發現疑似洗錢或資恐交易日均應依申報格式簽報專責主管核定後立即申 報，核定後之申報期限不得逾", "options": ["5 個營業日", "一個月", "15 個營業日", "2 個 營業日"], "answer": 3, "explain": "【正確答案】2 個 營業日\n\n掌握關鍵：「2 個 營業日」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "洗錢個資"}, {"id": 379, "text": "保險金的支付除情況特殊外，保險公司應於收齊所需文件後", "options": ["五日", "十日", "十五日", "一個月 內給付，逾期保險公司應按年利一分加計利息給付"], "answer": 2, "explain": "【正確答案】十五日\n\n保險金請求權時效：依保險法第65條，保險金請求權自得請求之日起2年不行使而消滅（時效消滅）。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 380, "text": "依保險法第１４６條之１規定保險業資金購得金融債券，可轉讓定期存單，其總額不 得超過該保險業資金百分之", "options": ["四十", "三十", "四十五", "三十五"], "answer": 3, "explain": "【正確答案】三十五\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "保險法條文"}, {"id": 381, "text": "保險業資金辦理國外投資總額，最高不超過", "options": ["該保險業業主權益４０％", "各該 保險業資金之４０％", "各該保險業資金之４５％", "該保險業業主權益４５％"], "answer": 2, "explain": "【正確答案】各該保險業資金之４５％\n\n台灣人壽保險商品：保障期間最長至被保險人95歲，滿期未發生保險事故時給付生存保險金。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 382, "text": "保險業於有攸關消費大眾權益之重大訊息發生時，應於幾日內以書面向主管機關報 告，並主動公開說明", "options": ["５日內", "１５日內", "１０日內", "２日內"], "answer": 3, "explain": "【正確答案】２日內\n\n本題考察特定數字規定，請記住：２日內。數字型考題建議製作記憶表格，依類別整理（天數/金額/比率/年限）。", "subject": "法規", "topic": "主管機關監理"}, {"id": 383, "text": "保險業完納一切稅捐分派盈餘時，應先提多少為法定盈餘公積？", "options": ["１５％", "２ ５％", "２０％", "３０％ ，但法定盈餘公積已達其資本總額或基金總額時，不在 此限"], "answer": 2, "explain": "【正確答案】２０％\n\n掌握關鍵：「２０％」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 384, "text": "依保險法第四十三條規定，保險契約應以何者為之？", "options": ["要保書", "保險單或暫保 單", "體檢報告書", "送金單"], "answer": 1, "explain": "【正確答案】保險單或暫保 單\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "保險法條文"}, {"id": 385, "text": "要保人破產時，保險契約仍為下列何者之利益而存在", "options": ["要保人", "保險人", "破 產債權人", "被保險人"], "answer": 2, "explain": "【正確答案】破 產債權人\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 386, "text": "保險人破產時，保險契約", "options": ["不因之而失效", "停效", "於破產宣告日終止", "保險人應返還全部保險費"], "answer": 2, "explain": "【正確答案】於破產宣告日終止\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保單條款"}, {"id": 387, "text": "保險業因業務或財務狀況顯著惡化，不能支付其債務或無法履行契約責任或有損被保 險人之權益之虞時，下列何者為主 管機關得為之處分：Ａ監管、接管；Ｂ勒令停業清 理；Ｃ直接處分轉售；Ｄ命令解散", "options": ["ＡＢＣＤ", "ＡＣ", "ＡＢＣ", "Ａ ＢＤ"], "answer": 3, "explain": "【正確答案】Ａ ＢＤ\n\n本題考察多項判斷，正確選項為「Ａ ＢＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "法規", "topic": "主管機關監理"}, {"id": 388, "text": "保險業於受接管期間內，主管機關得限制", "options": ["監管、接管", "勒令停業清理", "直 接處分轉售", "僅１、２項得為之"], "answer": 3, "explain": "【正確答案】僅１、２項得為之\n\n掌握關鍵：「僅１、２項得為之」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "法規", "topic": "主管機關監理"}, {"id": 389, "text": "下列何者為保險契約構成部份：Ａ附著之要保書；Ｂ批註書；Ｃ廣告文宣；Ｄ保單條 款", "options": ["ＡＢＣＤ", "ＡＢＤ", "ＡＤ", "ＡＣＤ"], "answer": 1, "explain": "【正確答案】ＡＢＤ\n\n誠信告知義務（保險法第64條）：要保人故意隱匿或不實告知，保險人得解除契約。知悉後1個月內行使，且不得超過契約成立後2年。解除後已發生事故不退費。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 390, "text": "依保險法施行細則之規定，人身保險業以計算保險契約簽單保險費之利率及危險發生 率為基礎，並依主管機關規定方式計算之金額為", "options": ["保單價值準備金", "解約金", "責任準備金", "賠款準備金"], "answer": 0, "explain": "【正確答案】保單價值準備金\n\n本題涉及保險法特定條文規定，需熟記法條內容。", "subject": "法規", "topic": "保險法條文"}, {"id": 391, "text": "有關保單價值準備金之計算，除依主管機關規定外並以何者為基礎？ Ａ危險發生率； Ｂ附加費用率；Ｃ簽單保險費之利率；Ｄ ４行庫每月初牌告之２年期定存最高利率平 均值", "options": ["ＡＢＣＤ", "ＢＣＤ", "ＡＣ", "ＡＢＣ"], "answer": 2, "explain": "【正確答案】ＡＣ\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "法規", "topic": "主管機關監理"}, {"id": 392, "text": "若保險契約涉及訴訟時，要保人的住所不在中華民國境內時，其訴訟之管轄法院為", "options": ["要保人以前住所", "雙方契約約定", "台北地區", "保險公司所在地之地方 法院為第一審管轄法院"], "answer": 1, "explain": "【正確答案】雙方契約約定\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 393, "text": "下列何者非受益人申領失能保險金應檢具之文件？", "options": ["保險金申請書及受益人之身分 證明", "保險單或其謄本", "意外傷害事故證明文件", "失能診斷書"], "answer": 2, "explain": "【正確答案】意外傷害事故證明文件\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "傷害保險"}, {"id": 394, "text": "主管機關規定凡保戶因不實之文宣、廣告而投保，之後產生疑義擬退保時，保險公司 應", "options": ["以和解金退還", "加計利息退還當年度保險費", "退還所繳保險費", "至 少加計利息退還所繳全部保險費"], "answer": 3, "explain": "【正確答案】至 少加計利息退還所繳全部保險費\n\n誠信告知義務（保險法第64條）：要保人故意隱匿或不實告知，保險人得解除契約。知悉後1個月內行使，且不得超過契約成立後2年。解除後已發生事故不退費。", "subject": "法規", "topic": "主管機關監理"}, {"id": 395, "text": "何者屬於金融服務業公平待客原則之指標？ Ａ業務人員專業性原則；Ｂ廣告招攬真實 原則；Ｃ申訴優先處理原則；Ｄ 商品或服務適合度原則；Ｅ酬金與業績衡平原則", "options": ["ＡＢＤ", "ＢＣＤ", "ＡＢＤＥ", "ＡＢＣＤＥ"], "answer": 2, "explain": "【正確答案】ＡＢＤＥ\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "金融消費者保護"}, {"id": 396, "text": "有關定型化契約之敘述，何者有誤？", "options": ["消保法對其權利義務的履行訂有相當完整的 規範", "是由企業經營者與消費者雙方面所共同議定", "消費者只有簽訂與否的權 利", "條款如有疑義時，應為有利於消費者之解釋"], "answer": 1, "explain": "【正確答案】是由企業經營者與消費者雙方面所共同議定\n\n掌握關鍵：「是由企業經營者與消費者雙方面所共同議定」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 397, "text": "定型化契約條款若牴觸個別磋商條款之約定時，", "options": ["該定型化契約條款抵觸的部分無 效", "該定型化契約條款全部有效", "該定型化契約條款全部無效", "以上皆非"], "answer": 0, "explain": "【正確答案】該定型化契約條款抵觸的部分無 效\n\n掌握關鍵：「該定型化契約條款抵觸的部分無 效」。本題測驗保險基本概念，建議結合教材複習相關章節。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 398, "text": "何者應致力充實消費資訊供消費者運用，俾能採取正確合理之消費行為，以維護其安 全與權益？Ａ政府；Ｂ企業經營者；Ｃ消費者", "options": ["ＡＢ", "ＡＣ", "ＢＣ", "Ａ ＢＣ"], "answer": 3, "explain": "【正確答案】Ａ ＢＣ\n\n本題考察多項判斷，正確選項為「Ａ ＢＣ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 399, "text": "依據金消法規定，金融消費者係指接受金融服務業提供金融商品或服務，但不包含 Ａ 專業投資機構；Ｂ符合一定財力之自然人；Ｃ一般消費者；Ｄ專業能力之自然人", "options": ["ＡＤ", "ＡＢＣＤ", "ＢＣＤ", "ＡＢＤ"], "answer": 3, "explain": "【正確答案】ＡＢＤ\n\n本題考察多項判斷，正確選項為「ＡＢＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "法規", "topic": "金融消費者保護"}, {"id": 400, "text": "依金消法規定，金融服務業包括 Ａ期貨業；Ｂ保險業；Ｃ證券交易所；Ｄ證券集中保 管事業", "options": ["ＡＢ", "ＡＢＣＤ", "ＢＣＤ", "ＡＢＣ"], "answer": 0, "explain": "【正確答案】ＡＢ\n\n本題考察多項判斷，正確選項為「ＡＢ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "法規", "topic": "金融消費者保護"}, {"id": 401, "text": "為保障被保險人之基本權益，並維護金融之安定，依保險法規定保險業應設置", "options": ["安 定基金", "業務發展基金", "消費者保護基金", "消費者補償基金"], "answer": 0, "explain": "【正確答案】安 定基金\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 402, "text": "為保護金融消費者，金融服務業依據金消法規定訂定業務人員酬金制度並提報哪個單 位通過", "options": ["股東大會", "董【理】事會", "主管機關", "業務員代表大會"], "answer": 1, "explain": "【正確答案】董【理】事會\n\n業務員招攬：業務員為保險公司招攬保險，收取佣金（手續費）。不得代收保費（需交給公司），不得偽造文書，需誠實招攬。", "subject": "法規", "topic": "主管機關監理"}, {"id": 403, "text": "保險業因切實確認保險商品之相關佣金、獎金及營業費用不應超過何種費用而造成費 差損", "options": ["責任準備金", "所收總 保費", "附加費用", "保單價值準備金"], "answer": 2, "explain": "【正確答案】附加費用\n\n保費結構：純保費（賠付風險成本）+ 附加保費（營業費用）= 毛保費（要保人實繳）。純保費由精算師依死亡率、利率計算。", "subject": "人身保險", "topic": "保單條款"}, {"id": 404, "text": "有關金融機構確認客戶身分程序之敘述何者錯誤？", "options": ["應以風險為基礎", "留存確 認客戶身分之程序資料，應自業務開始時起至少保存五年", "審查範圍擴及實質受 益人", "臨時交易者留存確認程序之資料， 應自臨時性交易終止時起至少保存五 年。 【解析】應自【業務關係終止時】起至少保存五年"], "answer": 1, "explain": "【正確答案（即錯誤的選項）】留存確 認客戶身分之程序資料，應自業務開始時起至少保存五年\n\n本題為「反向題」，答案是錯誤的敘述。其他三個選項均為正確說法，請特別留意此類題型的問法。", "subject": "法規", "topic": "洗錢個資"}, {"id": 405, "text": "業務員因銷售保險商品逕向要保人所蒐集之資料，下列敘述何者正確？", "options": ["若依法律 規定得免告知者，得免為告知", "法律雖有規定但基於保護消費者，皆需為告知， 不得免除", "不需告知要保人使用目的", "屬公務機關之資料蒐集"], "answer": 0, "explain": "【正確答案】若依法律 規定得免告知者，得免為告知\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 406, "text": "非公務機關在蒐集個人資料時，除了須符合特定目的外，尚須具有下列何種情形之 一，始得為之", "options": ["當事人自行公開 或其他已合法公開之個人資料", "經當事人同意", "與當事人有契約關係或類似契約關係", "以上皆是"], "answer": 3, "explain": "【正確答案】以上皆是\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 407, "text": "保戶填寫要保書聲明同意保險人依個資法取得相關資料，即符合非公務機關於蒐集個 資時，除符合特定目的外，亦符合 Ａ法律明文規定；Ｂ 與當事人有契約關係且已採 取適當安全措施；Ｃ經當事人同意；Ｄ為增進公共利益所必要", "options": ["Ａ Ｂ", "ＡＤ", "ＡＣ", "ＢＣ"], "answer": 3, "explain": "【正確答案】ＢＣ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 408, "text": "保險業於核保理賠時須蒐集當事人之特種個資，除經當事人書面同意外，須符合法律 明文規定使得為之，下列何者為保險業蒐集之特種個資？Ａ健康檢查；Ｂ病歷；Ｃ指 紋；Ｄ職業", "options": ["ＡＢＣＤ", "ＡＢＣ", "ＢＣ", "ＡＢ"], "answer": 3, "explain": "【正確答案】ＡＢ\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 409, "text": "有關人身保險契約之保險金信託規定，何者有誤？", "options": ["保險業為該保險金信託之受 託人", "要保人須於訂立保險契約時，同時洽訂信託契約", "僅要保人與被保險 人為同一人之保險契約得洽訂信託契約", "僅死亡保險金及失能保險金得洽訂信託 契約。 【解析】要保人於【保險事故發生前】得預先洽訂信託契約"], "answer": 1, "explain": "【正確答案】要保人須於訂立保險契約時，同時洽訂信託契約\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "人壽保險"}, {"id": 410, "text": "下列之金融機構何者適用洗錢防制法？Ａ 證券商；Ｂ 保險公司；Ｃ 信用卡公司；Ｄ 郵政機構", "options": ["ＢＣＤ", "ＡＢ", "ＢＤ", "ＡＢＣＤ"], "answer": 3, "explain": "【正確答案】ＡＢＣＤ\n\n本題考察多項判斷，正確選項為「ＡＢＣＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "法規", "topic": "洗錢個資"}, {"id": 411, "text": "下列何者為洗錢防制法適用之非金融事業或人員？Ａ會計師；Ｂ地政士；Ｃ銀樓業； Ｄ不動產經紀業", "options": ["ＢＣＤ", "ＡＢＣＤ", "ＣＤ", "ＡＢＣ"], "answer": 1, "explain": "【正確答案】ＡＢＣＤ\n\n本題考察多項判斷，正確選項為「ＡＢＣＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "法規", "topic": "洗錢個資"}, {"id": 412, "text": "保險業得以共保方式承保情形有Ａ基於公共利益考量；Ｂ配合政策需要；Ｃ能有效提 升對投保大眾服務；Ｄ有關巨災損失保險", "options": ["ＡＢＣ", "ＡＢＣＤ", "ＡＢＤ", "ＢＣＤ"], "answer": 1, "explain": "【正確答案】ＡＢＣＤ\n\n本題考察多項判斷，正確選項為「ＡＢＣＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "人身保險", "topic": "特殊保險"}, {"id": 413, "text": "人身保險契約之內容均由保險公司單方面決定，要保人原則上並無討價還價的餘地。 基於衡平原則，有何補救措施？", "options": ["要保人可解除契約", "當契約條款有疑義時， 應由保險人斟酌實際情況決定", "契約條款之內容要保人可要求法院公證", "當契 約條款有疑義時，應做有利被保險人之解釋"], "answer": 3, "explain": "【正確答案】當契 約條款有疑義時，應做有利被保險人之解釋\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "人身保險", "topic": "保險業運作"}, {"id": 414, "text": "有關金融消費者保護法規定，何者有誤？ Ａ金融服務業對金融消費者之責任得預先約 定限制；Ｂ金融服務業對金融消費者之責任不得預先免除； Ｃ違反預先限制之約定無 效； Ｄ金融服務業與金融消費者訂立契約條款顯失公平者契約無效", "options": ["ＢＣＤ", "Ａ", "ＡＤ", "ＢＣ 【解析】A「不得」預先約定限制  D 訂立契約條款顯失公平者，該「部分」契約無效"], "answer": 2, "explain": "【正確答案】ＡＤ\n\n本題考察多項判斷，正確選項為「ＡＤ」所列之陳述組合。建議逐一核對各選項的說法是否符合保險法規及基本原則。", "subject": "法規", "topic": "金融消費者保護"}, {"id": 415, "text": "有關金融消費爭議處理之敘述，何者錯誤？", "options": ["金融業即使已依評議內容履行，爭議 處理機構仍應將評議書送法院核可", "消費者在評議成立後，得於不變期間內申請爭 議處理機構將評議書送法院核可", "爭議處理機構將評議書及卷證送請該機構事務所 所在地之管轄法院核可", "評議書經法院核可後與民事判決同一效力。 【解析】已履行則免送法院核可"], "answer": 0, "explain": "【正確答案】金融業即使已依評議內容履行，爭議 處理機構仍應將評議書送法院核可\n\n不可抗辯條款：保單生效2年後，保險人不得再以要保人未告知或不實告知為由解除契約（保護被保險人）。", "subject": "法規", "topic": "金融消費者保護"}, {"id": 416, "text": "保險契約如約定事項顯失公平者，該部分之約定無效，下列何者非無效事由？", "options": ["免 除或減輕保險人依保險法應負之義務", "使要保人、受益人或被保險人拋棄或限制其 依保險法所享之權利", "加重保險人之義務", "其他於要保 人、受益人或被保險人 有重大不利益之情事"], "answer": 2, "explain": "【正確答案】加重保險人之義務\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "保險法條文"}, {"id": 417, "text": "下列何者有誤？", "options": ["金融服務業刊登廣告不得有虛偽或其他足致他人誤信", "金融 服務業對金融消費者所提示之資料 或說明，應確保內容真實", "金融服務業對金融 消費者所負擔之義務不得低於廣告內容", "金融服務業得藉由金融教育宣導方式，對 消費者引薦個別金融商品或服務"], "answer": 3, "explain": "【正確答案】金融服務業得藉由金融教育宣導方式，對 消費者引薦個別金融商品或服務\n\n正確選項為「金融服務業得藉由金融教育宣導方式，對 消費者引薦個別金融商品或服務」，其餘選項敘述有誤或不完整。建議對照保險法規確認每個選項的正確性。", "subject": "法規", "topic": "金融消費者保護"}, {"id": 418, "text": "下列何者有誤？", "options": ["合夥人為被保險人時，其中一人或數人讓與保險利益於他人者， 契約不因之而失效", "外國保險業係指依外國法律組織登記，並經主管機關許可，在 本國境內經營保險之機構", "保險公證人係辦理保險標的查勘、 鑑定及估價而予證 明之人", "保險法所定各種準備金包含責任準備金、未滿期保費準備金、賠款準備金 及保單價值準備金 [解析】不包含保單價值準備金"], "answer": 3, "explain": "【正確答案】保險法所定各種準備金包含責任準備金、未滿期保費準備金、賠款準備金 及保單價值準備金 [解析】不包含保單價值準備金\n\n保險契約當事人：要保人（締約繳費者）、保險人（承保者）。關係人：被保險人（保障對象）、受益人（受領保險金者）。要保人≠被保險人時，需被保險人書面同意。", "subject": "法規", "topic": "主管機關監理"}];
 const TOPIC_MAP = {"人身保險": ["風險概念", "保險基本原則", "生命表費率", "人壽保險", "年金保險", "投資型保險", "健康保險", "傷害保險", "保單條款", "責任準備金", "特殊保險", "保險業運作"], "法規": ["保險法條文", "業務員管理", "繼承與遺產", "遺產稅贈與稅", "主管機關監理", "金融消費者保護", "所得稅保費扣除", "洗錢個資"]};
 
-// ── Storage ──
-let wrongSet = new Set(JSON.parse(localStorage.getItem('ins3_wrong') || '[]'));
-let doneSet = new Set(JSON.parse(localStorage.getItem('ins3_done') || '[]'));
-let topicCorrect = JSON.parse(localStorage.getItem('ins3_tc') || '{}');
-let topicDone = JSON.parse(localStorage.getItem('ins3_td') || '{}');
-let readPos = JSON.parse(localStorage.getItem('ins3_rp') || '{"subj":"all","topic":null,"idx":0}');
-let lastQuiz = JSON.parse(localStorage.getItem('ins3_lq') || 'null');
+// Storage
+var wrongSet = new Set(JSON.parse(localStorage.getItem('ins3_wrong') || '[]'));
+var doneSet  = new Set(JSON.parse(localStorage.getItem('ins3_done')  || '[]'));
+var topicCorrect = JSON.parse(localStorage.getItem('ins3_tc') || '{}');
+var topicDone    = JSON.parse(localStorage.getItem('ins3_td') || '{}');
+var readPos = JSON.parse(localStorage.getItem('ins3_rp') || '{"subj":"all","topic":null,"idx":0}');
+var lastQuiz = JSON.parse(localStorage.getItem('ins3_lq') || 'null');
 
 function saveAll() {
   localStorage.setItem('ins3_wrong', JSON.stringify([...wrongSet]));
-  localStorage.setItem('ins3_done', JSON.stringify([...doneSet]));
+  localStorage.setItem('ins3_done',  JSON.stringify([...doneSet]));
   localStorage.setItem('ins3_tc', JSON.stringify(topicCorrect));
   localStorage.setItem('ins3_td', JSON.stringify(topicDone));
   localStorage.setItem('ins3_rp', JSON.stringify(readPos));
   if (lastQuiz) localStorage.setItem('ins3_lq', JSON.stringify(lastQuiz));
+  else localStorage.removeItem('ins3_lq');
 }
 
-// ── Tab switching ──
+// Tab switching
+document.querySelectorAll('.tab').forEach(function(tab) {
+  tab.addEventListener('click', function() { switchTab(this.dataset.tab); });
+});
+
 function switchTab(tab) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
-  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === tab+'-panel'));
-  document.getElementById('hdrTitle').textContent = {
-    plan:'保險衝刺 計劃', quiz:'保險衝刺 測驗', read:'保險衝刺 讀題',
-    wrong:'保險衝刺 錯題本', weak:'保險衝刺 弱點分析'
-  }[tab] || '保險衝刺';
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.toggle('active', t.dataset.tab === tab); });
+  document.querySelectorAll('.panel').forEach(function(p) { p.classList.toggle('active', p.id === tab + '-panel'); });
+  var titles = {plan:'保險衝刺 計劃',quiz:'保險衝刺 測驗',read:'保險衝刺 讀題',wrong:'錯題本',weak:'弱點分析'};
+  document.getElementById('hdrTitle').textContent = titles[tab] || '保險衝刺';
   if (tab === 'wrong') renderWrong();
   if (tab === 'weak') renderWeak();
   if (tab === 'read') renderReadPanel();
   if (tab === 'quiz') { showQuizStart(); checkResume(); }
 }
 
-// ── Plan ──
-const PLAN = [
-  {date:'7/24', label:'法規①：業務員管理 + 保險法條文', topics:['業務員管理','保險法條文'], subj:'法規', cnt:0},
-  {date:'7/25', label:'法規②：繼承遺產 + 遺產稅 + 所得稅', topics:['繼承與遺產','遺產稅贈與稅','所得稅保費扣除'], subj:'法規', cnt:0},
-  {date:'7/26', label:'法規③：監理 + 金融消費者 + 洗錢個資', topics:['主管機關監理','金融消費者保護','洗錢個資'], subj:'法規', cnt:0},
-  {date:'7/27', label:'人身①：風險概念 + 原則 + 費率', topics:['風險概念','保險基本原則','生命表費率'], subj:'人身保險', cnt:0},
-  {date:'7/28', label:'人身②：壽險 + 年金 + 投資型', topics:['人壽保險','年金保險','投資型保險'], subj:'人身保險', cnt:0},
-  {date:'7/29', label:'人身③：健康 + 傷害 + 保單條款', topics:['健康保險','傷害保險','保單條款'], subj:'人身保險', cnt:0},
-  {date:'7/30', label:'人身④：保險業運作 + 特殊 + 全科錯題', topics:['保險業運作','特殊保險','責任準備金'], subj:'all', cnt:0, wrongToo:true},
-  {date:'7/31', label:'考前衝刺：模擬考 ×2 + 弱點重練', exam:true},
+// --- Plan ---
+var PLAN = [
+  {date:'7/24', label:'法規: 業務員管理 + 保險法條文', topics:['業務員管理','保險法條文'], subj:'法規'},
+  {date:'7/25', label:'法規: 繼承遺產 + 遺產稅 + 所得稅', topics:['繼承與遺產','遺產稅贈與稅','所得稅保費扣除'], subj:'法規'},
+  {date:'7/26', label:'法規: 監理 + 金融消費者 + 洗錢', topics:['主管機關監理','金融消費者保護','洗錢個資'], subj:'法規'},
+  {date:'7/27', label:'人身: 風險概念 + 原則 + 費率', topics:['風險概念','保險基本原則','生命表費率'], subj:'人身保險'},
+  {date:'7/28', label:'人身: 壽險 + 年金 + 投資型', topics:['人壽保險','年金保險','投資型保險'], subj:'人身保險'},
+  {date:'7/29', label:'人身: 健康 + 傷害 + 保單條款', topics:['健康保險','傷害保險','保單條款'], subj:'人身保險'},
+  {date:'7/30', label:'人身: 保險業運作 + 特殊 + 全科錯題', topics:['保險業運作','特殊保險','責任準備金'], subj:'all', wrongToo:true},
+  {date:'7/31', label:'考前衝刺: 模擬考x2 + 弱點重練', exam:true},
 ];
 
 function renderPlan() {
-  const now = new Date(); const d = now.getDate(), m = now.getMonth()+1;
-  const todayStr = m+'/'+d;
-  document.getElementById('day-list').innerHTML = PLAN.map((p,i) => {
-    const isToday = p.date === todayStr;
-    const isPast = (() => { const parts=p.date.split('/'); return parseInt(parts[0])<m||(parseInt(parts[0])===m&&parseInt(parts[1])<d); })();
-    const topicQs = p.topics ? QUESTIONS.filter(q => p.topics.includes(q.topic)) : [];
-    const doneCnt = topicQs.filter(q => doneSet.has(q.id)).length;
-    const pct = topicQs.length ? Math.round(doneCnt/topicQs.length*100) : 0;
-    const isDone = isPast || pct===100;
-    return '<div class="day-card'+(isToday?' today':'')+(isDone?' done':'')+'" onclick="startPlanDay('+i+')">'
-      +'<div class="day-dot '+(isDone?'done':isToday?'today':'future')+'">'+(isDone?'✓':p.date)+'</div>'
-      +'<div class="day-info" style="flex:1"><h3>'+p.label+'</h3>'
-      +'<p>'+(isToday?'👉 今天份・':'')+(!p.exam?(topicQs.length+'題'+(pct?'・完成'+pct+'%':'')):'模擬考+錯題衝刺')+'</p></div>'
-      +'<span style="color:var(--sub);font-size:18px">›</span></div>';
-  }).join('');
+  var now = new Date(); var d = now.getDate(); var m = now.getMonth() + 1;
+  var todayStr = m + '/' + d;
+  var html = '';
+  for (var i = 0; i < PLAN.length; i++) {
+    var p = PLAN[i];
+    var isToday = p.date === todayStr;
+    var parts = p.date.split('/');
+    var pm = parseInt(parts[0]); var pd = parseInt(parts[1]);
+    var isPast = pm < m || (pm === m && pd < d);
+    var topicQs = p.topics ? QUESTIONS.filter(function(q) { return p.topics.indexOf(q.topic) >= 0; }) : [];
+    var doneCnt = topicQs.filter(function(q) { return doneSet.has(q.id); }).length;
+    var pct = topicQs.length ? Math.round(doneCnt / topicQs.length * 100) : 0;
+    var isDone = isPast || pct === 100;
+    var dotCls = isDone ? 'done' : isToday ? 'today' : 'future';
+    var dotTxt = isDone ? '&#x2713;' : p.date;
+    var cardCls = 'day-card' + (isToday ? ' today' : '') + (isDone ? ' done' : '');
+    var desc = p.exam ? '模擬考+錯題衝刺' : (topicQs.length + '題' + (pct ? '，完成' + pct + '%' : ''));
+    var prefix = isToday ? '&#x1F449; 今天，' : '';
+    html += '<div class="' + cardCls + '" data-plan="' + i + '">'
+      + '<div class="day-dot ' + dotCls + '">' + dotTxt + '</div>'
+      + '<div class="day-info" style="flex:1"><h3>' + p.label + '</h3><p>' + prefix + desc + '</p></div>'
+      + '<span style="color:var(--sub);font-size:18px">&#x203A;</span></div>';
+  }
+  document.getElementById('day-list').innerHTML = html;
+  document.getElementById('day-list').addEventListener('click', function(e) {
+    var card = e.target.closest('[data-plan]');
+    if (card) startPlanDay(parseInt(card.dataset.plan));
+  });
+  document.querySelectorAll('[data-exam]').forEach(function(el) {
+    el.addEventListener('click', function() { startExamSim(this.dataset.exam); });
+  });
 }
 
 function startPlanDay(idx) {
-  const p = PLAN[idx];
+  var p = PLAN[idx];
   if (p.exam) { startExamSim('both'); return; }
-  // Set quiz to these topics
   quizSubj = p.subj; quizTopic = null; quizMode = 'seq'; quizExam = null;
   quizTopicsFilter = p.topics;
   switchTab('quiz');
@@ -420,11 +393,81 @@ function startExamSim(type) {
   setTimeout(startQuiz, 50);
 }
 
-// ── Quiz ──
-let quizSubj = 'all', quizTopic = null, quizMode = 'random', quizExam = null;
-let quizTopicsFilter = null, examCount = 0;
-let queue=[], qIdx=0, qCorrect=0, qWrong=0, answered=false, streak=0, timerSec=0, timerInt=null;
-let examCountdown=0, examCountInt=null;
+// --- Quiz ---
+var quizSubj = 'all', quizTopic = null, quizMode = 'random', quizExam = null;
+var quizTopicsFilter = null, examCount = 0;
+var queue = [], qIdx = 0, qCorrect = 0, qWrong = 0, answered = false, streak = 0;
+var timerSec = 0, timerInt = null, examCountdown = 0, examCountInt = null;
+var lastWrongIds = [];
+
+// Subj chips
+document.getElementById('subj-row').addEventListener('click', function(e) {
+  var chip = e.target.closest('.subj-chip');
+  if (!chip) return;
+  var s = chip.dataset.s;
+  quizSubj = s; quizTopic = null; quizTopicsFilter = null;
+  document.querySelectorAll('#subj-row .subj-chip').forEach(function(c) { c.classList.toggle('active', c.dataset.s === s); });
+  var show = s !== 'all';
+  document.getElementById('topic-area').style.display = show ? 'block' : 'none';
+  if (show) {
+    var subjKey = s === 'ins' ? '人身保險' : '法規';
+    var topics = TOPIC_MAP[subjKey] || [];
+    var th = '';
+    topics.forEach(function(t) {
+      var cnt = QUESTIONS.filter(function(q) { return q.topic === t; }).length;
+      th += '<div class="topic-chip" data-t="' + t + '">' + t + ' (' + cnt + ')</div>';
+    });
+    document.getElementById('topic-row').innerHTML = th;
+  }
+});
+document.getElementById('topic-row').addEventListener('click', function(e) {
+  var chip = e.target.closest('.topic-chip');
+  if (!chip) return;
+  quizTopic = quizTopic === chip.dataset.t ? null : chip.dataset.t;
+  document.querySelectorAll('#topic-row .topic-chip').forEach(function(c) { c.classList.toggle('active', c.dataset.t === quizTopic); });
+});
+
+// Mode chips
+document.getElementById('mode-row').addEventListener('click', function(e) {
+  var chip = e.target.closest('.mode-chip');
+  if (!chip) return;
+  quizMode = chip.dataset.m;
+  document.querySelectorAll('.mode-chip').forEach(function(c) { c.classList.remove('active'); });
+  chip.classList.add('active');
+});
+
+document.getElementById('start-btn').addEventListener('click', startQuiz);
+document.getElementById('resume-btn').addEventListener('click', resumeQuiz);
+document.getElementById('skip-btn').addEventListener('click', skipQ);
+document.getElementById('next-btn').addEventListener('click', nextQ);
+document.getElementById('retry-wrong-btn').addEventListener('click', retryCurWrong);
+document.getElementById('review-wrong-btn').addEventListener('click', reviewCurWrong);
+document.getElementById('back-btn').addEventListener('click', showQuizStart);
+document.getElementById('review-back-btn').addEventListener('click', function() {
+  document.getElementById('review-overlay').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'block';
+});
+document.getElementById('drill-all-wrong').addEventListener('click', drillAllWrong);
+document.getElementById('flash-reveal-btn').addEventListener('click', revealAnswer);
+document.getElementById('read-prev-btn').addEventListener('click', readPrev);
+document.getElementById('read-next-btn').addEventListener('click', readNext);
+document.getElementById('read-subj-row').addEventListener('click', function(e) {
+  var chip = e.target.closest('.subj-chip');
+  if (!chip) return;
+  readSubj = chip.dataset.rs; readTopic = null;
+  document.querySelectorAll('#read-subj-row .subj-chip').forEach(function(c) { c.classList.toggle('active', c.dataset.rs === readSubj); });
+  rebuildReadTopics();
+  buildReadPool(); readIdx = 0;
+  saveReadPos(); renderFlash();
+});
+document.getElementById('read-topic-row').addEventListener('click', function(e) {
+  var chip = e.target.closest('.topic-chip');
+  if (!chip) return;
+  readTopic = readTopic === chip.dataset.rt ? null : chip.dataset.rt;
+  document.querySelectorAll('#read-topic-row .topic-chip').forEach(function(c) { c.classList.toggle('active', c.dataset.rt === readTopic); });
+  buildReadPool(); readIdx = 0;
+  saveReadPos(); renderFlash();
+});
 
 function showQuizStart() {
   document.getElementById('quiz-start').style.display = 'block';
@@ -432,106 +475,75 @@ function showQuizStart() {
   document.getElementById('quiz-result').style.display = 'none';
   document.getElementById('quiz-bottom').style.display = 'none';
   document.getElementById('review-overlay').style.display = 'none';
+  document.getElementById('exam-banner').style.display = 'none';
   document.getElementById('hdrRight').textContent = '';
+  clearInterval(timerInt); clearInterval(examCountInt);
 }
 
 function checkResume() {
   if (!lastQuiz || !lastQuiz.queue || lastQuiz.idx >= lastQuiz.queue.length) {
     document.getElementById('resume-banner').style.display = 'none'; return;
   }
-  const rem = lastQuiz.queue.length - lastQuiz.idx;
-  document.getElementById('resume-text').textContent = '上次中斷：剩 '+rem+' 題未完成';
+  var rem = lastQuiz.queue.length - lastQuiz.idx;
+  document.getElementById('resume-text').textContent = '上次中斷，剩 ' + rem + ' 題未完成';
   document.getElementById('resume-banner').style.display = 'flex';
 }
 
 function resumeQuiz() {
   if (!lastQuiz) return;
-  queue = QUESTIONS.filter(q => lastQuiz.queue.includes(q.id));
-  const startIdx = lastQuiz.idx;
-  queue = queue.slice(startIdx);
-  qIdx=0; qCorrect=lastQuiz.correct||0; qWrong=lastQuiz.wrong||0; streak=0; answered=false;
-  startTimer();
-  showPlayScreen();
-  renderQ();
-}
-
-function selectSubj(s, el) {
-  quizSubj = s; quizTopic = null; quizTopicsFilter = null;
-  document.querySelectorAll('#subj-row .subj-chip').forEach(c => c.classList.toggle('active', c.dataset.s===s));
-  const show = s !== 'all';
-  document.getElementById('topic-area').style.display = show ? 'block' : 'none';
-  if (show) {
-    const topics = TOPIC_MAP[s] || [];
-    document.getElementById('topic-row').innerHTML = topics.map(t => {
-      const cnt = QUESTIONS.filter(q=>q.topic===t).length;
-      return '<div class="topic-chip" data-t="'+t+'" onclick="selectTopic(''+t+'',this)">'+t+' ('+cnt+')</div>';
-    }).join('');
-  }
-}
-
-function selectTopic(t, el) {
-  quizTopic = quizTopic === t ? null : t;
-  document.querySelectorAll('#topic-row .topic-chip').forEach(c => c.classList.toggle('active', c.dataset.t===quizTopic));
-}
-
-function selectMode(m, el) {
-  quizMode = m;
-  document.querySelectorAll('.mode-chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('range-area').style.display = m==='range' ? 'block' : 'none';
+  var ids = lastQuiz.queue.slice(lastQuiz.idx);
+  queue = ids.map(function(id) { return QUESTIONS.find(function(q) { return q.id === id; }); }).filter(Boolean);
+  qIdx = 0; qCorrect = lastQuiz.correct || 0; qWrong = lastQuiz.wrong || 0; streak = 0; answered = false;
+  startTimer(); showPlayScreen(); renderQ();
 }
 
 function getPool() {
-  let pool = QUESTIONS;
-  if (quizTopicsFilter) pool = pool.filter(q => quizTopicsFilter.includes(q.topic));
-  else if (quizTopic) pool = pool.filter(q => q.topic === quizTopic);
-  else if (quizSubj !== 'all') pool = pool.filter(q => q.subject === quizSubj);
+  var pool = QUESTIONS;
+  if (quizTopicsFilter) return pool.filter(function(q) { return quizTopicsFilter.indexOf(q.topic) >= 0; });
+  if (quizTopic) return pool.filter(function(q) { return q.topic === quizTopic; });
+  if (quizSubj !== 'all') {
+    var skey = quizSubj === 'ins' ? '人身保險' : quizSubj === 'law' ? '法規' : quizSubj;
+    return pool.filter(function(q) { return q.subject === skey; });
+  }
   return pool;
 }
 
 function startQuiz() {
-  let pool = getPool();
+  var pool = getPool();
   if (quizMode === 'wrong') {
-    pool = pool.filter(q => wrongSet.has(q.id));
+    pool = pool.filter(function(q) { return wrongSet.has(q.id); });
     if (!pool.length) { alert('這個範圍內沒有錯題，先去做幾題吧！'); return; }
   } else if (quizMode === 'undone') {
-    pool = pool.filter(q => !doneSet.has(q.id));
+    pool = pool.filter(function(q) { return !doneSet.has(q.id); });
     if (!pool.length) { alert('這個範圍的題目都做過了！'); return; }
   } else if (quizMode === 'seq') {
-    pool = [...pool].sort((a,b) => a.id - b.id);
-  } else if (quizMode === 'range') {
-    const f = parseInt(document.getElementById('range-from').value)-1;
-    const t = parseInt(document.getElementById('range-to').value);
-    pool = pool.slice(f, t);
+    pool = pool.slice().sort(function(a, b) { return a.id - b.id; });
   } else {
-    pool = shuffle([...pool]);
+    pool = shuffle(pool.slice());
   }
-  let cnt = examCount || parseInt(document.getElementById('quiz-count').value) || pool.length;
-  if (!cnt || cnt === 0) cnt = pool.length;
+  var cnt = examCount || parseInt(document.getElementById('quiz-count').value) || pool.length;
+  if (!cnt) cnt = pool.length;
   queue = pool.slice(0, cnt);
   if (!queue.length) { alert('找不到符合條件的題目'); return; }
-  qIdx=0; qCorrect=0; qWrong=0; streak=0; answered=false;
-  lastQuiz = {queue: queue.map(q=>q.id), idx:0, correct:0, wrong:0};
+  qIdx = 0; qCorrect = 0; qWrong = 0; streak = 0; answered = false; lastWrongIds = [];
+  lastQuiz = {queue: queue.map(function(q) { return q.id; }), idx: 0, correct: 0, wrong: 0};
   saveAll();
-  startTimer();
-  showPlayScreen();
-  renderQ();
+  startTimer(); showPlayScreen(); renderQ();
 }
 
 function startTimer() {
   clearInterval(timerInt); clearInterval(examCountInt);
   timerSec = 0;
-  timerInt = setInterval(() => {
+  timerInt = setInterval(function() {
     timerSec++;
-    const m=Math.floor(timerSec/60), s=timerSec%60;
-    document.getElementById('hdrRight').textContent = m+':'+(s<10?'0':'')+s;
+    var m = Math.floor(timerSec / 60); var s = timerSec % 60;
+    document.getElementById('hdrRight').textContent = m + ':' + (s < 10 ? '0' : '') + s;
   }, 1000);
   if (quizExam) {
-    const maxSec = quizExam==='ins' ? 70*60 : 70*60;
-    examCountdown = maxSec;
+    examCountdown = 70 * 60;
     document.getElementById('exam-banner').style.display = 'block';
     updateExamBanner();
-    examCountInt = setInterval(() => {
+    examCountInt = setInterval(function() {
       examCountdown--;
       updateExamBanner();
       if (examCountdown <= 0) { clearInterval(examCountInt); showResult(); }
@@ -540,9 +552,9 @@ function startTimer() {
 }
 
 function updateExamBanner() {
-  const m=Math.floor(examCountdown/60), s=examCountdown%60;
-  const typeMap = {ins:'人身保險 模擬考 (50題×2分=100分，答對≥30題及格)',law:'法規 模擬考 (100題×1分=100分，答對≥60題及格)',both:'兩科合併模擬考'};
-  document.getElementById('exam-banner').textContent = (typeMap[quizExam]||'') + '　⏱ 剩餘 '+m+':'+(s<10?'0':'')+s;
+  var m = Math.floor(examCountdown / 60); var s = examCountdown % 60;
+  var types = {ins:'人身保險模擬考 (50題x2分=100分，答對>=30及格)', law:'法規模擬考 (100題x1分=100分，答對>=60及格)', both:'兩科合併模擬考'};
+  document.getElementById('exam-banner').textContent = (types[quizExam] || '') + '  剩餘 ' + m + ':' + (s < 10 ? '0' : '') + s;
 }
 
 function showPlayScreen() {
@@ -554,69 +566,70 @@ function showPlayScreen() {
 }
 
 function renderQ() {
-  const q = queue[qIdx]; answered = false;
+  var q = queue[qIdx]; answered = false;
   lastQuiz.idx = qIdx; saveAll();
-  document.getElementById('prog-fill').style.width = (qIdx/queue.length*100)+'%';
-  document.getElementById('q-num-lbl').textContent = '第'+(qIdx+1)+'/'+queue.length+'題';
-  const badge = document.getElementById('q-badge');
-  badge.textContent = (q.subject||'')+(q.topic?' · '+q.topic:'');
-  badge.className = 'q-badge '+(q.subject==='法規'?'q-badge-law':'q-badge-ins');
-  document.getElementById('q-score').textContent = qIdx>0?('✓'+qCorrect+' ✗'+qWrong):'';
+  document.getElementById('prog-fill').style.width = (qIdx / queue.length * 100) + '%';
+  document.getElementById('q-num-lbl').textContent = '第' + (qIdx + 1) + '/' + queue.length + '題';
+  var badge = document.getElementById('q-badge');
+  badge.textContent = (q.subject || '') + (q.topic ? ' · ' + q.topic : '');
+  badge.className = 'q-badge ' + (q.subject === '法規' ? 'q-badge-law' : 'q-badge-ins');
+  document.getElementById('q-score').textContent = qIdx > 0 ? ('✓' + qCorrect + ' ✗' + qWrong) : '';
   document.getElementById('q-text').textContent = q.text;
-  const opts = document.getElementById('q-opts');
+  var opts = document.getElementById('q-opts');
   opts.innerHTML = '';
-  (q.options||[]).forEach((opt, i) => {
+  (q.options || []).forEach(function(opt, i) {
     if (!opt) return;
-    const b = document.createElement('button');
+    var b = document.createElement('button');
     b.className = 'q-opt';
-    b.innerHTML = '<span class="q-opt-num">('+(i+1)+')</span><span>'+opt+'</span>';
-    b.onclick = () => selectOpt(i, b);
+    var num = document.createElement('span');
+    num.className = 'q-opt-num';
+    num.textContent = '(' + (i + 1) + ')';
+    var txt = document.createElement('span');
+    txt.textContent = opt;
+    b.appendChild(num); b.appendChild(txt);
+    b.addEventListener('click', (function(idx) { return function() { selectOpt(idx, b); }; })(i));
     opts.appendChild(b);
   });
-  const eb = document.getElementById('explain-box');
+  var eb = document.getElementById('explain-box');
   eb.style.display = 'none'; eb.className = 'explain-box';
   document.getElementById('next-btn').disabled = true;
-  document.getElementById('next-btn').textContent = qIdx===queue.length-1 ? '查看結果' : '下一題 →';
+  document.getElementById('next-btn').textContent = qIdx === queue.length - 1 ? '查看結果' : '下一題 →';
   document.getElementById('skip-btn').disabled = false;
-  setTimeout(() => document.getElementById('quiz-play').scrollTo({top:0,behavior:'smooth'}), 50);
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
 function selectOpt(idx, btn) {
   if (answered) return;
   answered = true;
-  const q = queue[qIdx];
-  document.querySelectorAll('.q-opt').forEach(b => b.disabled = true);
-  const ok = idx === q.answer;
+  var q = queue[qIdx];
+  document.querySelectorAll('.q-opt').forEach(function(b) { b.disabled = true; });
+  var ok = idx === q.answer;
   if (ok) {
     btn.classList.add('correct'); qCorrect++; streak++;
     if (streak >= 5) showStreak(streak);
   } else {
     btn.classList.add('wrong');
-    document.querySelectorAll('.q-opt')[q.answer].classList.add('reveal');
+    var allOpts = document.querySelectorAll('.q-opt');
+    if (allOpts[q.answer]) allOpts[q.answer].classList.add('reveal');
     qWrong++; streak = 0;
   }
-  // Update stats
-  wrongSet[ok?'delete':'add'](q.id);
+  if (ok) wrongSet.delete(q.id); else { wrongSet.add(q.id); lastWrongIds.push(q.id); }
   doneSet.add(q.id);
-  topicDone[q.topic] = (topicDone[q.topic]||0)+1;
-  if (ok) topicCorrect[q.topic] = (topicCorrect[q.topic]||0)+1;
+  topicDone[q.topic] = (topicDone[q.topic] || 0) + 1;
+  if (ok) topicCorrect[q.topic] = (topicCorrect[q.topic] || 0) + 1;
   lastQuiz.correct = qCorrect; lastQuiz.wrong = qWrong;
   saveAll();
-  // Show explanation
-  const eb = document.getElementById('explain-box');
-  eb.className = 'explain-box '+(ok?'explain-ok':'explain-err');
-  eb.textContent = (ok?'✓ 答對了！
-':'✗ 答錯了
-')+(q.explain||'');
+  var eb = document.getElementById('explain-box');
+  eb.className = 'explain-box ' + (ok ? 'explain-ok' : 'explain-err');
+  eb.textContent = (ok ? '✓ 答對了！\n' : '✗ 答錯了\n') + (q.explain || '');
   eb.style.display = 'block';
-  setTimeout(() => eb.scrollIntoView({behavior:'smooth',block:'nearest'}), 120);
+  setTimeout(function() { eb.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 120);
   document.getElementById('next-btn').disabled = false;
   document.getElementById('skip-btn').disabled = true;
 }
 
-function skipQ() { streak=0; qIdx++; if(qIdx>=queue.length){showResult();return;} renderQ(); }
-function nextQ() { qIdx++; if(qIdx>=queue.length){showResult();return;} renderQ(); }
+function skipQ() { streak = 0; qIdx++; if (qIdx >= queue.length) { showResult(); return; } renderQ(); }
+function nextQ() { qIdx++; if (qIdx >= queue.length) { showResult(); return; } renderQ(); }
 
 function showResult() {
   clearInterval(timerInt); clearInterval(examCountInt);
@@ -624,251 +637,237 @@ function showResult() {
   document.getElementById('quiz-bottom').style.display = 'none';
   document.getElementById('exam-banner').style.display = 'none';
   document.getElementById('hdrRight').textContent = '';
-  lastQuiz = null; saveAll();
-  const pct = Math.round(qCorrect/queue.length*100);
-  const sc = document.getElementById('res-score');
-  sc.textContent = pct+'%';
-  sc.style.color = pct>=70?'var(--green)':pct>=50?'var(--orange)':'var(--red)';
-  document.getElementById('res-label').textContent = qCorrect+'/'+queue.length+' 答對';
+  var pct = Math.round(qCorrect / queue.length * 100);
+  var sc = document.getElementById('res-score');
+  sc.textContent = pct + '%';
+  sc.style.color = pct >= 70 ? 'var(--green)' : pct >= 50 ? 'var(--orange)' : 'var(--red)';
+  document.getElementById('res-label').textContent = qCorrect + '/' + queue.length + ' 答對';
   document.getElementById('res-correct').textContent = qCorrect;
   document.getElementById('res-wrong').textContent = qWrong;
   document.getElementById('res-time').textContent = fmtTime(timerSec);
-  // Exam result
-  const en = document.getElementById('exam-result-note');
-  if (quizExam) {
+  var en = document.getElementById('exam-result-note');
+  if (quizExam === 'ins') {
+    var pass = qCorrect >= 30;
     en.style.display = 'block';
-    if (quizExam==='ins') {
-      const pass = qCorrect>=30;
-      en.style.background = pass?'rgba(47,158,68,.1)':'rgba(224,49,49,.08)';
-      en.style.color = pass?'var(--green)':'var(--red)';
-      en.textContent = (pass?'✓ 人身保險及格（':'✗ 人身保險未及格（')+qCorrect+'題，得'+qCorrect*2+'分）';
-    } else if (quizExam==='law') {
-      const pass = qCorrect>=60;
-      en.style.background = pass?'rgba(47,158,68,.1)':'rgba(224,49,49,.08)';
-      en.style.color = pass?'var(--green)':'var(--red)';
-      en.textContent = (pass?'✓ 法規及格（':'✗ 法規未及格（')+qCorrect+'分）';
-    } else if (quizExam==='both') {
-      const insQ = queue.filter(q=>q.subject==='人身保險');
-      const insC = queue.slice(0,50).filter((q,i)=>doneSet.has(q.id)).length;
-      const lawC = qCorrect - insC;
-      const total = insC*2 + lawC;
-      const pass = total>=140 && insC>=30 && lawC>=60;
-      en.style.background = pass?'rgba(47,158,68,.1)':'rgba(224,49,49,.08)';
-      en.style.color = pass?'var(--green)':'var(--red)';
-      en.textContent = (pass?'✓ 兩科合格':'✗ 尚未合格')+'（人身'+insC*2+'分＋法規'+lawC+'分＝'+total+'分，需≥140）';
-    }
-  } else { en.style.display='none'; }
-  quizExam = null; examCount = 0;
+    en.style.background = pass ? 'rgba(47,158,68,.1)' : 'rgba(224,49,49,.08)';
+    en.style.color = pass ? 'var(--green)' : 'var(--red)';
+    en.textContent = (pass ? '✓ 人身保險及格 ' : '✗ 人身保險未及格 ') + '(' + qCorrect + '題，得' + (qCorrect * 2) + '分)';
+  } else if (quizExam === 'law') {
+    var pass = qCorrect >= 60;
+    en.style.display = 'block';
+    en.style.background = pass ? 'rgba(47,158,68,.1)' : 'rgba(224,49,49,.08)';
+    en.style.color = pass ? 'var(--green)' : 'var(--red)';
+    en.textContent = (pass ? '✓ 法規及格 ' : '✗ 法規未及格 ') + '(' + qCorrect + '分)';
+  } else if (quizExam === 'both') {
+    var insQ = queue.filter(function(q) { return q.subject === '人身保險'; }).slice(0, 50);
+    var insC = 0;
+    insQ.forEach(function(q) { if (!wrongSet.has(q.id)) insC++; });
+    var lawC = qCorrect - insC;
+    var total = insC * 2 + lawC;
+    var pass = total >= 140;
+    en.style.display = 'block';
+    en.style.background = pass ? 'rgba(47,158,68,.1)' : 'rgba(224,49,49,.08)';
+    en.style.color = pass ? 'var(--green)' : 'var(--red)';
+    en.textContent = (pass ? '✓ 兩科合格' : '✗ 尚未合格') + '(人身' + (insC * 2) + '分+法規' + lawC + '分=' + total + '分，需>=140)';
+  } else { en.style.display = 'none'; }
+  quizExam = null; examCount = 0; lastQuiz = null; saveAll();
   document.getElementById('quiz-result').style.display = 'block';
   renderPlan();
 }
 
 function retryCurWrong() {
-  const wqs = queue.filter(q => wrongSet.has(q.id));
-  if (!wqs.length) { alert('沒有錯題！'); return; }
-  queue = shuffle([...wqs]); qIdx=0; qCorrect=0; qWrong=0; streak=0; answered=false;
+  var wqs = QUESTIONS.filter(function(q) { return lastWrongIds.indexOf(q.id) >= 0; });
+  if (!wqs.length) { alert('本次沒有錯題！'); return; }
+  queue = shuffle(wqs.slice()); qIdx = 0; qCorrect = 0; qWrong = 0; streak = 0; answered = false; lastWrongIds = [];
+  document.getElementById('quiz-result').style.display = 'none';
   startTimer(); showPlayScreen(); renderQ();
 }
 
 function reviewCurWrong() {
-  const wqs = queue.filter(q => wrongSet.has(q.id));
-  if (!wqs.length) { alert('沒有錯題！'); return; }
-  const rl = document.getElementById('review-list');
-  rl.innerHTML = wqs.map(q => {
+  var wqs = QUESTIONS.filter(function(q) { return lastWrongIds.indexOf(q.id) >= 0; });
+  if (!wqs.length) { alert('本次沒有錯題！'); return; }
+  var html = wqs.map(function(q) {
+    var optsHtml = (q.options || []).map(function(opt, i) {
+      var isAns = i === q.answer;
+      var style = 'padding:8px 12px;border-radius:8px;margin-bottom:5px;font-size:13px;' +
+        (isAns ? 'background:rgba(47,158,68,.1);border:1.5px solid var(--green);font-weight:600' : 'background:var(--bg);border:1px solid var(--border)');
+      return '<div style="' + style + '">(' + (i + 1) + ') ' + opt + '</div>';
+    }).join('');
     return '<div class="card" style="margin-bottom:10px">'
-      +'<div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:8px">'+q.subject+' · '+q.topic+'</div>'
-      +'<div style="font-size:14px;font-weight:600;margin-bottom:10px;line-height:1.7">'+q.text+'</div>'
-      +(q.options||[]).map((opt,i) => '<div style="padding:8px 12px;border-radius:8px;margin-bottom:5px;font-size:13px;'
-        +(i===q.answer?'background:rgba(47,158,68,.1);border:1.5px solid var(--green);font-weight:600':'background:var(--bg);border:1px solid var(--border)')
-        +'">('+(i+1)+') '+opt+'</div>').join('')
-      +(q.explain?'<div style="margin-top:10px;padding:10px;background:#f8f9fa;border-radius:8px;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#444">'+q.explain+'</div>':'')
-      +'</div>';
+      + '<div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:8px">' + (q.subject || '') + ' · ' + (q.topic || '') + '</div>'
+      + '<div style="font-size:14px;font-weight:600;margin-bottom:10px;line-height:1.7">' + q.text + '</div>'
+      + optsHtml
+      + (q.explain ? '<div style="margin-top:10px;padding:10px;background:#f8f9fa;border-radius:8px;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#444">' + q.explain + '</div>' : '')
+      + '</div>';
   }).join('');
+  document.getElementById('review-list').innerHTML = html;
   document.getElementById('quiz-result').style.display = 'none';
   document.getElementById('review-overlay').style.display = 'block';
 }
 
-// ── Read tab ──
-let readSubj = 'all', readTopic = null, readPool = [...QUESTIONS], readIdx = 0;
+// --- Read ---
+var readSubj = 'all', readTopic = null, readPool = QUESTIONS.slice(), readIdx = 0;
 
 function renderReadPanel() {
-  readSubj = readPos.subj || 'all';
-  readTopic = readPos.topic || null;
-  readIdx = readPos.idx || 0;
-  // Set UI
-  document.querySelectorAll('#read-subj-row .subj-chip').forEach(c => c.classList.toggle('active', c.dataset.rs===readSubj));
-  rebuildReadTopics();
-  buildReadPool();
-  renderFlash();
-}
-
-function selectReadSubj(s, el) {
-  readSubj = s; readTopic = null;
-  document.querySelectorAll('#read-subj-row .subj-chip').forEach(c => c.classList.toggle('active', c.dataset.rs===s));
-  rebuildReadTopics();
-  buildReadPool(); readIdx = 0;
-  saveReadPos(); renderFlash();
-}
-
-function selectReadTopic(t, el) {
-  readTopic = readTopic===t ? null : t;
-  document.querySelectorAll('#read-topic-row .topic-chip').forEach(c => c.classList.toggle('active', c.dataset.rt===readTopic));
-  buildReadPool(); readIdx = 0;
-  saveReadPos(); renderFlash();
+  readSubj = readPos.subj || 'all'; readTopic = readPos.topic || null; readIdx = readPos.idx || 0;
+  document.querySelectorAll('#read-subj-row .subj-chip').forEach(function(c) { c.classList.toggle('active', c.dataset.rs === readSubj); });
+  rebuildReadTopics(); buildReadPool(); renderFlash();
 }
 
 function rebuildReadTopics() {
-  if (readSubj === 'all') { document.getElementById('read-topic-row').innerHTML=''; return; }
-  const topics = (TOPIC_MAP[readSubj]||[]);
-  document.getElementById('read-topic-row').innerHTML = topics.map(t =>
-    '<div class="topic-chip" data-rt="'+t+'" onclick="selectReadTopic(''+t+'',this)">'+t+'</div>'
-  ).join('');
-  if (readTopic) {
-    document.querySelectorAll('#read-topic-row .topic-chip').forEach(c => c.classList.toggle('active', c.dataset.rt===readTopic));
-  }
+  if (readSubj === 'all') { document.getElementById('read-topic-row').innerHTML = ''; return; }
+  var subjKey = readSubj === 'ins' ? '人身保險' : '法規';
+  var topics = TOPIC_MAP[subjKey] || [];
+  var html = topics.map(function(t) { return '<div class="topic-chip" data-rt="' + t + '">' + t + '</div>'; }).join('');
+  document.getElementById('read-topic-row').innerHTML = html;
+  document.querySelectorAll('#read-topic-row .topic-chip').forEach(function(c) { c.classList.toggle('active', c.dataset.rt === readTopic); });
 }
 
 function buildReadPool() {
-  readPool = QUESTIONS;
-  if (readTopic) readPool = readPool.filter(q => q.topic===readTopic);
-  else if (readSubj !== 'all') readPool = readPool.filter(q => q.subject===readSubj);
+  var pool = QUESTIONS;
+  if (readTopic) pool = pool.filter(function(q) { return q.topic === readTopic; });
+  else if (readSubj !== 'all') {
+    var sk = readSubj === 'ins' ? '人身保險' : '法規';
+    pool = pool.filter(function(q) { return q.subject === sk; });
+  }
+  readPool = pool;
   if (readIdx >= readPool.length) readIdx = 0;
 }
 
-function saveReadPos() {
-  readPos = {subj:readSubj, topic:readTopic, idx:readIdx};
-  saveAll();
-}
+function saveReadPos() { readPos = {subj: readSubj, topic: readTopic, idx: readIdx}; saveAll(); }
 
 function renderFlash() {
-  if (!readPool.length) { document.getElementById('flash-card-wrap').innerHTML='<div style="text-align:center;padding:30px;color:var(--sub)">沒有符合條件的題目</div>'; return; }
-  if (readIdx >= readPool.length) readIdx = 0;
-  const q = readPool[readIdx];
-  document.getElementById('read-pos-lbl').textContent = '第'+(readIdx+1)+'/'+readPool.length+'題';
-  document.getElementById('read-topic-lbl').textContent = (q.subject||'')+(q.topic?' · '+q.topic:'');
+  if (!readPool.length) return;
+  var q = readPool[readIdx];
+  document.getElementById('read-pos-lbl').textContent = '第' + (readIdx + 1) + '/' + readPool.length + '題';
+  document.getElementById('read-topic-lbl').textContent = (q.subject || '') + (q.topic ? ' · ' + q.topic : '');
   document.getElementById('flash-q').textContent = q.text;
-  // Collapse answer
-  const ans = document.getElementById('flash-answer');
-  ans.style.display = 'none';
+  document.getElementById('flash-answer').style.display = 'none';
   document.getElementById('flash-reveal-btn').textContent = '點擊展開答案 ▾';
-  // Prep answer content
-  const correct = (q.options||[])[q.answer]||'';
+  var correct = (q.options || [])[q.answer] || '';
   document.getElementById('ans-text').textContent = '✓ 正確答案：' + correct;
-  document.getElementById('ans-opts').innerHTML = (q.options||[]).map((o,i) =>
-    '<div style="padding:4px 0;'+(i===q.answer?'color:var(--green);font-weight:700':'color:var(--sub)')+'">('+(i+1)+') '+o+'</div>'
-  ).join('');
-  document.getElementById('ans-explain').textContent = q.explain||'';
+  var optsHtml = (q.options || []).map(function(o, i) {
+    var isAns = i === q.answer;
+    return '<div style="padding:4px 0;' + (isAns ? 'color:var(--green);font-weight:700' : 'color:var(--sub)') + '">(' + (i + 1) + ') ' + o + '</div>';
+  }).join('');
+  document.getElementById('ans-opts').innerHTML = optsHtml;
+  document.getElementById('ans-explain').textContent = q.explain || '';
 }
 
 function revealAnswer() {
-  const ans = document.getElementById('flash-answer');
-  const btn = document.getElementById('flash-reveal-btn');
-  const isOpen = ans.style.display !== 'none';
-  ans.style.display = isOpen ? 'none' : 'block';
-  btn.textContent = isOpen ? '點擊展開答案 ▾' : '收起答案 ▴';
+  var ans = document.getElementById('flash-answer');
+  var open = ans.style.display !== 'none';
+  ans.style.display = open ? 'none' : 'block';
+  document.getElementById('flash-reveal-btn').textContent = open ? '點擊展開答案 ▾' : '收起答案 ▴';
 }
+function readNext() { readIdx = Math.min(readIdx + 1, readPool.length - 1); saveReadPos(); renderFlash(); window.scrollTo(0, 0); }
+function readPrev() { readIdx = Math.max(readIdx - 1, 0); saveReadPos(); renderFlash(); window.scrollTo(0, 0); }
 
-function readNext() {
-  readIdx = Math.min(readIdx+1, readPool.length-1);
-  saveReadPos(); renderFlash();
-  window.scrollTo(0,0);
-}
-
-function readPrev() {
-  readIdx = Math.max(readIdx-1, 0);
-  saveReadPos(); renderFlash();
-  window.scrollTo(0,0);
-}
-
-// ── Wrong tab ──
+// --- Wrong ---
 function renderWrong() {
-  const wrongs = QUESTIONS.filter(q => wrongSet.has(q.id));
-  const total = wrongs.length;
-  document.getElementById('wrong-summary').style.display = total ? 'block' : 'none';
-  document.getElementById('wrong-empty').style.display = total ? 'none' : 'block';
-  if (!total) { document.getElementById('wrong-list').innerHTML=''; return; }
-  document.getElementById('wrong-total').textContent = total;
-  // Group by topic
-  const byTopic = {};
-  wrongs.forEach(q => { if(!byTopic[q.topic]) byTopic[q.topic]=[]; byTopic[q.topic].push(q); });
-  document.getElementById('wrong-list').innerHTML = Object.entries(byTopic).map(([topic, qs]) => {
-    const items = qs.map(q =>
-      '<div class="wrong-q-item">'+q.text.slice(0,80)+(q.text.length>80?'…':'')
-      +'<div class="wrong-ans">✓ '+( (q.options||[])[q.answer]||'' )+'</div></div>'
-    ).join('');
-    return '<div class="wrong-topic-card">'
-      +'<div class="wrong-topic-hdr" onclick="toggleWrong('wt'+topic+'')">'
-      +'<span class="wrong-topic-ttl">'+topic+'</span>'
-      +'<div style="display:flex;align-items:center;gap:10px"><span class="wrong-topic-cnt">✗ '+qs.length+'題</span>'
-      +'<button class="drill-btn" onclick="event.stopPropagation();drillTopicWrong(''+topic+'')">重練</button>'
-      +'<span style="color:var(--sub)">›</span></div></div>'
-      +'<div class="wrong-topic-body" id="wt'+topic+'">'+items+'</div>'
-      +'</div>';
-  }).join('');
+  var wrongs = QUESTIONS.filter(function(q) { return wrongSet.has(q.id); });
+  document.getElementById('wrong-summary').style.display = wrongs.length ? 'block' : 'none';
+  document.getElementById('wrong-empty').style.display = wrongs.length ? 'none' : 'block';
+  if (!wrongs.length) { document.getElementById('wrong-list').innerHTML = ''; return; }
+  document.getElementById('wrong-total').textContent = wrongs.length;
+  var byTopic = {};
+  wrongs.forEach(function(q) { if (!byTopic[q.topic]) byTopic[q.topic] = []; byTopic[q.topic].push(q); });
+  var html = '';
+  Object.keys(byTopic).forEach(function(topic) {
+    var qs = byTopic[topic];
+    var items = qs.map(function(q) {
+      return '<div class="wrong-q-item">' + q.text.slice(0, 80) + (q.text.length > 80 ? '…' : '')
+        + '<div class="wrong-ans">✓ ' + ((q.options || [])[q.answer] || '') + '</div></div>';
+    }).join('');
+    html += '<div class="wrong-topic-card">'
+      + '<div class="wrong-topic-hdr" data-wt="' + topic + '">'
+      + '<span style="font-size:13px;font-weight:700">' + topic + '</span>'
+      + '<div style="display:flex;align-items:center;gap:10px">'
+      + '<span style="font-size:12px;color:var(--red);font-weight:600">✗ ' + qs.length + '題</span>'
+      + '<button class="drill-btn" data-drill="' + topic + '">重練</button>'
+      + '<span style="color:var(--sub)">&#x203A;</span></div></div>'
+      + '<div class="wrong-topic-body" id="wt-' + topic.replace(/\s/g,'_') + '">' + items + '</div>'
+      + '</div>';
+  });
+  document.getElementById('wrong-list').innerHTML = html;
+  document.getElementById('wrong-list').addEventListener('click', function(e) {
+    var hdr = e.target.closest('[data-wt]');
+    var drill = e.target.closest('[data-drill]');
+    if (drill) { e.stopPropagation(); drillTopicWrong(drill.dataset.drill); return; }
+    if (hdr) {
+      var body = document.getElementById('wt-' + hdr.dataset.wt.replace(/\s/g,'_'));
+      if (body) body.classList.toggle('open');
+    }
+  });
 }
-
-function toggleWrong(id) { document.getElementById(id).classList.toggle('open'); }
 
 function drillTopicWrong(topic) {
   quizSubj = 'all'; quizTopic = topic; quizMode = 'wrong'; quizExam = null; quizTopicsFilter = null;
-  switchTab('quiz');
-  setTimeout(startQuiz, 50);
+  switchTab('quiz'); setTimeout(startQuiz, 50);
 }
-
 function drillAllWrong() {
   quizSubj = 'all'; quizTopic = null; quizMode = 'wrong'; quizExam = null; quizTopicsFilter = null;
-  switchTab('quiz');
-  setTimeout(startQuiz, 50);
+  switchTab('quiz'); setTimeout(startQuiz, 50);
 }
 
-// ── Weak tab ──
+// --- Weak ---
 function renderWeak() {
-  const topics = Object.keys(topicDone).sort((a,b) => {
-    const accA = topicDone[a] ? (topicCorrect[a]||0)/topicDone[a] : 1;
-    const accB = topicDone[b] ? (topicCorrect[b]||0)/topicDone[b] : 1;
-    return accA - accB; // weakest first
+  var topics = Object.keys(topicDone).sort(function(a, b) {
+    var accA = topicDone[a] ? (topicCorrect[a] || 0) / topicDone[a] : 1;
+    var accB = topicDone[b] ? (topicCorrect[b] || 0) / topicDone[b] : 1;
+    return accA - accB;
   });
   if (!topics.length) {
     document.getElementById('weak-list').innerHTML = '<div class="card" style="text-align:center;padding:30px;color:var(--sub)">先去測驗幾題，這裡就會顯示你的弱點分析。</div>';
     return;
   }
-  document.getElementById('weak-list').innerHTML = topics.map(t => {
-    const done = topicDone[t]||0;
-    const corr = topicCorrect[t]||0;
-    const acc = done ? Math.round(corr/done*100) : 0;
-    const color = acc>=70?'var(--green)':acc>=50?'var(--orange)':'var(--red)';
-    const subj = (QUESTIONS.find(q=>q.topic===t)||{}).subject||'';
-    const totalInTopic = QUESTIONS.filter(q=>q.topic===t).length;
-    const wrongCnt = QUESTIONS.filter(q=>q.topic===t&&wrongSet.has(q.id)).length;
+  var html = topics.map(function(t) {
+    var done = topicDone[t] || 0; var corr = topicCorrect[t] || 0;
+    var acc = done ? Math.round(corr / done * 100) : 0;
+    var color = acc >= 70 ? 'var(--green)' : acc >= 50 ? 'var(--orange)' : 'var(--red)';
+    var subj = (QUESTIONS.find(function(q) { return q.topic === t; }) || {}).subject || '';
+    var total = QUESTIONS.filter(function(q) { return q.topic === t; }).length;
+    var wrongCnt = QUESTIONS.filter(function(q) { return q.topic === t && wrongSet.has(q.id); }).length;
     return '<div class="weak-item">'
-      +'<div class="weak-top"><div><div class="weak-name">'+t+'</div>'
-      +'<div style="font-size:11px;color:var(--sub)">'+subj+'・答了'+done+'/'+totalInTopic+'題'+(wrongCnt?' ✗'+wrongCnt:'')+'</div></div>'
-      +'<div style="display:flex;align-items:center;gap:8px"><span class="weak-pct" style="color:'+color+'">'+acc+'%</span>'
-      +'<button class="weak-drill" style="background:'+color+'" onclick="drillWeak(''+t+'')">練習</button></div></div>'
-      +'<div class="weak-bar-bg"><div class="weak-bar-fill" style="width:'+acc+'%;background:'+color+'"></div></div>'
-      +'<div class="weak-meta"><span>答對 '+corr+' / 答了 '+done+'</span><span>'+(acc>=70?'✓ 達標':'需要加強')+'</span></div>'
-      +'</div>';
+      + '<div class="weak-top"><div><div class="weak-name">' + t + '</div>'
+      + '<div style="font-size:11px;color:var(--sub)">' + subj + '，答了' + done + '/' + total + '題' + (wrongCnt ? '，✗' + wrongCnt : '') + '</div></div>'
+      + '<div style="display:flex;align-items:center;gap:8px">'
+      + '<span style="font-size:13px;font-weight:700;color:' + color + '">' + acc + '%</span>'
+      + '<button class="weak-drill" style="background:' + color + '" data-weak="' + t + '">練習</button></div></div>'
+      + '<div class="weak-bar-bg"><div class="weak-bar-fill" style="width:' + acc + '%;background:' + color + '"></div></div>'
+      + '<div class="weak-meta"><span>答對' + corr + '/答了' + done + '</span><span>' + (acc >= 70 ? '✓達標' : '需加強') + '</span></div>'
+      + '</div>';
   }).join('');
+  document.getElementById('weak-list').innerHTML = html;
+  document.getElementById('weak-list').addEventListener('click', function(e) {
+    var btn = e.target.closest('[data-weak]');
+    if (btn) drillWeak(btn.dataset.weak);
+  });
 }
 
 function drillWeak(topic) {
   quizSubj = 'all'; quizTopic = topic; quizMode = 'random'; quizExam = null; quizTopicsFilter = null;
-  switchTab('quiz');
-  setTimeout(startQuiz, 50);
+  switchTab('quiz'); setTimeout(startQuiz, 50);
 }
 
-// ── Helpers ──
+// --- Utils ---
 function showStreak(n) {
-  const t = document.getElementById('streakToast');
-  t.textContent = '🔥 連對'+n+'題！';
-  t.style.opacity = '1';
-  setTimeout(() => t.style.opacity='0', 2000);
+  var t = document.getElementById('streakToast');
+  t.textContent = '連對' + n + '題！'; t.style.opacity = '1';
+  setTimeout(function() { t.style.opacity = '0'; }, 2000);
 }
-function fmtTime(s) { return Math.floor(s/60)+'分'+(s%60)+'秒'; }
-function shuffle(a) { for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a; }
+function fmtTime(s) { return Math.floor(s / 60) + '分' + (s % 60) + '秒'; }
+function shuffle(a) {
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
 
-// ── Init ──
+// Init
 renderPlan();
+renderReadPanel();
 </script>
 </body>
 </html>
