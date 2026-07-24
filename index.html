@@ -92,11 +92,9 @@ body{font-family:-apple-system,"PingFang TC","Heiti TC",sans-serif;background:va
 .read-pos{font-size:12px;color:var(--sub);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
 .flash-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:13px}
 .flash-q{padding:18px;font-size:15px;line-height:1.8;white-space:pre-wrap}
-.flash-reveal{width:100%;padding:12px;background:var(--bg);border:none;border-top:1px solid var(--border);font-size:14px;color:var(--blue);cursor:pointer;font-weight:600}
-.flash-answer{display:none;padding:15px 18px;background:rgba(47,158,68,.06);border-top:1px solid var(--green)}
-.flash-answer .ans-text{font-weight:700;color:var(--green);font-size:14px;margin-bottom:8px}
-.flash-answer .ans-opts{font-size:13px;line-height:1.7}
-.flash-answer .ans-explain{font-size:12px;color:#555;line-height:1.7;margin-top:10px;white-space:pre-wrap;background:#fff;padding:10px;border-radius:8px}
+.flash-opts{padding:0 14px 14px;display:flex;flex-direction:column;gap:8px}
+.flash-answer{display:none;padding:13px 18px;background:rgba(47,158,68,.06);border-top:1px solid var(--green)}
+.flash-answer .ans-explain{font-size:13px;color:#444;line-height:1.8;white-space:pre-wrap}
 .read-nav{display:flex;gap:9px}
 .nav-btn{flex:1;padding:11px;border:1px solid var(--border);border-radius:10px;background:var(--card);font-size:14px;cursor:pointer;font-weight:600}
 .nav-btn:hover{border-color:var(--blue)}
@@ -254,10 +252,8 @@ body{font-family:-apple-system,"PingFang TC","Heiti TC",sans-serif;background:va
   </div>
   <div class="flash-card">
     <div class="flash-q" id="flash-q"></div>
-    <button class="flash-reveal" id="flash-reveal-btn">點擊展開答案 &#x25BE;</button>
+    <div class="flash-opts" id="flash-opts"></div>
     <div class="flash-answer" id="flash-answer">
-      <div class="ans-text" id="ans-text"></div>
-      <div class="ans-opts" id="ans-opts"></div>
       <div class="ans-explain" id="ans-explain"></div>
     </div>
   </div>
@@ -296,11 +292,12 @@ const QUESTIONS = [{"id": 0, "text": "風險的分類，依損失的性質可區
 const TOPIC_MAP = {"人身保險": ["風險概念", "保險基本原則", "生命表費率", "人壽保險", "年金保險", "投資型保險", "健康保險", "傷害保險", "保單條款", "責任準備金", "特殊保險", "保險業運作"], "法規": ["保險法條文", "業務員管理", "繼承與遺產", "遺產稅贈與稅", "主管機關監理", "金融消費者保護", "所得稅保費扣除", "洗錢個資"]};
 
 // Storage
-var wrongSet = new Set(JSON.parse(localStorage.getItem('ins3_wrong') || '[]'));
-var doneSet  = new Set(JSON.parse(localStorage.getItem('ins3_done')  || '[]'));
+var wrongSet     = new Set(JSON.parse(localStorage.getItem('ins3_wrong') || '[]'));
+var doneSet      = new Set(JSON.parse(localStorage.getItem('ins3_done')  || '[]'));
 var topicCorrect = JSON.parse(localStorage.getItem('ins3_tc') || '{}');
 var topicDone    = JSON.parse(localStorage.getItem('ins3_td') || '{}');
-var readPos = JSON.parse(localStorage.getItem('ins3_rp') || '{"subj":"all","topic":null,"idx":0}');
+var wrongHistory = JSON.parse(localStorage.getItem('ins3_wh') || '{}');
+var readPos  = JSON.parse(localStorage.getItem('ins3_rp') || '{"subj":"all","topic":null,"idx":0}');
 var lastQuiz = JSON.parse(localStorage.getItem('ins3_lq') || 'null');
 
 function saveAll() {
@@ -308,6 +305,7 @@ function saveAll() {
   localStorage.setItem('ins3_done',  JSON.stringify([...doneSet]));
   localStorage.setItem('ins3_tc', JSON.stringify(topicCorrect));
   localStorage.setItem('ins3_td', JSON.stringify(topicDone));
+  localStorage.setItem('ins3_wh', JSON.stringify(wrongHistory));
   localStorage.setItem('ins3_rp', JSON.stringify(readPos));
   if (lastQuiz) localStorage.setItem('ins3_lq', JSON.stringify(lastQuiz));
   else localStorage.removeItem('ins3_lq');
@@ -448,7 +446,6 @@ document.getElementById('review-back-btn').addEventListener('click', function() 
   document.getElementById('quiz-result').style.display = 'block';
 });
 document.getElementById('drill-all-wrong').addEventListener('click', drillAllWrong);
-document.getElementById('flash-reveal-btn').addEventListener('click', revealAnswer);
 document.getElementById('read-prev-btn').addEventListener('click', readPrev);
 document.getElementById('read-next-btn').addEventListener('click', readNext);
 document.getElementById('read-subj-row').addEventListener('click', function(e) {
@@ -613,7 +610,7 @@ function selectOpt(idx, btn) {
     if (allOpts[q.answer]) allOpts[q.answer].classList.add('reveal');
     qWrong++; streak = 0;
   }
-  if (ok) wrongSet.delete(q.id); else { wrongSet.add(q.id); lastWrongIds.push(q.id); }
+  if (ok) wrongSet.delete(q.id); else { wrongSet.add(q.id); lastWrongIds.push(q.id); wrongHistory[q.id] = (wrongHistory[q.id] || 0) + 1; }
   doneSet.add(q.id);
   topicDone[q.topic] = (topicDone[q.topic] || 0) + 1;
   if (ok) topicCorrect[q.topic] = (topicCorrect[q.topic] || 0) + 1;
@@ -736,54 +733,89 @@ function buildReadPool() {
 
 function saveReadPos() { readPos = {subj: readSubj, topic: readTopic, idx: readIdx}; saveAll(); }
 
+var readAnswered = false;
+
 function renderFlash() {
   if (!readPool.length) return;
   var q = readPool[readIdx];
+  readAnswered = false;
   document.getElementById('read-pos-lbl').textContent = '第' + (readIdx + 1) + '/' + readPool.length + '題';
   document.getElementById('read-topic-lbl').textContent = (q.subject || '') + (q.topic ? ' · ' + q.topic : '');
   document.getElementById('flash-q').textContent = q.text;
   document.getElementById('flash-answer').style.display = 'none';
-  document.getElementById('flash-reveal-btn').textContent = '點擊展開答案 ▾';
-  var correct = (q.options || [])[q.answer] || '';
-  document.getElementById('ans-text').textContent = '✓ 正確答案：' + correct;
-  var optsHtml = (q.options || []).map(function(o, i) {
-    var isAns = i === q.answer;
-    return '<div style="padding:4px 0;' + (isAns ? 'color:var(--green);font-weight:700' : 'color:var(--sub)') + '">(' + (i + 1) + ') ' + o + '</div>';
-  }).join('');
-  document.getElementById('ans-opts').innerHTML = optsHtml;
-  document.getElementById('ans-explain').textContent = q.explain || '';
+  document.getElementById('ans-explain').textContent = '';
+  var optsEl = document.getElementById('flash-opts');
+  optsEl.innerHTML = '';
+  (q.options || []).forEach(function(opt, i) {
+    var b = document.createElement('button');
+    b.className = 'q-opt';
+    var num = document.createElement('span'); num.className = 'q-opt-num'; num.textContent = '(' + (i + 1) + ')';
+    var txt = document.createElement('span'); txt.textContent = opt;
+    b.appendChild(num); b.appendChild(txt);
+    b.addEventListener('click', (function(idx) { return function() { selectReadOpt(idx, b); }; })(i));
+    optsEl.appendChild(b);
+  });
 }
 
-function revealAnswer() {
-  var ans = document.getElementById('flash-answer');
-  var open = ans.style.display !== 'none';
-  ans.style.display = open ? 'none' : 'block';
-  document.getElementById('flash-reveal-btn').textContent = open ? '點擊展開答案 ▾' : '收起答案 ▴';
+function selectReadOpt(idx, btn) {
+  if (readAnswered) return;
+  readAnswered = true;
+  var q = readPool[readIdx];
+  document.querySelectorAll('#flash-opts .q-opt').forEach(function(b) { b.disabled = true; });
+  var ok = idx === q.answer;
+  btn.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) {
+    var all = document.querySelectorAll('#flash-opts .q-opt');
+    if (all[q.answer]) all[q.answer].classList.add('reveal');
+  }
+  var explainEl = document.getElementById('ans-explain');
+  explainEl.textContent = (ok ? '✓ 答對了！\n' : '✗ 答錯了\n') + (q.explain || '');
+  document.getElementById('flash-answer').style.display = 'block';
 }
+
 function readNext() { readIdx = Math.min(readIdx + 1, readPool.length - 1); saveReadPos(); renderFlash(); window.scrollTo(0, 0); }
 function readPrev() { readIdx = Math.max(readIdx - 1, 0); saveReadPos(); renderFlash(); window.scrollTo(0, 0); }
 
 // --- Wrong ---
 function renderWrong() {
-  var wrongs = QUESTIONS.filter(function(q) { return wrongSet.has(q.id); });
+  var wrongs = QUESTIONS.filter(function(q) { return wrongHistory[q.id]; });
   document.getElementById('wrong-summary').style.display = wrongs.length ? 'block' : 'none';
   document.getElementById('wrong-empty').style.display = wrongs.length ? 'none' : 'block';
   if (!wrongs.length) { document.getElementById('wrong-list').innerHTML = ''; return; }
+  var stillWrong = wrongs.filter(function(q) { return wrongSet.has(q.id); }).length;
   document.getElementById('wrong-total').textContent = wrongs.length;
+  document.querySelector('#wrong-summary .stat-lbl-txt') && (document.querySelector('#wrong-summary .stat-lbl-txt').textContent = '題有錯誤記錄（目前仍需加強：' + stillWrong + '題）');
   var byTopic = {};
   wrongs.forEach(function(q) { if (!byTopic[q.topic]) byTopic[q.topic] = []; byTopic[q.topic].push(q); });
   var html = '';
-  Object.keys(byTopic).forEach(function(topic) {
+  Object.keys(byTopic).sort(function(a, b) {
+    var aW = byTopic[a].reduce(function(s, q) { return s + (wrongHistory[q.id] || 0); }, 0);
+    var bW = byTopic[b].reduce(function(s, q) { return s + (wrongHistory[q.id] || 0); }, 0);
+    return bW - aW;
+  }).forEach(function(topic) {
     var qs = byTopic[topic];
-    var items = qs.map(function(q) {
-      return '<div class="wrong-q-item">' + q.text.slice(0, 80) + (q.text.length > 80 ? '…' : '')
-        + '<div class="wrong-ans">✓ ' + ((q.options || [])[q.answer] || '') + '</div></div>';
+    var totalWrong = qs.reduce(function(s, q) { return s + (wrongHistory[q.id] || 0); }, 0);
+    var stillCnt = qs.filter(function(q) { return wrongSet.has(q.id); }).length;
+    var items = qs.slice().sort(function(a, b) { return (wrongHistory[b.id] || 0) - (wrongHistory[a.id] || 0); }).map(function(q) {
+      var wc = wrongHistory[q.id] || 0;
+      var mastered = !wrongSet.has(q.id);
+      var badge = mastered
+        ? '<span style="font-size:10px;background:rgba(47,158,68,.15);color:var(--green);padding:2px 7px;border-radius:10px;font-weight:600;margin-left:6px">已掌握</span>'
+        : '<span style="font-size:10px;background:rgba(224,49,49,.1);color:var(--red);padding:2px 7px;border-radius:10px;font-weight:600;margin-left:6px">仍需加強</span>';
+      return '<div class="wrong-q-item">'
+        + '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">'
+        + '<span>' + q.text.slice(0, 70) + (q.text.length > 70 ? '…' : '') + '</span>'
+        + '<span style="white-space:nowrap;font-size:11px;color:var(--red);font-weight:700;flex-shrink:0">✗' + wc + '次' + '</span></div>'
+        + '<div style="display:flex;align-items:center;gap:4px;margin-top:4px">'
+        + '<span class="wrong-ans">✓ ' + ((q.options || [])[q.answer] || '') + '</span>' + badge + '</div>'
+        + '</div>';
     }).join('');
     html += '<div class="wrong-topic-card">'
       + '<div class="wrong-topic-hdr" data-wt="' + topic + '">'
       + '<span style="font-size:13px;font-weight:700">' + topic + '</span>'
-      + '<div style="display:flex;align-items:center;gap:10px">'
-      + '<span style="font-size:12px;color:var(--red);font-weight:600">✗ ' + qs.length + '題</span>'
+      + '<div style="display:flex;align-items:center;gap:8px">'
+      + (stillCnt ? '<span style="font-size:11px;color:var(--red);font-weight:600">仍需加強' + stillCnt + '題</span>' : '<span style="font-size:11px;color:var(--green);font-weight:600">✓ 本區全掌握</span>')
+      + '<span style="font-size:11px;color:var(--sub)">共錯' + totalWrong + '次</span>'
       + '<button class="drill-btn" data-drill="' + topic + '">重練</button>'
       + '<span style="color:var(--sub)">&#x203A;</span></div></div>'
       + '<div class="wrong-topic-body" id="wt-' + topic.replace(/\s/g,'_') + '">' + items + '</div>'
@@ -791,8 +823,8 @@ function renderWrong() {
   });
   document.getElementById('wrong-list').innerHTML = html;
   document.getElementById('wrong-list').addEventListener('click', function(e) {
-    var hdr = e.target.closest('[data-wt]');
     var drill = e.target.closest('[data-drill]');
+    var hdr = e.target.closest('[data-wt]');
     if (drill) { e.stopPropagation(); drillTopicWrong(drill.dataset.drill); return; }
     if (hdr) {
       var body = document.getElementById('wt-' + hdr.dataset.wt.replace(/\s/g,'_'));
@@ -827,7 +859,7 @@ function renderWeak() {
     var color = acc >= 70 ? 'var(--green)' : acc >= 50 ? 'var(--orange)' : 'var(--red)';
     var subj = (QUESTIONS.find(function(q) { return q.topic === t; }) || {}).subject || '';
     var total = QUESTIONS.filter(function(q) { return q.topic === t; }).length;
-    var wrongCnt = QUESTIONS.filter(function(q) { return q.topic === t && wrongSet.has(q.id); }).length;
+    var wrongCnt = QUESTIONS.filter(function(q) { return q.topic === t && wrongHistory[q.id]; }).length;
     return '<div class="weak-item">'
       + '<div class="weak-top"><div><div class="weak-name">' + t + '</div>'
       + '<div style="font-size:11px;color:var(--sub)">' + subj + '，答了' + done + '/' + total + '題' + (wrongCnt ? '，✗' + wrongCnt : '') + '</div></div>'
