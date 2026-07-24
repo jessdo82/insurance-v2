@@ -146,27 +146,21 @@ body{font-family:-apple-system,"PingFang TC","Heiti TC",sans-serif;background:va
 <div class="modal-bg" id="sync-modal" style="display:none" onclick="if(event.target===this)closeSyncModal()">
   <div class="modal-box">
     <div class="modal-title">&#x2601;&#xFE0F; 跨裝置同步</div>
-    <div class="modal-sub">每台裝置輸入一次即可，之後自動同步。</div>
     <div id="sync-setup" style="display:none">
-      <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--sub)">STEP 1 — GitHub Token</div>
-      <input class="modal-input" id="sync-token-input" type="password" placeholder="ghp_xxxxx（存在裝置本地，不會上傳）">
-      <div style="font-size:13px;font-weight:600;margin-bottom:6px;margin-top:10px;color:var(--sub)">STEP 2 — 同步碼（第一台裝置留空，第二台貼上）</div>
-      <input class="modal-input" id="sync-code-input" placeholder="留空=建立新同步；貼上同步碼=連接已有資料">
-      <button class="modal-btn modal-btn-pri" onclick="doSetupSync()">啟用同步</button>
+      <div class="modal-sub">輸入 GitHub Token，每台裝置設定一次，之後自動同步。Token 只存在本機，不會上傳。</div>
+      <input class="modal-input" id="sync-token-input" type="password" placeholder="ghp_xxxxxxxxxx">
+      <button class="modal-btn modal-btn-pri" id="sync-enable-btn">啟用同步</button>
       <button class="modal-btn modal-btn-sec" onclick="closeSyncModal()">取消</button>
       <div class="sync-status" id="setup-status"></div>
     </div>
     <div id="sync-active" style="display:none">
-      <div style="display:flex;align-items:center;margin-bottom:12px">
+      <div style="display:flex;align-items:center;margin-bottom:14px">
         <span class="sync-dot" id="sync-dot" style="background:var(--green)"></span>
-        <span style="font-size:13px;font-weight:600" id="sync-status-lbl">同步已啟用</span>
+        <span style="font-size:13px;font-weight:600">同步已啟用</span>
         <span style="margin-left:auto;font-size:12px;color:var(--sub)" id="last-sync-lbl"></span>
       </div>
-      <div style="font-size:13px;color:var(--sub);margin-bottom:6px">你的同步碼（在其他裝置輸入這串）：</div>
-      <div class="code-box" id="gist-id-box"></div>
-      <button class="modal-btn modal-btn-pri" onclick="copyGistId()">複製同步碼</button>
-      <button class="modal-btn" style="background:rgba(47,158,68,.1);color:var(--green);border:1px solid rgba(47,158,68,.3)" onclick="doManualSync()">&#x21BB; 立即同步</button>
-      <button class="modal-btn modal-btn-sec" onclick="disconnectSync()">解除同步</button>
+      <button class="modal-btn" style="background:rgba(47,158,68,.1);color:var(--green);border:1px solid rgba(47,158,68,.3)" id="manual-sync-btn">&#x21BB; 立即同步</button>
+      <button class="modal-btn modal-btn-sec" id="disconnect-btn">解除同步</button>
       <div class="sync-status" id="active-status"></div>
     </div>
   </div>
@@ -358,30 +352,27 @@ function saveAll() {
   scheduleSyncPush();
 }
 
-// --- Cloud Sync (GitHub Gist) ---
-var syncToken = localStorage.getItem('ins3_gh_token') || '';
-var syncGistId = localStorage.getItem('ins3_gist_id') || '';
+// --- Cloud Sync (GitHub repo contents API) ---
+var syncToken  = localStorage.getItem('ins3_gh_token') || '';
 var syncPushTimer = null;
 var syncLastAt = localStorage.getItem('ins3_sync_at') || '';
+var SYNC_API   = 'https://api.github.com/repos/jessdo82/insurance-v2/contents/progress.json';
+var SYNC_RAW   = 'https://raw.githubusercontent.com/jessdo82/insurance-v2/main/progress.json';
 
 function scheduleSyncPush() {
-  if (!syncToken || !syncGistId) return;
+  if (!syncToken) return;
   clearTimeout(syncPushTimer);
   syncPushTimer = setTimeout(syncPush, 3000);
 }
 
 function getProgressData() {
-  return {
-    wrong: [...wrongSet], done: [...doneSet],
-    tc: topicCorrect, td: topicDone, wh: wrongHistory,
-    ts: Date.now()
-  };
+  return { wrong:[...wrongSet], done:[...doneSet], tc:topicCorrect, td:topicDone, wh:wrongHistory, ts:Date.now() };
 }
 
 function applyProgressData(data) {
   if (!data) return;
   wrongSet     = new Set(data.wrong || []);
-  doneSet      = new Set(data.done || []);
+  doneSet      = new Set(data.done  || []);
   topicCorrect = data.tc || {};
   topicDone    = data.td || {};
   wrongHistory = data.wh || {};
@@ -392,122 +383,111 @@ function applyProgressData(data) {
   localStorage.setItem('ins3_wh', JSON.stringify(wrongHistory));
 }
 
+function utf8ToB64(str) {
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
 function syncPush() {
-  if (!syncToken || !syncGistId) return;
-  var body = JSON.stringify({files:{'progress.json':{content: JSON.stringify(getProgressData())}}});
-  fetch('https://api.github.com/gists/' + syncGistId, {
-    method:'PATCH',
-    headers:{'Authorization':'token ' + syncToken, 'Content-Type':'application/json'},
-    body: body
-  }).then(function(r) {
-    if (r.ok) { syncLastAt = new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'}); localStorage.setItem('ins3_sync_at', syncLastAt); updateSyncDot(true); }
-    else updateSyncDot(false);
-  }).catch(function() { updateSyncDot(false); });
+  if (!syncToken) return;
+  var content = utf8ToB64(JSON.stringify(getProgressData()));
+  fetch(SYNC_API, { headers:{'Authorization':'token '+syncToken} })
+    .then(function(r) { return r.ok ? r.json() : {}; })
+    .then(function(d) {
+      var body = { message:'sync progress', content:content };
+      if (d.sha) body.sha = d.sha;
+      return fetch(SYNC_API, {
+        method:'PUT',
+        headers:{'Authorization':'token '+syncToken,'Content-Type':'application/json'},
+        body:JSON.stringify(body)
+      });
+    })
+    .then(function(r) {
+      if (r.ok) {
+        syncLastAt = new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
+        localStorage.setItem('ins3_sync_at', syncLastAt);
+        updateSyncDot(true);
+      } else { updateSyncDot(false); }
+    }).catch(function() { updateSyncDot(false); });
 }
 
 function syncPull() {
-  if (!syncToken || !syncGistId) return Promise.resolve();
-  return fetch('https://api.github.com/gists/' + syncGistId, {
-    headers:{'Authorization':'token ' + syncToken}
-  }).then(function(r) { return r.json(); }).then(function(d) {
-    if (d.files && d.files['progress.json']) {
-      var remote = JSON.parse(d.files['progress.json'].content);
+  return fetch(SYNC_RAW + '?t=' + Date.now())
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(remote) {
+      if (!remote || !remote.ts) return;
       var local = getProgressData();
       if (remote.ts > (local.ts || 0)) {
         applyProgressData(remote);
         syncLastAt = new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
         localStorage.setItem('ins3_sync_at', syncLastAt);
+        updateSyncDot(true);
+        return true;
       }
-    }
-    updateSyncDot(true);
-  }).catch(function() { updateSyncDot(false); });
+      updateSyncDot(true);
+    }).catch(function() {});
 }
 
 function updateSyncDot(ok) {
   var dot = document.getElementById('sync-dot');
   var lbl = document.getElementById('last-sync-lbl');
-  if (dot) dot.style.background = ok ? 'var(--green)' : 'var(--red)';
-  if (lbl && syncLastAt) lbl.textContent = '上次：' + syncLastAt;
+  if (dot) dot.style.background = ok ? 'var(--green)' : 'var(--orange)';
+  if (lbl) lbl.textContent = syncLastAt ? '上次：'+syncLastAt : '';
 }
 
 function openSyncModal() {
   document.getElementById('sync-modal').style.display = 'flex';
-  if (syncToken && syncGistId) {
+  if (syncToken) {
     document.getElementById('sync-setup').style.display = 'none';
     document.getElementById('sync-active').style.display = 'block';
-    document.getElementById('gist-id-box').textContent = syncGistId;
-    if (syncLastAt) document.getElementById('last-sync-lbl').textContent = '上次：' + syncLastAt;
+    if (syncLastAt) document.getElementById('last-sync-lbl').textContent = '上次：'+syncLastAt;
   } else {
     document.getElementById('sync-setup').style.display = 'block';
     document.getElementById('sync-active').style.display = 'none';
-    document.getElementById('sync-token-input').value = syncToken || '';
-    document.getElementById('sync-code-input').value = syncGistId || '';
   }
 }
-
 function closeSyncModal() { document.getElementById('sync-modal').style.display = 'none'; }
 
-function doSetupSync() {
+document.getElementById('sync-enable-btn').addEventListener('click', function() {
   var token = document.getElementById('sync-token-input').value.trim();
-  var code  = document.getElementById('sync-code-input').value.trim();
   var status = document.getElementById('setup-status');
   if (!token) { status.textContent = '請輸入 GitHub Token'; status.style.color='var(--red)'; return; }
-  status.textContent = '連接中…'; status.style.color = 'var(--sub)';
-  if (code) {
-    // Connect to existing gist
-    fetch('https://api.github.com/gists/' + code, {headers:{'Authorization':'token ' + token}})
-    .then(function(r) { return r.json(); }).then(function(d) {
-      if (d.message) { status.textContent = '找不到同步碼，請確認'; status.style.color='var(--red)'; return; }
-      syncToken = token; syncGistId = code;
+  status.textContent = '驗證中…'; status.style.color='var(--sub)';
+  fetch('https://api.github.com/user', {headers:{'Authorization':'token '+token}})
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (!d.login) { status.textContent = 'Token 無效，請確認'; status.style.color='var(--red)'; return; }
+      syncToken = token;
       localStorage.setItem('ins3_gh_token', token);
-      localStorage.setItem('ins3_gist_id', code);
-      status.textContent = '連接成功！正在拉取雲端資料…'; status.style.color='var(--green)';
-      syncPull().then(function() {
-        openSyncModal(); renderPlan(); renderWeak(); renderWrong();
+      status.textContent = '驗證成功，正在同步…'; status.style.color='var(--green)';
+      syncPull().then(function(pulled) {
+        if (pulled) { renderPlan(); renderWeak(); renderWrong(); }
+        syncPush();
+        setTimeout(openSyncModal, 600);
       });
-    }).catch(function() { status.textContent = '連接失敗，請檢查 Token 或同步碼'; status.style.color='var(--red)'; });
-  } else {
-    // Create new gist
-    fetch('https://api.github.com/gists', {
-      method:'POST',
-      headers:{'Authorization':'token ' + token, 'Content-Type':'application/json'},
-      body: JSON.stringify({description:'insurance-study-progress', public:false, files:{'progress.json':{content: JSON.stringify(getProgressData())}}})
-    }).then(function(r) { return r.json(); }).then(function(d) {
-      if (!d.id) { status.textContent = '建立失敗：' + (d.message||'Token 無效？'); status.style.color='var(--red)'; return; }
-      syncToken = token; syncGistId = d.id;
-      localStorage.setItem('ins3_gh_token', token);
-      localStorage.setItem('ins3_gist_id', d.id);
-      status.textContent = '同步已啟用！'; status.style.color='var(--green)';
-      syncLastAt = new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
-      localStorage.setItem('ins3_sync_at', syncLastAt);
-      setTimeout(openSyncModal, 800);
-    }).catch(function() { status.textContent = '建立失敗，請重試'; status.style.color='var(--red)'; });
-  }
-}
+    }).catch(function() { status.textContent = '網路錯誤，請重試'; status.style.color='var(--red)'; });
+});
 
-function doManualSync() {
+document.getElementById('manual-sync-btn').addEventListener('click', function() {
   var s = document.getElementById('active-status');
   s.textContent = '同步中…'; s.style.color='var(--sub)';
-  syncPull().then(function() { syncPush(); s.textContent = '同步完成'; s.style.color='var(--green)'; renderPlan(); renderWeak(); renderWrong(); });
-}
-
-function copyGistId() {
-  navigator.clipboard.writeText(syncGistId).then(function() {
-    var s = document.getElementById('active-status'); s.textContent = '已複製！貼到其他裝置的「同步碼」欄即可'; s.style.color='var(--green)';
+  syncPull().then(function(pulled) {
+    syncPush();
+    s.textContent = '同步完成'; s.style.color='var(--green)';
+    if (pulled) { renderPlan(); renderWeak(); renderWrong(); }
   });
-}
+});
 
-function disconnectSync() {
+document.getElementById('disconnect-btn').addEventListener('click', function() {
   if (!confirm('解除後本裝置停止同步（雲端資料保留）。確定？')) return;
-  syncToken = ''; syncGistId = '';
-  localStorage.removeItem('ins3_gh_token'); localStorage.removeItem('ins3_gist_id');
+  syncToken = '';
+  localStorage.removeItem('ins3_gh_token');
   closeSyncModal();
-}
+});
 
-// On load: auto pull if configured
-if (syncToken && syncGistId) {
-  syncPull();
-}
+// On load: always try to pull (public raw URL, no token needed)
+syncPull().then(function(pulled) {
+  if (pulled) { renderPlan(); renderWeak(); renderWrong(); }
+});
 
 // Tab switching
 document.querySelectorAll('.tab').forEach(function(tab) {
