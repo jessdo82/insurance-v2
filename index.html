@@ -118,12 +118,58 @@ body{font-family:-apple-system,"PingFang TC","Heiti TC",sans-serif;background:va
 .weak-drill{padding:5px 12px;border:none;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;color:#fff}
 .streak-toast{position:fixed;top:72px;left:50%;transform:translateX(-50%);background:#e65100;color:#fff;padding:9px 22px;border-radius:28px;font-weight:700;font-size:14px;opacity:0;transition:opacity .3s;z-index:999;pointer-events:none;white-space:nowrap}
 .exam-banner{background:var(--blue);color:#fff;padding:10px 14px;border-radius:10px;margin-bottom:13px;font-size:13px;line-height:1.6;display:none}
+/* Sync modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:flex;align-items:flex-end;justify-content:center}
+.modal-box{background:#fff;border-radius:20px 20px 0 0;padding:24px 20px 40px;width:100%;max-width:480px}
+.modal-title{font-size:16px;font-weight:700;margin-bottom:4px}
+.modal-sub{font-size:13px;color:var(--sub);margin-bottom:18px;line-height:1.6}
+.modal-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;margin-bottom:10px;background:var(--bg)}
+.modal-input:focus{outline:none;border-color:var(--blue)}
+.modal-btn{width:100%;padding:13px;border:none;border-radius:11px;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:8px}
+.modal-btn-pri{background:var(--blue);color:#fff}
+.modal-btn-sec{background:var(--bg);color:var(--sub);border:1px solid var(--border)}
+.sync-status{font-size:12px;text-align:center;margin-top:6px;min-height:18px}
+.code-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;font-size:13px;font-family:monospace;word-break:break-all;margin-bottom:10px;letter-spacing:.5px}
+.sync-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px}
 </style>
 </head>
 <body>
 <div class="hdr">
   <div class="hdr-title" id="hdrTitle">保險衝刺 人身保險+法規</div>
-  <div class="hdr-right" id="hdrRight"></div>
+  <div class="hdr-right" style="display:flex;align-items:center;gap:10px">
+    <span id="hdrRight"></span>
+    <button id="sync-btn" onclick="openSyncModal()" style="background:transparent;border:none;cursor:pointer;font-size:18px;color:#fff;padding:2px">&#x2601;&#xFE0F;</button>
+  </div>
+</div>
+
+<!-- Sync Modal -->
+<div class="modal-bg" id="sync-modal" style="display:none" onclick="if(event.target===this)closeSyncModal()">
+  <div class="modal-box">
+    <div class="modal-title">&#x2601;&#xFE0F; 跨裝置同步</div>
+    <div class="modal-sub">每台裝置輸入一次即可，之後自動同步。</div>
+    <div id="sync-setup" style="display:none">
+      <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--sub)">STEP 1 — GitHub Token</div>
+      <input class="modal-input" id="sync-token-input" type="password" placeholder="ghp_xxxxx（存在裝置本地，不會上傳）">
+      <div style="font-size:13px;font-weight:600;margin-bottom:6px;margin-top:10px;color:var(--sub)">STEP 2 — 同步碼（第一台裝置留空，第二台貼上）</div>
+      <input class="modal-input" id="sync-code-input" placeholder="留空=建立新同步；貼上同步碼=連接已有資料">
+      <button class="modal-btn modal-btn-pri" onclick="doSetupSync()">啟用同步</button>
+      <button class="modal-btn modal-btn-sec" onclick="closeSyncModal()">取消</button>
+      <div class="sync-status" id="setup-status"></div>
+    </div>
+    <div id="sync-active" style="display:none">
+      <div style="display:flex;align-items:center;margin-bottom:12px">
+        <span class="sync-dot" id="sync-dot" style="background:var(--green)"></span>
+        <span style="font-size:13px;font-weight:600" id="sync-status-lbl">同步已啟用</span>
+        <span style="margin-left:auto;font-size:12px;color:var(--sub)" id="last-sync-lbl"></span>
+      </div>
+      <div style="font-size:13px;color:var(--sub);margin-bottom:6px">你的同步碼（在其他裝置輸入這串）：</div>
+      <div class="code-box" id="gist-id-box"></div>
+      <button class="modal-btn modal-btn-pri" onclick="copyGistId()">複製同步碼</button>
+      <button class="modal-btn" style="background:rgba(47,158,68,.1);color:var(--green);border:1px solid rgba(47,158,68,.3)" onclick="doManualSync()">&#x21BB; 立即同步</button>
+      <button class="modal-btn modal-btn-sec" onclick="disconnectSync()">解除同步</button>
+      <div class="sync-status" id="active-status"></div>
+    </div>
+  </div>
 </div>
 <div class="tabs">
   <div class="tab active" data-tab="plan">&#x1F4C5; 計劃</div>
@@ -309,6 +355,158 @@ function saveAll() {
   localStorage.setItem('ins3_rp', JSON.stringify(readPos));
   if (lastQuiz) localStorage.setItem('ins3_lq', JSON.stringify(lastQuiz));
   else localStorage.removeItem('ins3_lq');
+  scheduleSyncPush();
+}
+
+// --- Cloud Sync (GitHub Gist) ---
+var syncToken = localStorage.getItem('ins3_gh_token') || '';
+var syncGistId = localStorage.getItem('ins3_gist_id') || '';
+var syncPushTimer = null;
+var syncLastAt = localStorage.getItem('ins3_sync_at') || '';
+
+function scheduleSyncPush() {
+  if (!syncToken || !syncGistId) return;
+  clearTimeout(syncPushTimer);
+  syncPushTimer = setTimeout(syncPush, 3000);
+}
+
+function getProgressData() {
+  return {
+    wrong: [...wrongSet], done: [...doneSet],
+    tc: topicCorrect, td: topicDone, wh: wrongHistory,
+    ts: Date.now()
+  };
+}
+
+function applyProgressData(data) {
+  if (!data) return;
+  wrongSet     = new Set(data.wrong || []);
+  doneSet      = new Set(data.done || []);
+  topicCorrect = data.tc || {};
+  topicDone    = data.td || {};
+  wrongHistory = data.wh || {};
+  localStorage.setItem('ins3_wrong', JSON.stringify([...wrongSet]));
+  localStorage.setItem('ins3_done',  JSON.stringify([...doneSet]));
+  localStorage.setItem('ins3_tc', JSON.stringify(topicCorrect));
+  localStorage.setItem('ins3_td', JSON.stringify(topicDone));
+  localStorage.setItem('ins3_wh', JSON.stringify(wrongHistory));
+}
+
+function syncPush() {
+  if (!syncToken || !syncGistId) return;
+  var body = JSON.stringify({files:{'progress.json':{content: JSON.stringify(getProgressData())}}});
+  fetch('https://api.github.com/gists/' + syncGistId, {
+    method:'PATCH',
+    headers:{'Authorization':'token ' + syncToken, 'Content-Type':'application/json'},
+    body: body
+  }).then(function(r) {
+    if (r.ok) { syncLastAt = new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'}); localStorage.setItem('ins3_sync_at', syncLastAt); updateSyncDot(true); }
+    else updateSyncDot(false);
+  }).catch(function() { updateSyncDot(false); });
+}
+
+function syncPull() {
+  if (!syncToken || !syncGistId) return Promise.resolve();
+  return fetch('https://api.github.com/gists/' + syncGistId, {
+    headers:{'Authorization':'token ' + syncToken}
+  }).then(function(r) { return r.json(); }).then(function(d) {
+    if (d.files && d.files['progress.json']) {
+      var remote = JSON.parse(d.files['progress.json'].content);
+      var local = getProgressData();
+      if (remote.ts > (local.ts || 0)) {
+        applyProgressData(remote);
+        syncLastAt = new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
+        localStorage.setItem('ins3_sync_at', syncLastAt);
+      }
+    }
+    updateSyncDot(true);
+  }).catch(function() { updateSyncDot(false); });
+}
+
+function updateSyncDot(ok) {
+  var dot = document.getElementById('sync-dot');
+  var lbl = document.getElementById('last-sync-lbl');
+  if (dot) dot.style.background = ok ? 'var(--green)' : 'var(--red)';
+  if (lbl && syncLastAt) lbl.textContent = '上次：' + syncLastAt;
+}
+
+function openSyncModal() {
+  document.getElementById('sync-modal').style.display = 'flex';
+  if (syncToken && syncGistId) {
+    document.getElementById('sync-setup').style.display = 'none';
+    document.getElementById('sync-active').style.display = 'block';
+    document.getElementById('gist-id-box').textContent = syncGistId;
+    if (syncLastAt) document.getElementById('last-sync-lbl').textContent = '上次：' + syncLastAt;
+  } else {
+    document.getElementById('sync-setup').style.display = 'block';
+    document.getElementById('sync-active').style.display = 'none';
+    document.getElementById('sync-token-input').value = syncToken || '';
+    document.getElementById('sync-code-input').value = syncGistId || '';
+  }
+}
+
+function closeSyncModal() { document.getElementById('sync-modal').style.display = 'none'; }
+
+function doSetupSync() {
+  var token = document.getElementById('sync-token-input').value.trim();
+  var code  = document.getElementById('sync-code-input').value.trim();
+  var status = document.getElementById('setup-status');
+  if (!token) { status.textContent = '請輸入 GitHub Token'; status.style.color='var(--red)'; return; }
+  status.textContent = '連接中…'; status.style.color = 'var(--sub)';
+  if (code) {
+    // Connect to existing gist
+    fetch('https://api.github.com/gists/' + code, {headers:{'Authorization':'token ' + token}})
+    .then(function(r) { return r.json(); }).then(function(d) {
+      if (d.message) { status.textContent = '找不到同步碼，請確認'; status.style.color='var(--red)'; return; }
+      syncToken = token; syncGistId = code;
+      localStorage.setItem('ins3_gh_token', token);
+      localStorage.setItem('ins3_gist_id', code);
+      status.textContent = '連接成功！正在拉取雲端資料…'; status.style.color='var(--green)';
+      syncPull().then(function() {
+        openSyncModal(); renderPlan(); renderWeak(); renderWrong();
+      });
+    }).catch(function() { status.textContent = '連接失敗，請檢查 Token 或同步碼'; status.style.color='var(--red)'; });
+  } else {
+    // Create new gist
+    fetch('https://api.github.com/gists', {
+      method:'POST',
+      headers:{'Authorization':'token ' + token, 'Content-Type':'application/json'},
+      body: JSON.stringify({description:'insurance-study-progress', public:false, files:{'progress.json':{content: JSON.stringify(getProgressData())}}})
+    }).then(function(r) { return r.json(); }).then(function(d) {
+      if (!d.id) { status.textContent = '建立失敗：' + (d.message||'Token 無效？'); status.style.color='var(--red)'; return; }
+      syncToken = token; syncGistId = d.id;
+      localStorage.setItem('ins3_gh_token', token);
+      localStorage.setItem('ins3_gist_id', d.id);
+      status.textContent = '同步已啟用！'; status.style.color='var(--green)';
+      syncLastAt = new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
+      localStorage.setItem('ins3_sync_at', syncLastAt);
+      setTimeout(openSyncModal, 800);
+    }).catch(function() { status.textContent = '建立失敗，請重試'; status.style.color='var(--red)'; });
+  }
+}
+
+function doManualSync() {
+  var s = document.getElementById('active-status');
+  s.textContent = '同步中…'; s.style.color='var(--sub)';
+  syncPull().then(function() { syncPush(); s.textContent = '同步完成'; s.style.color='var(--green)'; renderPlan(); renderWeak(); renderWrong(); });
+}
+
+function copyGistId() {
+  navigator.clipboard.writeText(syncGistId).then(function() {
+    var s = document.getElementById('active-status'); s.textContent = '已複製！貼到其他裝置的「同步碼」欄即可'; s.style.color='var(--green)';
+  });
+}
+
+function disconnectSync() {
+  if (!confirm('解除後本裝置停止同步（雲端資料保留）。確定？')) return;
+  syncToken = ''; syncGistId = '';
+  localStorage.removeItem('ins3_gh_token'); localStorage.removeItem('ins3_gist_id');
+  closeSyncModal();
+}
+
+// On load: auto pull if configured
+if (syncToken && syncGistId) {
+  syncPull();
 }
 
 // Tab switching
