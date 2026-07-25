@@ -353,11 +353,17 @@ function saveAll() {
 }
 
 // --- Cloud Sync (GitHub repo contents API) ---
-var syncToken  = localStorage.getItem('ins3_gh_token') || '';
+var syncToken    = localStorage.getItem('ins3_gh_token') || '';
 var syncPushTimer = null;
-var syncLastAt = localStorage.getItem('ins3_sync_at') || '';
-var SYNC_API   = 'https://api.github.com/repos/jessdo82/insurance-v2/contents/progress.json';
-var SYNC_RAW   = 'https://raw.githubusercontent.com/jessdo82/insurance-v2/main/progress.json';
+var syncLastAt   = localStorage.getItem('ins3_sync_at') || '';
+var dataModTs    = parseInt(localStorage.getItem('ins3_data_ts') || '0');
+var SYNC_API     = 'https://api.github.com/repos/jessdo82/insurance-v2/contents/progress.json';
+var SYNC_RAW     = 'https://raw.githubusercontent.com/jessdo82/insurance-v2/main/progress.json';
+
+function touchDataTs() {
+  dataModTs = Date.now();
+  localStorage.setItem('ins3_data_ts', dataModTs);
+}
 
 function scheduleSyncPush() {
   if (!syncToken) return;
@@ -366,21 +372,36 @@ function scheduleSyncPush() {
 }
 
 function getProgressData() {
-  return { wrong:[...wrongSet], done:[...doneSet], tc:topicCorrect, td:topicDone, wh:wrongHistory, ts:Date.now() };
+  return { wrong:[...wrongSet], done:[...doneSet], tc:topicCorrect, td:topicDone, wh:wrongHistory, ts:dataModTs };
 }
 
-function applyProgressData(data) {
-  if (!data) return;
-  wrongSet     = new Set(data.wrong || []);
-  doneSet      = new Set(data.done  || []);
-  topicCorrect = data.tc || {};
-  topicDone    = data.td || {};
-  wrongHistory = data.wh || {};
-  localStorage.setItem('ins3_wrong', JSON.stringify([...wrongSet]));
-  localStorage.setItem('ins3_done',  JSON.stringify([...doneSet]));
-  localStorage.setItem('ins3_tc', JSON.stringify(topicCorrect));
-  localStorage.setItem('ins3_td', JSON.stringify(topicDone));
-  localStorage.setItem('ins3_wh', JSON.stringify(wrongHistory));
+function mergeAndApply(remote) {
+  if (!remote) return false;
+  var changed = false;
+  // Union: wrong stays wrong until explicitly cleared by correct answer
+  (remote.wrong || []).forEach(function(id) { if (!wrongSet.has(id)) { wrongSet.add(id); changed = true; } });
+  (remote.done  || []).forEach(function(id) { if (!doneSet.has(id))  { doneSet.add(id);  changed = true; } });
+  // wrongHistory: take max per question
+  Object.keys(remote.wh || {}).forEach(function(k) {
+    var rv = remote.wh[k] || 0;
+    if (rv > (wrongHistory[k] || 0)) { wrongHistory[k] = rv; changed = true; }
+  });
+  // topicStats: if remote is newer take remote, else keep local
+  if ((remote.ts || 0) > dataModTs) {
+    topicCorrect = remote.tc || topicCorrect;
+    topicDone    = remote.td || topicDone;
+    dataModTs    = remote.ts;
+    localStorage.setItem('ins3_data_ts', dataModTs);
+    changed = true;
+  }
+  if (changed) {
+    localStorage.setItem('ins3_wrong', JSON.stringify([...wrongSet]));
+    localStorage.setItem('ins3_done',  JSON.stringify([...doneSet]));
+    localStorage.setItem('ins3_tc', JSON.stringify(topicCorrect));
+    localStorage.setItem('ins3_td', JSON.stringify(topicDone));
+    localStorage.setItem('ins3_wh', JSON.stringify(wrongHistory));
+  }
+  return changed;
 }
 
 function utf8ToB64(str) {
@@ -389,11 +410,12 @@ function utf8ToB64(str) {
 
 function syncPush() {
   if (!syncToken) return;
-  var content = utf8ToB64(JSON.stringify(getProgressData()));
+  var data = getProgressData();
+  var content = utf8ToB64(JSON.stringify(data));
   fetch(SYNC_API, { headers:{'Authorization':'token '+syncToken} })
     .then(function(r) { return r.ok ? r.json() : {}; })
     .then(function(d) {
-      var body = { message:'sync progress', content:content };
+      var body = { message:'sync', content:content };
       if (d.sha) body.sha = d.sha;
       return fetch(SYNC_API, {
         method:'PUT',
@@ -414,17 +436,15 @@ function syncPull() {
   return fetch(SYNC_RAW + '?t=' + Date.now())
     .then(function(r) { return r.ok ? r.json() : null; })
     .then(function(remote) {
-      if (!remote || !remote.ts) return;
-      var local = getProgressData();
-      if (remote.ts > (local.ts || 0)) {
-        applyProgressData(remote);
+      if (!remote || !remote.ts) return false;
+      var changed = mergeAndApply(remote);
+      if (changed) {
         syncLastAt = new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
         localStorage.setItem('ins3_sync_at', syncLastAt);
-        updateSyncDot(true);
-        return true;
       }
       updateSyncDot(true);
-    }).catch(function() {});
+      return changed;
+    }).catch(function() { return false; });
 }
 
 function updateSyncDot(ok) {
@@ -793,6 +813,7 @@ function selectOpt(idx, btn) {
   topicDone[q.topic] = (topicDone[q.topic] || 0) + 1;
   if (ok) topicCorrect[q.topic] = (topicCorrect[q.topic] || 0) + 1;
   lastQuiz.correct = qCorrect; lastQuiz.wrong = qWrong;
+  touchDataTs();
   saveAll();
   var eb = document.getElementById('explain-box');
   eb.className = 'explain-box ' + (ok ? 'explain-ok' : 'explain-err');
