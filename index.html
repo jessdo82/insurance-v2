@@ -154,12 +154,13 @@ body{font-family:-apple-system,"PingFang TC","Heiti TC",sans-serif;background:va
       <div class="sync-status" id="setup-status"></div>
     </div>
     <div id="sync-active" style="display:none">
-      <div style="display:flex;align-items:center;margin-bottom:14px">
+      <div style="display:flex;align-items:center;margin-bottom:10px">
         <span class="sync-dot" id="sync-dot" style="background:var(--green)"></span>
         <span style="font-size:13px;font-weight:600">同步已啟用</span>
         <span style="margin-left:auto;font-size:12px;color:var(--sub)" id="last-sync-lbl"></span>
       </div>
-      <button class="modal-btn" style="background:rgba(47,158,68,.1);color:var(--green);border:1px solid rgba(47,158,68,.3)" id="manual-sync-btn">&#x21BB; 立即同步</button>
+      <div id="cloud-stat" style="background:var(--bg);border-radius:10px;padding:11px 13px;font-size:12px;color:var(--sub);margin-bottom:10px;line-height:1.7">讀取雲端狀態中…</div>
+      <button class="modal-btn" style="background:rgba(47,158,68,.1);color:var(--green);border:1px solid rgba(47,158,68,.3)" id="manual-sync-btn">&#x21BB; 立即同步（推送+拉取）</button>
       <button class="modal-btn modal-btn-sec" id="disconnect-btn">解除同步</button>
       <div class="sync-status" id="active-status"></div>
     </div>
@@ -432,9 +433,25 @@ function syncPush() {
     }).catch(function() { updateSyncDot(false); });
 }
 
+function fetchRemoteData() {
+  if (syncToken) {
+    // Use API endpoint — bypasses CDN cache, always fresh
+    return fetch(SYNC_API, {headers:{'Authorization':'token '+syncToken}})
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(d) {
+        if (!d || !d.content) return null;
+        var raw = atob(d.content.replace(/\n/g,''));
+        return JSON.parse(decodeURIComponent(escape(raw)));
+      });
+  } else {
+    // No token: use raw URL (may be cached up to 5 min)
+    return fetch(SYNC_RAW + '?t=' + Date.now())
+      .then(function(r) { return r.ok ? r.json() : null; });
+  }
+}
+
 function syncPull() {
-  return fetch(SYNC_RAW + '?t=' + Date.now())
-    .then(function(r) { return r.ok ? r.json() : null; })
+  return fetchRemoteData()
     .then(function(remote) {
       if (!remote || !remote.ts) return false;
       var changed = mergeAndApply(remote);
@@ -454,15 +471,29 @@ function updateSyncDot(ok) {
   if (lbl) lbl.textContent = syncLastAt ? '上次：'+syncLastAt : '';
 }
 
+function showCloudStat() {
+  var el = document.getElementById('cloud-stat');
+  if (!el) return;
+  el.textContent = '讀取中…';
+  fetchRemoteData().then(function(d) {
+    if (!d) { el.textContent = '雲端：無資料（請先在有做題的裝置點「立即同步」推送）'; return; }
+    var t = d.ts ? new Date(d.ts).toLocaleString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}) : '未知';
+    el.innerHTML = '雲端：錯題 <b>' + (d.wrong||[]).length + '</b> 題・做過 <b>' + (d.done||[]).length + '</b> 題<br>最後推送：' + t
+      + (syncToken ? '' : '<br><span style="color:var(--orange)">（未設定 Token，無法從此裝置推送）</span>');
+  }).catch(function() { el.textContent = '無法讀取雲端資料'; });
+}
+
 function openSyncModal() {
   document.getElementById('sync-modal').style.display = 'flex';
   if (syncToken) {
     document.getElementById('sync-setup').style.display = 'none';
     document.getElementById('sync-active').style.display = 'block';
     if (syncLastAt) document.getElementById('last-sync-lbl').textContent = '上次：'+syncLastAt;
+    showCloudStat();
   } else {
     document.getElementById('sync-setup').style.display = 'block';
     document.getElementById('sync-active').style.display = 'none';
+    showCloudStat();
   }
 }
 function closeSyncModal() { document.getElementById('sync-modal').style.display = 'none'; }
@@ -489,12 +520,17 @@ document.getElementById('sync-enable-btn').addEventListener('click', function() 
 
 document.getElementById('manual-sync-btn').addEventListener('click', function() {
   var s = document.getElementById('active-status');
-  s.textContent = '同步中…'; s.style.color='var(--sub)';
-  syncPull().then(function(pulled) {
-    syncPush();
-    s.textContent = '同步完成'; s.style.color='var(--green)';
-    if (pulled) { renderPlan(); renderWeak(); renderWrong(); }
-  });
+  s.textContent = '推送本機資料…'; s.style.color='var(--sub)';
+  // Push first (so local data goes up), then pull to merge remote
+  syncPush();
+  setTimeout(function() {
+    s.textContent = '拉取雲端資料…';
+    syncPull().then(function(pulled) {
+      if (pulled) { renderPlan(); renderWeak(); renderWrong(); }
+      s.textContent = '同步完成 ✓'; s.style.color='var(--green)';
+      showCloudStat();
+    });
+  }, 2000);
 });
 
 document.getElementById('disconnect-btn').addEventListener('click', function() {
