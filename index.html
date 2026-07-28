@@ -612,6 +612,7 @@ function startPlanDay(idx) {
   if (p.exam) { startExamSim('both'); return; }
   quizSubj = p.subj; quizTopic = null; quizMode = 'seq'; quizExam = null;
   quizTopicsFilter = p.topics;
+  document.getElementById('quiz-count').value = '0';
   switchTab('quiz');
   setTimeout(startQuiz, 50);
 }
